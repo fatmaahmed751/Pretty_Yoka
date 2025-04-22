@@ -8,6 +8,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:provider/provider.dart';
 import 'Utilities/git_it.dart';
 import 'Utilities/router_config.dart';
+import 'Widgets/check_internet_connection.dart';
 import 'core/Font/font_provider.dart';
 import 'core/Language/app_languages.dart';
 import 'core/Language/locales.dart';
@@ -30,6 +31,9 @@ Future<void> main() async {
   ]);
 
   await GitIt.initGitIt();
+  final ConnectivityService connectivityService = ConnectivityService();
+  bool isConnected = await connectivityService.checkInternetConnection();
+  print("Initial Connectivity Status: $isConnected");
   HttpOverrides.global = MyHttpOverrides();
   runApp(
       MultiProvider(
@@ -37,6 +41,10 @@ Future<void> main() async {
           ChangeNotifierProvider<AppLanguage>(create: (_) => AppLanguage()),
           ChangeNotifierProvider<ThemeProvider>(create: (_) => ThemeProvider()),
           ChangeNotifierProvider<FontProvider>(create: (_) => FontProvider()),
+          StreamProvider<bool>(
+            create: (_) => connectivityService.connectivityStream,
+            initialData: isConnected, // Use the initial connectivity status
+          ),
         ],
         child: const EntryPoint(),
       )
@@ -54,7 +62,7 @@ class EntryPoint extends StatelessWidget {
     appLan.fetchLocale(context);
     appTheme.fetchTheme();
     return ScreenUtilInit(
-      designSize: const Size(393,852),
+      designSize: const Size(375,812),
       builder:(_,__)=> MaterialApp.router(
         scrollBehavior: MyCustomScrollBehavior(),
         routerConfig: GoRouterConfig.router,

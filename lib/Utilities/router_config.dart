@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
+import '../Modules/OnBoarding/onboarding_screen.dart';
 import '../Modules/Splash/splash_screen.dart';
 BuildContext? get currentContext_ => GoRouterConfig.router.routerDelegate.navigatorKey.currentContext;
 class GoRouterConfig{
@@ -12,6 +13,17 @@ class GoRouterConfig{
           return getCustomTransitionPage(
             state: state,
             child: const SplashScreen(),
+          );
+        },
+        routes: const <RouteBase>[],
+      ),
+      GoRoute(
+        name: OnBoardingScreen.routeName,
+        path: "/${OnBoardingScreen.routeName}",
+        pageBuilder: (_, GoRouterState state) {
+          return getCustomTransitionPage(
+            state: state,
+            child:  const OnBoardingScreen(),
           );
         },
         routes: const <RouteBase>[],
