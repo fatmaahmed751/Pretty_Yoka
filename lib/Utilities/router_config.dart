@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import '../Modules/OnBoarding/onboarding_screen.dart';
+import '../Modules/SelectRole/select_role_screen.dart';
 import '../Modules/Splash/splash_screen.dart';
+import '../Modules/UserSignUp/user_sign_up_screen.dart';
 BuildContext? get currentContext_ => GoRouterConfig.router.routerDelegate.navigatorKey.currentContext;
 class GoRouterConfig{
   static GoRouter get router => _router;
@@ -28,6 +30,30 @@ class GoRouterConfig{
         },
         routes: const <RouteBase>[],
       ),
+
+      GoRoute(
+        name: UserSignUpScreen.routeName,
+        path: "/${UserSignUpScreen.routeName}",
+        pageBuilder: (_, GoRouterState state) {
+          return getCustomTransitionPage(
+            state: state,
+            child:  const UserSignUpScreen(),
+          );
+        },
+        routes: const <RouteBase>[],
+      ),
+      GoRoute(
+        name: SelectRoleScreen.routeName,
+        path: "/${SelectRoleScreen.routeName}",
+        pageBuilder: (_, GoRouterState state) {
+          return getCustomTransitionPage(
+            state: state,
+            child:  const SelectRoleScreen(),
+          );
+        },
+        routes: const <RouteBase>[],
+      ),
+
     ],
     // redirect: (BuildContext context, GoRouterState state) {
     //   if(!SharedPref.isLogin()) return LoginScreen.routeName;

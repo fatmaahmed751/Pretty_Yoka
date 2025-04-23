@@ -54,7 +54,7 @@ class _SplashScreenState extends StateMVC<SplashScreen> {
             Assets.imagesSplash,
             width: 313.w,
             height: 214.h,
-            fit: BoxFit.cover,
+          //  fit: BoxFit.cover,
           ),
         ),
       ),

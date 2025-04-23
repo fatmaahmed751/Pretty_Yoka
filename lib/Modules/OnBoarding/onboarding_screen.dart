@@ -10,6 +10,7 @@ import '../../Utilities/theme_helper.dart';
 import '../../Widgets/custom_button_widget.dart';
 import '../../Widgets/loading_screen.dart';
 import '../../generated/assets.dart';
+import '../SelectRole/select_role_screen.dart';
 import 'onboarding_controller.dart';
 
 class OnBoardingScreen extends StatefulWidget {
@@ -71,7 +72,10 @@ class _OnBoardingScreenState extends StateMVC<OnBoardingScreen> {
                     radius: 30.r,
                     child: SvgPicture.asset(Assets.imagesWhiteArrow),
                     onTap: () {
-                      con.onNext();
+                      (con.isLast)
+                          ? GoRouter.of(context)
+                              .goNamed(SelectRoleScreen.routeName)
+                          : con.onNext();
                     }),
               ),
               Gap(con.index == 1 ? 10.h : 30.h),

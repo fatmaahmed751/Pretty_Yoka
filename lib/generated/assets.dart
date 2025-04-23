@@ -7,6 +7,7 @@ class Assets {
   static const String imagesArrowBack = 'assets/images/arrowBack.svg';
   static const String imagesBackground = 'assets/images/background.png';
   static const String imagesBrush = 'assets/images/brush.svg';
+  static const String imagesCheckBox = 'assets/images/checkBox.svg';
   static const String imagesContainer = 'assets/images/container.png';
   static const String imagesDarkMode = 'assets/images/darkMode.svg';
   static const String imagesLightMode = 'assets/images/lightMode.svg';
@@ -15,6 +16,7 @@ class Assets {
   static const String imagesOnBoardingThreeEdit = 'assets/images/onBoardingThreeEdit.png';
   static const String imagesOnBoardingTwo = 'assets/images/onBoardingTwo.png';
   static const String imagesSplash = 'assets/images/splash.png';
+  static const String imagesUnCheckBox = 'assets/images/unCheckBox.svg';
   static const String imagesUserIcon = 'assets/images/userIcon.svg';
   static const String imagesWhiteArrow = 'assets/images/whiteArrow.svg';
 

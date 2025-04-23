@@ -89,6 +89,12 @@ class Strings {
   static const String forgetPassword = "forgetPassword";
   static const String offline ="offline";
   static const String skip ="skip";
+  static const String selectRole ="selectRole";
+  static const String yourRole ="yourRole";
+  static const String user ="user";
+  static const String password ="password";
+  static const String haveAnAccount ="haveAnAccount";
+  static const String serviceProvider ="serviceProvider";
 
 
 }
