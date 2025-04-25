@@ -10,6 +10,8 @@ class Strings {
   static const String cancel = "cancel";
   static const String ok = "ok";
   ////
+
+  static const String newPassword = "newPassword";
   static const String viewAll = "viewAll";
   static const String requiredName = "requiredName";
   static const String confirmLogout = "confirmLogout";
@@ -81,8 +83,16 @@ class Strings {
   static const String validAddress = "validAddress";
   static const String noInternet ="noInternet";
   static const String checkNet ="checkNet";
+  static const String goToHome ="goToHome";
+  static const String forgetPasswordTitle ="forgetPasswordTitle";
+
   static const String reload = "reload";
+  static const String image = "image";
+  static const String imageHint = "imageHint";
   static const String name = "name";
+  static const String yourInformation = "yourInformation";
+  static const String google = "google";
+  static const String apple = "apple";
   static const String or = "or";
   static const String joinUs = "joinUs";
   static const String enterPassword = "enterPassword";

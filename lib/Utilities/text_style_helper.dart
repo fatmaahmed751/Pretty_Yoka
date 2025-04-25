@@ -41,6 +41,7 @@ class TextStyleHelper{
   TextStyle get h_10 => getTextStyle(fontSize: 10,fontWeight: FontWeight.w700);
   TextStyle get h_11 => getTextStyle(fontSize: 11,fontWeight: FontWeight.w700);
   TextStyle get h_15 => getTextStyle(fontSize: 20,fontWeight: FontWeight.w500);
+  TextStyle get h_13 => getTextStyle(fontSize: 16,fontWeight: FontWeight.w500);
 
   TextStyle get b_20 => getTextStyle(fontSize: 20,fontWeight: FontWeight.w400);
   TextStyle get b_16 => getTextStyle(fontSize: 16,fontWeight: FontWeight.w400);

@@ -33,7 +33,7 @@ class UserStatusRow extends StatelessWidget {
             child: Text(
               nextText,
               style: TextStyleHelper.of(context)
-                  .b_16
+                  .h_13
                   .copyWith(color: ThemeClass.of(context).primaryColor),
             ),
           ),

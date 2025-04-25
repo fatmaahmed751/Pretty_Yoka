@@ -1,9 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
+import '../Modules/ForgetPassword/forget_password_screen.dart';
+import '../Modules/Login/user_login_screen.dart';
 import '../Modules/OnBoarding/onboarding_screen.dart';
+import '../Modules/ResetPassword/reset_password_screen.dart';
+import '../Modules/ResetPassword/widget/verify_password_otp.dart';
 import '../Modules/SelectRole/select_role_screen.dart';
 import '../Modules/Splash/splash_screen.dart';
+import '../Modules/UserInfomations/user_information_screen.dart';
 import '../Modules/UserSignUp/user_sign_up_screen.dart';
+import '../Modules/VerificationAccountOtp/verification_otp_screen.dart';
 BuildContext? get currentContext_ => GoRouterConfig.router.routerDelegate.navigatorKey.currentContext;
 class GoRouterConfig{
   static GoRouter get router => _router;
@@ -42,6 +48,75 @@ class GoRouterConfig{
         },
         routes: const <RouteBase>[],
       ),
+
+      GoRoute(
+        name: VerificationUserScreen.routeName,
+        path: "/${VerificationUserScreen.routeName}",
+        pageBuilder: (_, GoRouterState state) {
+          return getCustomTransitionPage(
+            state: state,
+            child:  const VerificationUserScreen(),
+          );
+        },
+        routes: const <RouteBase>[],
+      ),
+
+      GoRoute(
+        name: VerificationNewPasswordForUserScreen.routeName,
+        path: "/${VerificationNewPasswordForUserScreen.routeName}",
+        pageBuilder: (_, GoRouterState state) {
+          return getCustomTransitionPage(
+            state: state,
+            child:  const VerificationNewPasswordForUserScreen(),
+          );
+        },
+        routes: const <RouteBase>[],
+      ),
+      GoRoute(
+        name: ResetPasswordScreen.routeName,
+        path: "/${ ResetPasswordScreen.routeName}",
+        pageBuilder: (_, GoRouterState state) {
+          return getCustomTransitionPage(
+            state: state,
+            child:  const ResetPasswordScreen(),
+          );
+        },
+        routes: const <RouteBase>[],
+      ),
+      GoRoute(
+        name: UserLoginScreen.routeName,
+        path: "/${UserLoginScreen.routeName}",
+        pageBuilder: (_, GoRouterState state) {
+          return getCustomTransitionPage(
+            state: state,
+            child:  const UserLoginScreen(),
+          );
+        },
+        routes: const <RouteBase>[],
+      ),
+      GoRoute(
+        name: ForgetPasswordScreen.routeName,
+        path: "/${ForgetPasswordScreen.routeName}",
+        pageBuilder: (_, GoRouterState state) {
+          return getCustomTransitionPage(
+            state: state,
+            child:  const ForgetPasswordScreen(),
+          );
+        },
+        routes: const <RouteBase>[],
+      ),
+      GoRoute(
+        name: UserInformationScreen.routeName,
+        path: "/${UserInformationScreen.routeName}",
+        pageBuilder: (_, GoRouterState state) {
+          return getCustomTransitionPage(
+            state: state,
+            child:  const UserInformationScreen(),
+          );
+        },
+        routes: const <RouteBase>[],
+      ),
+
       GoRoute(
         name: SelectRoleScreen.routeName,
         path: "/${SelectRoleScreen.routeName}",

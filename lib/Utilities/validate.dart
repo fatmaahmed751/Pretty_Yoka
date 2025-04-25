@@ -144,8 +144,21 @@ class Validate {
   }
 
   static String? validatePhoneOptional(String? phone) {
-    if (phone!.trim().isEmpty) return null;
-    //return validatePhone(phone);
+    if (phone == null || phone
+        .trim()
+        .isEmpty) {
+      return Strings.validPhone.tr;
+    } else {
+      // Define the regex pattern for a Saudi phone number
+      // final saudiPhonePattern = RegExp(r'^\+966\d{9}$');
+      //
+      // // Check if the phone number matches the pattern
+      // if (!saudiPhonePattern.hasMatch(phone)) {
+      //   return Strings.matchSaudiNum.tr;
+      // }
+
+      return null; // Return null if the phone number is valid
+    }
   }
 
   static validateFullName(String? name) {

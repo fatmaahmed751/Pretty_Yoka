@@ -4,19 +4,29 @@ class Assets {
 
   static const String i18nAr = 'i18n/ar.json';
   static const String i18nEn = 'i18n/en.json';
+  static const String imagesAppleIcon = 'assets/images/appleIcon.svg';
   static const String imagesArrowBack = 'assets/images/arrowBack.svg';
   static const String imagesBackground = 'assets/images/background.png';
   static const String imagesBrush = 'assets/images/brush.svg';
+  static const String imagesCameraIcon = 'assets/images/cameraIcon.svg';
   static const String imagesCheckBox = 'assets/images/checkBox.svg';
   static const String imagesContainer = 'assets/images/container.png';
   static const String imagesDarkMode = 'assets/images/darkMode.svg';
+  static const String imagesGoogleIcon = 'assets/images/googleIcon.svg';
   static const String imagesLightMode = 'assets/images/lightMode.svg';
+  static const String imagesLockIcon = 'assets/images/lockIcon.svg';
+  static const String imagesNotificationIcon = 'assets/images/notificationIcon.svg';
+  static const String imagesObsecure = 'assets/images/obsecure.svg';
   static const String imagesOnBoardingOne = 'assets/images/onBoardingOne.png';
   static const String imagesOnBoardingThree = 'assets/images/onBoardingThree.png';
   static const String imagesOnBoardingThreeEdit = 'assets/images/onBoardingThreeEdit.png';
   static const String imagesOnBoardingTwo = 'assets/images/onBoardingTwo.png';
+  static const String imagesOpenEye = 'assets/images/openEye.svg';
+  static const String imagesPhoneIcon = 'assets/images/phoneIcon.svg';
+  static const String imagesPinkImage = 'assets/images/pinkImage.svg';
   static const String imagesSplash = 'assets/images/splash.png';
   static const String imagesUnCheckBox = 'assets/images/unCheckBox.svg';
+  static const String imagesUserDefaultImage = 'assets/images/userDefaultImage.png';
   static const String imagesUserIcon = 'assets/images/userIcon.svg';
   static const String imagesWhiteArrow = 'assets/images/whiteArrow.svg';
 

@@ -1,0 +1,66 @@
+import 'package:caresty/Models/categoryModel.dart';
+import 'package:caresty/core/Language/locales.dart';
+import 'package:flutter/material.dart';
+import 'package:mvc_pattern/mvc_pattern.dart';
+import 'package:provider/provider.dart';
+
+import '../../Utilities/strings.dart';
+import '../../core/Language/app_languages.dart';
+import '../../generated/assets.dart';
+
+class HomeController extends ControllerMVC {
+  // singleton
+  factory HomeController() {
+    _this ??= HomeController._();
+    return _this!;
+  }
+
+  static HomeController? _this;
+  int selectedLanguage = 1;
+  late TextEditingController searchController;
+  int activeIndex=0;
+  @override
+  void initState() {
+    searchController = TextEditingController();
+    super.initState();
+  }
+List<CategoryModel>model=[
+  CategoryModel(image: Assets.imagesFaceCare, name: Strings.faceCare.tr),
+  CategoryModel(image: Assets.imagesFaceCare, name: "Hair Removal"),
+  CategoryModel(image: Assets.imagesFaceCare, name: Strings.faceCare.tr),
+  CategoryModel(image: Assets.imagesFaceCare, name: Strings.faceCare.tr),
+  CategoryModel(image: Assets.imagesFaceCare, name: Strings.faceCare.tr),
+];
+
+
+  onPageChange(int index)
+  {
+    setState(() {
+      activeIndex=index;
+    });
+    activeIndex=index;
+  }
+  @override
+  void dispose() {
+    searchController.dispose();
+    super.dispose();
+  }
+
+  Future<void> loadCurrentLanguage(BuildContext ctx) async {
+    await Provider.of<AppLanguage>(ctx, listen: false).fetchLocale(ctx);
+
+    final currentLanguage =
+        Provider
+            .of<AppLanguage>(ctx, listen: false)
+            .appLang;
+
+    print("Current language: $currentLanguage");
+    setState(() {
+      selectedLanguage = currentLanguage == Languages.en ? 1 : 2;
+    });
+  }
+
+  HomeController._();
+
+  bool loading = false;
+}

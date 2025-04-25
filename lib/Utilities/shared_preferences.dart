@@ -1,4 +1,5 @@
 import 'dart:convert';
+import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:get_it/get_it.dart';
 import 'package:shared_preferences/shared_preferences.dart';
@@ -17,6 +18,7 @@ class SharedPref{
   static const String _fontFamilyKey = "fontFamily";
   static const String _secondaryColor = "secondaryColor";
   static const String _primaryColor = "primaryColor";
+  static const String _userImageKey = 'currentUserImage';
 
 
 
@@ -33,6 +35,25 @@ class SharedPref{
 
   static Future<void> logout() async=> await prefs.remove(_currentUserKey);
 
+  static Future<void> saveCurrentUserImage(dynamic image) async {
+    String imagePath = (image is File) ? image.path : image;
+    await prefs.setString(_userImageKey, imagePath);
+  }
+  static Future<dynamic> getCurrentUserImage() async {
+    String? imagePath = prefs.getString(_userImageKey);
+
+    if (imagePath != null) {
+      // Check if the stored image path is a URL or local file path
+      if (Uri.tryParse(imagePath)?.hasAbsolutePath ?? false) {
+        // It's a URL, return it directly as a string
+        return imagePath;
+      } else {
+        // It's a local file path, return as File
+        return File(imagePath);
+      }
+    }
+    return null; // Return null if no image is stored
+  }
   static ThemeModel? getTheme(){
     if(prefs.getString(_themeKey) == null) return null;
     return ThemeModel.fromJson(json.decode(prefs.getString(_themeKey)!));

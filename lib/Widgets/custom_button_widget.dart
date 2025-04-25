@@ -104,19 +104,22 @@ class CustomButtonWidget extends StatelessWidget {
     return InkWell(
       onTap: onTap,
       child: Container(
-        width: width ?? 390.w,
+        width: width ?? 327.w,
         height: height ?? 62.h,
         alignment: Alignment.center,
         decoration: getDecoration(context),
-        child: child ??
-            Text(
-              title ?? '',
-              style:textStyle?? TextStyleHelper.of(context).h_16.copyWith(
-                  color: getTitleColor(context),
+        child: Padding(
+          padding:  EdgeInsetsDirectional.only(top: 4.h),
+          child: child ??
+              Text(
+                title ?? '',
+                style:textStyle?? TextStyleHelper.of(context).h_16.copyWith(
+                    color: getTitleColor(context),
 
+                ),
+                maxLines: 1,
               ),
-              maxLines: 1,
-            ),
+        ),
       ),
     );
   }

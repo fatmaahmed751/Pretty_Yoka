@@ -7,6 +7,7 @@ import "package:flutter/services.dart";
 import "package:geolocator/geolocator.dart";
 import "../../Widgets/location_services.dart";
 import "../OnBoarding/onboarding_screen.dart";
+import "../UserSignUp/user_sign_up_screen.dart";
 
 
 class SplashController extends ControllerMVC with WidgetsBindingObserver {
@@ -78,7 +79,7 @@ class SplashController extends ControllerMVC with WidgetsBindingObserver {
     if (SharedPref.isLogin()) {
     GoRouter.of(context).goNamed(OnBoardingScreen.routeName);
     } else {
-      GoRouter.of(context).goNamed(OnBoardingScreen.routeName);
+      GoRouter.of(context).goNamed(UserSignUpScreen.routeName);
     }
   }
 
