@@ -1,9 +1,13 @@
+import 'package:Pretty/core/Language/locales.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:go_router/go_router.dart';
 import 'package:mvc_pattern/mvc_pattern.dart';
+import '../Modules/Bookings/bookings_screen.dart';
+import '../Modules/Favotites/favorite_screen.dart';
 import "../Modules/Home/home_screen.dart";
+import '../Modules/Profile/user_profile_screen.dart';
 import '../Utilities/strings.dart';
 import '../Utilities/theme_helper.dart';
 import '../generated/assets.dart';
@@ -31,60 +35,42 @@ class _BottomNavBarWidgetState extends StateMVC<BottomNavBarWidget> {
     final itemWidth = screenWidth / BottomNavBarItemModel.screens.length;
     final selectedPosition = widget.selected.index * itemWidth;
 
-    return Stack(
-      children: [
-        // Main BottomNavigationBar Container
-        Container(
-          height: 72.h,
-          decoration: BoxDecoration(
-            color: ThemeClass.of(context).background,
-            borderRadius: BorderRadius.vertical(top: Radius.circular(20.r)),
-            boxShadow: [
-              BoxShadow(
-                color: ThemeClass.of(context).waiting,
-                blurRadius: 0.5,
-                spreadRadius: 0.5,
-              ),
-            ],
+    return Container(
+      height: 72.h,
+      decoration: BoxDecoration(
+        color: ThemeClass.of(context).textFieldBackground,
+        borderRadius: BorderRadius.vertical(top: Radius.circular(20.r)),
+        boxShadow: [
+          BoxShadow(
+            color: ThemeClass.of(context).waiting,
+            blurRadius: 0.5,
+            spreadRadius: 0.5,
           ),
-          child: ClipRRect(
-            borderRadius: BorderRadius.vertical(top: Radius.circular(20.r)),
-            child: BottomNavigationBar(
-              backgroundColor: ThemeClass.of(context).background,
-              currentIndex: widget.selected.index,
-              type: BottomNavigationBarType.fixed,
-              selectedItemColor: ThemeClass.of(context).primaryColor,
-              unselectedItemColor: ThemeClass.of(context).secondaryBlackColor,
-              onTap: (index) {
-                context.pushNamed(BottomNavBarItemModel.screens[index].routeName);
-              },
-              items: BottomNavBarItemModel.screens.map((item) {
-                final isSelected = item.type == widget.selected;
-                return BottomNavigationBarItem(
-                  icon: isSelected
-                      ? buildSelectedIcon(item, context)
-                      : buildUnselectedIcon(item, context),
-                  label: item.title.tr,
-                );
-              }).toList(),
-            ),
-          ),
+        ],
+      ),
+      child: Container(
+        color: ThemeClass.of(context).textFieldBackground,
+        child: BottomNavigationBar(
+          backgroundColor: ThemeClass.of(context).background,
+          currentIndex: widget.selected.index,
+          type: BottomNavigationBarType.fixed,
+          selectedItemColor: ThemeClass.of(context).primaryColor,
+          unselectedItemColor: ThemeClass.of(context).labelColor,
+          onTap: (index) {
+            context.pushNamed(BottomNavBarItemModel.screens[index].routeName);
+          },
+          items: BottomNavBarItemModel.screens.map((item) {
+            final isSelected = item.type == widget.selected;
+            return BottomNavigationBarItem(
+              icon: isSelected
+                  ? buildSelectedIcon(item, context)
+                  : buildUnselectedIcon(item, context),
+              label: item.title.tr,
+            );
+          }).toList(),
         ),
+      ),
 
-        // Top Line Indicator (Positioned at the very top of the container)
-        Positioned(
-          top: 0, // Places the line at the top edge of the container
-          left: selectedPosition + (itemWidth / 2) - 25.w, // Centers the line under the icon
-          child: Container(
-            width: 56.w, // Adjust width as needed
-            height:2.h, // Line thickness
-            decoration: BoxDecoration(
-              color: ThemeClass.of(context).primaryColor,
-              borderRadius: BorderRadius.circular(2.r),
-            ),
-          ),
-        ),
-      ],
     );
   }
 
@@ -108,7 +94,7 @@ class _BottomNavBarWidgetState extends StateMVC<BottomNavBarWidget> {
       child: SvgPicture.asset(
         item.iconPath,
         colorFilter: ColorFilter.mode(
-            ThemeClass.of(context).secondaryBlackColor,
+            ThemeClass.of(context).labelColor,
             BlendMode.srcIn),
       ),
     );
@@ -132,10 +118,9 @@ class BottomNavBarItemModel {
 
   static List<BottomNavBarItemModel> screens = [
     home,
-    favorite,
-    cart,
     booking,
-    account,
+    favorite,
+    profile,
   ];
 
   static BottomNavBarItemModel home = BottomNavBarItemModel(
@@ -146,41 +131,35 @@ class BottomNavBarItemModel {
     type: SelectedBottomNavBar.home,
   );
 
-  static BottomNavBarItemModel favorite = BottomNavBarItemModel(
-    iconPath: Assets.imagesFavNavBar,
-    selectedIconPath: Assets.imagesFavNavBar,
-    title: Strings.favorite,
-    routeName: FavoriteScreen.routeName,
-    type: SelectedBottomNavBar.favorite,
-  );
-
-  static BottomNavBarItemModel cart = BottomNavBarItemModel(
-    iconPath: Assets.imagesCartNavBar,
-    selectedIconPath: Assets.imagesCartNavBar,
-    title: Strings.cart,
-    routeName: CartScreen.routeName,
-    type: SelectedBottomNavBar.cart,
-  );
   static BottomNavBarItemModel booking = BottomNavBarItemModel(
-    iconPath: Assets.imagesBookNavBar,
-    selectedIconPath: Assets.imagesBookNavBar,
+    iconPath: Assets.imagesPrettyBookingIcon,
+    selectedIconPath: Assets.imagesPrettyBookingIcon,
     title: Strings.booking,
     routeName: BookingsScreen.routeName,
     type: SelectedBottomNavBar.booking,
   );
-  static BottomNavBarItemModel account = BottomNavBarItemModel(
-    iconPath: Assets.imagesProfileNavBar,
-    selectedIconPath: Assets.imagesProfileNavBar,
+
+  static BottomNavBarItemModel favorite = BottomNavBarItemModel(
+    iconPath: Assets.imagesFavoriteNavBar,
+    selectedIconPath: Assets.imagesFavoriteNavBar,
+    title: Strings.favorite,
+    routeName: FavoriteScreen.routeName,
+    type: SelectedBottomNavBar.favorite,
+  );
+  static BottomNavBarItemModel profile = BottomNavBarItemModel(
+    iconPath: Assets.imagesSettings,
+    selectedIconPath: Assets.imagesSettings,
     title: Strings.profile,
     routeName: UserProfileScreen.routeName,
-    type: SelectedBottomNavBar.account,
+    type: SelectedBottomNavBar.profile,
   );
+
 }
 
 enum SelectedBottomNavBar {
   home,
-  favorite,
-  cart,
   booking,
-  account,
+  favorite,
+  profile,
+
 }

@@ -14,6 +14,9 @@ class FormatDateHelper {
   static  reverseBirthDateFormat(String date) =>  birthDateFormat.parse(date);
   static final formatterCustomTime = DateFormat('hh : mm a',SharedPref.getCurrentLanguage());
   static final formatterCustomChatTime = DateFormat('hh:mm a',);
+  static final formatWalletDate =
+  DateFormat('d/M/yyyy', SharedPref.getCurrentLanguage() ?? 'en');
+
   static String getTimeAgo(DateTime? time, {bool short = false}) {
     if (time == null) return "";
     String currentLng = SharedPref.getCurrentLanguage();

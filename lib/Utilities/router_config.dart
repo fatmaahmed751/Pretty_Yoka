@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import '../Modules/ForgetPassword/forget_password_screen.dart';
+import '../Modules/Home/home_screen.dart';
 import '../Modules/Login/user_login_screen.dart';
 import '../Modules/OnBoarding/onboarding_screen.dart';
 import '../Modules/ResetPassword/reset_password_screen.dart';
@@ -37,6 +38,17 @@ class GoRouterConfig{
         routes: const <RouteBase>[],
       ),
 
+      GoRoute(
+        name: HomeScreen.routeName,
+        path: "/${HomeScreen.routeName}",
+        pageBuilder: (_, GoRouterState state) {
+          return getCustomTransitionPage(
+            state: state,
+            child:  const HomeScreen(),
+          );
+        },
+        routes: const <RouteBase>[],
+      ),
       GoRoute(
         name: UserSignUpScreen.routeName,
         path: "/${UserSignUpScreen.routeName}",

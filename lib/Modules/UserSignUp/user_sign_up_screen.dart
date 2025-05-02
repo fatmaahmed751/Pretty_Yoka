@@ -20,6 +20,7 @@ import '../../Widgets/loading_screen.dart';
 import '../../Widgets/raw_or_widget.dart';
 import '../../Widgets/user_status_row.dart';
 import '../../generated/assets.dart';
+import '../Home/home_screen.dart';
 
 class UserSignUpScreen extends StatefulWidget {
   static const routeName = "UserSignUp";
@@ -169,7 +170,9 @@ class _UserSignUpScreenState extends StateMVC<UserSignUpScreen> {
                     UserStatusRow(
                   text: Strings.haveAnAccount.tr,
                   nextText: Strings.login.tr,
-                  onNextTextTap: () {},
+                  onNextTextTap: () {
+                    GoRouter.of(context).pushNamed(HomeScreen.routeName);
+                  },
                    ),
                     Gap(12.h),
                    const RowOrWidget(),

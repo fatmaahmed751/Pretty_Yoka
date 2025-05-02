@@ -1,10 +1,15 @@
+import 'package:Pretty/core/Language/locales.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:gap/gap.dart';
+import 'package:go_router/go_router.dart';
+import '../Modules/Notifications/notifications_screen.dart';
 import '../Utilities/shared_preferences.dart';
+import '../Utilities/strings.dart';
 import '../generated/assets.dart';
 import 'custom_main_text_widget.dart';
+import 'custom_side_text_widget.dart';
 
 enum _AppBarType { main, mainDetails, details }
 
@@ -117,24 +122,23 @@ class MainDetailsAppBarWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return Padding(
       padding: EdgeInsetsDirectional.only(start: 24.w, top: 50.h, end: 24.w),
-      child: Row(
-        mainAxisAlignment: MainAxisAlignment.start,
-        crossAxisAlignment: CrossAxisAlignment.center,
-        children: [
-          InkWell(
-            onTap: () {
-              Navigator.of(context).pop();
-            },
-            child: Transform.flip(
-              flipX: SharedPref.getCurrentLanguage() == "ar" ? true : false,
-              child: SvgPicture.asset(
-                Assets.imagesArrowBack,
-              ),
-            ),
-          ),
-          Expanded(child: Center(child: CustomMainTextWidget(text: title))),
-          if (actions != null) ...actions!,
-        ],
+      child:Row(
+      mainAxisAlignment: MainAxisAlignment.start,
+      children: [
+
+        CustomMainTextWidget(text: "${Strings.welcome.tr},Habiba"),
+      const Spacer(),
+      GestureDetector(
+      onTap: () {
+      GoRouter.of(context).pushNamed(NotificationsScreen.routeName);
+      },
+      child: Center(
+      child: SvgPicture.asset(
+      Assets.imagesNotificationsIcon,
+      ),
+      ),
+    ),
+    ],
       ),
     );
   }

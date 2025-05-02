@@ -1,3 +1,4 @@
+import 'package:Pretty/Modules/Home/home_screen.dart';
 import 'package:Pretty/core/Language/locales.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -121,7 +122,7 @@ class _ResetPasswordScreenState extends StateMVC<ResetPasswordScreen> {
                     radius: 12.r,
                     title: Strings.login.tr,
                     onTap: () {
-                      GoRouter.of(context).pushNamed(ForgetPasswordScreen.routeName);
+                      GoRouter.of(context).pushNamed(HomeScreen.routeName);
                       // if (_formKey.currentState?.validate() ??
                       //     false) {
                       //   // con.onLogin();

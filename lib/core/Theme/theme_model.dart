@@ -19,7 +19,7 @@ class ThemeModel extends ThemeExtension<ThemeModel>{
   final Color mainBlack;
   final Color secondaryBlackColor;
   final Color labelColor;
-
+  final Color textFieldBackground;
   final Color success;
   final Color waiting;
   final Color cancel;
@@ -38,6 +38,7 @@ class ThemeModel extends ThemeExtension<ThemeModel>{
     required this.secondary,
     required this.mainBlack,
     required this.secondaryBlackColor,
+    required this.textFieldBackground
 });
 
   @override
@@ -59,6 +60,7 @@ class ThemeModel extends ThemeExtension<ThemeModel>{
     Color? cardLight,
     Color? labelColor,
     Color? success,
+    Color? textFiledBackground,
     Color? waiting,
     Color? cancel,
     Color? informative,
@@ -77,6 +79,7 @@ class ThemeModel extends ThemeExtension<ThemeModel>{
       cancel: cancel??this.cancel,
       secondary: informative??this.secondary,
       mainBlack: mainBlack??this.mainBlack,
+      textFieldBackground: textFieldBackground ?? this.textFieldBackground,
       secondaryBlackColor: bodyColor??this.secondaryBlackColor,
     );
   }
@@ -92,6 +95,7 @@ class ThemeModel extends ThemeExtension<ThemeModel>{
     cancel: Color(json["cancel"]),
     secondary: Color(json["informative"]),
     mainBlack: Color(json["mainBlack"]),
+    textFieldBackground: Color(json["textFieldBackground"]),
     secondaryBlackColor: Color(json["bodyColor"]),
   );
 
@@ -106,6 +110,7 @@ class ThemeModel extends ThemeExtension<ThemeModel>{
     "cancel": cancel.value,
     "informative": secondary.value,
     "mainBlack": mainBlack.value,
+    "textFieldBackground": textFieldBackground.value,
     "bodyColor": secondaryBlackColor.value,
   };
 
