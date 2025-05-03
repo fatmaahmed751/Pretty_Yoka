@@ -1,13 +1,21 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
+import '../Modules/Bookings/bookings_screen.dart';
+import '../Modules/Favotites/favorite_screen.dart';
 import '../Modules/ForgetPassword/forget_password_screen.dart';
 import '../Modules/Home/home_screen.dart';
 import '../Modules/Login/user_login_screen.dart';
 import '../Modules/OnBoarding/onboarding_screen.dart';
+import '../Modules/Pharmacies/pharmacies_screen.dart';
+import '../Modules/RequestService/request_service_screen.dart';
+import '../Modules/RequestService/widgets/send_resquest_successfully.dart';
 import '../Modules/ResetPassword/reset_password_screen.dart';
 import '../Modules/ResetPassword/widget/verify_password_otp.dart';
 import '../Modules/SelectRole/select_role_screen.dart';
+import '../Modules/ServiceProviderInformation/service_provider_information_screen.dart';
+import '../Modules/ServiceProviders/service_providers_screen.dart';
 import '../Modules/Splash/splash_screen.dart';
+import '../Modules/Sponsors/sponsors_screen.dart';
 import '../Modules/UserInfomations/user_information_screen.dart';
 import '../Modules/UserSignUp/user_sign_up_screen.dart';
 import '../Modules/VerificationAccountOtp/verification_otp_screen.dart';
@@ -37,6 +45,98 @@ class GoRouterConfig{
         },
         routes: const <RouteBase>[],
       ),
+      GoRoute(
+        name: PharmaciesScreen.routeName,
+        path: "/${PharmaciesScreen.routeName}",
+        pageBuilder: (_, GoRouterState state) {
+          return getCustomTransitionPage(
+            state: state,
+            child:  const PharmaciesScreen(),
+          );
+        },
+        routes: const <RouteBase>[],
+      ),
+      GoRoute(
+        name: ServiceProvidersScreen.routeName,
+        path: "/${ServiceProvidersScreen.routeName}",
+        pageBuilder: (_, GoRouterState state) {
+          return getCustomTransitionPage(
+            state: state,
+            child:  const ServiceProvidersScreen(),
+          );
+        },
+        routes: const <RouteBase>[],
+      ),
+
+      GoRoute(
+        name: BookingsScreen.routeName,
+        path: "/${BookingsScreen.routeName}",
+        pageBuilder: (_, GoRouterState state) {
+          return getCustomTransitionPage(
+            state: state,
+            child:  const BookingsScreen(),
+          );
+        },
+        routes: const <RouteBase>[],
+      ),
+      GoRoute(
+        name: ServiceProviderInformationScreen.routeName,
+        path: "/${ServiceProviderInformationScreen.routeName}",
+        pageBuilder: (_, GoRouterState state) {
+          return getCustomTransitionPage(
+            state: state,
+            child:  const ServiceProviderInformationScreen(),
+          );
+        },
+        routes: const <RouteBase>[],
+      ),
+      GoRoute(
+        name: FavoriteScreen.routeName,
+        path: "/${FavoriteScreen.routeName}",
+        pageBuilder: (_, GoRouterState state) {
+          return getCustomTransitionPage(
+            state: state,
+            child:  const FavoriteScreen(),
+          );
+        },
+        routes: const <RouteBase>[],
+      ),
+      GoRoute(
+        name: SendRequestSuccessfully.routeName,
+        path: "/${SendRequestSuccessfully.routeName}",
+        pageBuilder: (_, GoRouterState state) {
+          return getCustomTransitionPage(
+            state: state,
+            child:  const SendRequestSuccessfully(),
+          );
+        },
+        routes: const <RouteBase>[],
+      ),
+      GoRoute(
+        name: RequestServiceScreen.routeName,
+        path: "/${RequestServiceScreen.routeName}",
+        pageBuilder: (_, GoRouterState state) {
+          return getCustomTransitionPage(
+            state: state,
+            child:  const RequestServiceScreen(),
+          );
+        },
+        routes: const <RouteBase>[],
+      ),
+
+      GoRoute(
+        name: SponsorsScreen.routeName,
+        path: "/${SponsorsScreen.routeName}",
+        pageBuilder: (_, GoRouterState state) {
+          return getCustomTransitionPage(
+            state: state,
+            child:  const SponsorsScreen(),
+          );
+        },
+        routes: const <RouteBase>[],
+      ),
+
+
 
       GoRoute(
         name: HomeScreen.routeName,

@@ -20,6 +20,7 @@ class CustomTextFieldWidget extends StatefulWidget {
   final bool disableBorder;
   final FocusNode? focusNode;
   final Color? readOnlyBorderColor;
+  final TextAlignVertical? textAlign;
   final double? borderRadiusValue, width, height;
   final EdgeInsets? insidePadding;
   final void Function(String?)? onSave;
@@ -63,7 +64,7 @@ class CustomTextFieldWidget extends StatefulWidget {
     this.minLines,
     this.disableBorder = false,
     this.textInputAction,
-    this.expands,
+    this.expands, this.textAlign,
   }) : super(key: key);
 
   @override
@@ -115,10 +116,9 @@ class CustomTextFieldWidgetState extends State<CustomTextFieldWidget> {
   Widget build(BuildContext context) {
     return SizedBox(
       width: widget.width ?? 327.w,
-
       child: TextFormField(
-
-       textAlignVertical: TextAlignVertical.center,
+        textAlignVertical: widget.textAlign??TextAlignVertical.center,
+    //   textAlignVertical: TextAlignVertical.center,
         focusNode: _focusNode,
         controller: widget.controller,
         obscureText: widget.obscure ?? false,

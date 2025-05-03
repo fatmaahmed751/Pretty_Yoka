@@ -38,8 +38,6 @@ class _FavoriteScreenState extends StateMVC<FavoriteScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: const CustomAppBarWidget.mainScreen(title: "",
-        space: 1),
       bottomNavigationBar: const BottomNavBarWidget(
         selected: SelectedBottomNavBar.favorite,
       ),
@@ -47,36 +45,24 @@ class _FavoriteScreenState extends StateMVC<FavoriteScreen> {
         child: LoadingScreen(
           loading: con.loading,
           child: Padding(
-            padding: EdgeInsetsDirectional.symmetric(
-                horizontal: 24.w, vertical: 16.h),
-            child: con.isLogin
-                ? ContainerEmptyContentWidget(
-                    image: Assets.imagesNoFavorites,
-                    mainText: Strings.noFavorite.tr,
-                    descText: Strings.canAddFavorite.tr,
-                    button: CustomButtonWidget.primary(
-                        height: 48.h,
-                        width: 155.w,
-                        radius: 30.r,
-                        title: Strings.browseService.tr,
-                        onTap: () {
-                          // SharedPref.getCurrentUser()!
-                          //         .token!
-                          //         .isNotEmpty
-                          //     ? GoRouter.of(context)
-                          //         .pushNamed(HomeScreen.routeName,)
-                          //     : GoRouter.of(context).pushNamed(
-                          //         RegisterScreen.routeName);
+              padding: EdgeInsetsDirectional.symmetric(
+                  horizontal: 24.w, vertical: 16.h),
+              child: con.isLogin
+                  ? Padding(
+                      padding: EdgeInsetsDirectional.only(top: 12.h),
+                      child: Wrap(
+                        spacing: 8.w,
+                        runSpacing: 8.h,
+                        children: List.generate(10, (index) {
+                          return const FavoriteCardWidget();
                         }),
-                  )
-                : Wrap(
-                    spacing: 8.w,
-                    runSpacing: 8.h,
-                    children: List.generate(10, (index) {
-                      return const FavoriteCardWidget();
-                    }),
-                  ),
-          ),
+                      ),
+                    )
+                  : ContainerEmptyContentWidget(
+                      image: Assets.imagesNoFavorites,
+                      mainText: Strings.noFavorite.tr,
+                      descText: Strings.canAddFavorite.tr,
+                    )),
         ),
       ),
     );

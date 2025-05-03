@@ -43,10 +43,14 @@ class CustomRadioListTileExample extends StatelessWidget {
                       : Assets.imagesUnCheckBox,
                 ),
                 Gap(12.w),
-                Text(
-                  firstText,
-                  style: TextStyleHelper.of(context).h_15.copyWith(
-                      color: ThemeClass.of(context).secondaryBlackColor),
+                Expanded(
+                  child: Text(
+                    firstText,
+                    style: TextStyleHelper.of(context).b_16.copyWith(
+                        color: ThemeClass.of(context).secondaryBlackColor),
+                    softWrap: true, // Enable text wrapping
+                    overflow: TextOverflow.visible,
+                  ),
                 ),
               ],
             ),
@@ -68,7 +72,7 @@ class CustomRadioListTileExample extends StatelessWidget {
                 Gap(12.w),
                 Text(
                   secondText,
-                  style: TextStyleHelper.of(context).h_15.copyWith(
+                  style: TextStyleHelper.of(context).b_16.copyWith(
                         color: ThemeClass.of(context).secondaryBlackColor,
                       ),
                 ),

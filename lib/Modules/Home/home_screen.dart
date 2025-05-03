@@ -1,3 +1,4 @@
+import 'package:Pretty/Modules/ServiceProviders/service_providers_screen.dart';
 import 'package:Pretty/core/Language/locales.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -14,7 +15,10 @@ import '../../Widgets/customSolidSideText.dart';
 import '../../Widgets/custom_app_bar_widget.dart';
 import '../../Widgets/custom_side_text_widget.dart';
 import '../../Widgets/loading_screen.dart';
+import '../../Widgets/service_provider_widget.dart';
+import '../../Widgets/sponsers_widget.dart';
 import '../../generated/assets.dart';
+import '../Sponsors/sponsors_screen.dart';
 import 'home_controller.dart';
 
 class HomeScreen extends StatefulWidget {
@@ -60,7 +64,8 @@ class _HomeScreenState extends StateMVC<HomeScreen> {
                   child: Column(
                     children: [
                       Padding(
-                        padding:  EdgeInsetsDirectional.symmetric(horizontal: 24.w),
+                        padding:
+                        EdgeInsetsDirectional.symmetric(horizontal: 24.w),
                         child: Row(
                           children: [
                             CircleAvatar(
@@ -70,11 +75,12 @@ class _HomeScreenState extends StateMVC<HomeScreen> {
                             ),
                             Gap(8.w),
                             Container(
-                             width: 260.w,
+                              width: 260.w,
                               height: 44.h,
                               decoration: BoxDecoration(
-                                  color:
-                                      ThemeClass.of(context).textFieldBackground,
+                                  color: ThemeClass
+                                      .of(context)
+                                      .textFieldBackground,
                                   borderRadius: BorderRadius.circular(12.r)),
                               child: Padding(
                                 padding: EdgeInsetsDirectional.symmetric(
@@ -83,11 +89,13 @@ class _HomeScreenState extends StateMVC<HomeScreen> {
                                   children: [
                                     Text(
                                       Strings.requestAnyService.tr,
-                                      style: TextStyleHelper.of(context)
+                                      style: TextStyleHelper
+                                          .of(context)
                                           .b_14
                                           .copyWith(
-                                              color: ThemeClass.of(context)
-                                                  .primaryColor),
+                                          color: ThemeClass
+                                              .of(context)
+                                              .primaryColor),
                                     ),
                                     const Spacer(),
                                     SvgPicture.asset(Assets.imagesAddIcon)
@@ -99,14 +107,16 @@ class _HomeScreenState extends StateMVC<HomeScreen> {
                         ),
                       ),
                       Gap(20.h),
-                      Image.asset(Assets.imagesBanners,
-                      width: 379.w,
-                          height: 178.h,
-                      fit: BoxFit.cover,),
+                      Image.asset(
+                        Assets.imagesBanners,
+                        width: 379.w,
+                        height: 178.h,
+                        fit: BoxFit.cover,
+                      ),
                       Gap(20.h),
                       Padding(
                         padding:
-                            EdgeInsetsDirectional.symmetric(horizontal: 24.w),
+                        EdgeInsetsDirectional.symmetric(horizontal: 24.w),
                         child: Row(
                           children: [
                             CustomSolidSideTextWidget(
@@ -115,16 +125,18 @@ class _HomeScreenState extends StateMVC<HomeScreen> {
                             Spacer(),
                             GestureDetector(
                               onTap: () {
-                                //    GoRouter.of(context).pushNamed(AllServicesScreen.routeName);
+                                  GoRouter.of(context).pushNamed(SponsorsScreen.routeName);
                               },
                               child: Text(
                                 Strings.viewAll.tr,
-                                style: TextStyleHelper.of(context)
+                                style: TextStyleHelper
+                                    .of(context)
                                     .b_16
                                     .copyWith(
-                                        decoration: TextDecoration.underline,
-                                        color: ThemeClass.of(context)
-                                            .primaryColor),
+                                    decoration: TextDecoration.underline,
+                                    color: ThemeClass
+                                        .of(context)
+                                        .primaryColor),
                               ),
                             ),
                           ],
@@ -132,46 +144,10 @@ class _HomeScreenState extends StateMVC<HomeScreen> {
                       ),
                       Gap(16.h),
                       Column(
-                        children: List.generate(3,  (index) {
-                          return   Padding(
-                            padding:  EdgeInsetsDirectional.only(bottom: 12.h),
-                            child: Container(
-                              width:327.w ,
-                              height: 56.h,
-                              decoration: BoxDecoration(
-                                  color: ThemeClass.of(context).background,
-                                  borderRadius: BorderRadius.circular(12.r),
-                                  boxShadow: [
-                                    BoxShadow(
-                                        color: ThemeClass.of(context).waiting,
-                                        blurRadius: 0.5,
-                                        spreadRadius: 0.5
-                                    ),
-                                  ]
-                              ),
-                              child: Padding(
-                                padding:  EdgeInsetsDirectional.symmetric(
-                                  vertical: 8.h,),
-                                child: Row(
-                                  children: [
-                                    CircleAvatar(
-                                      radius: 30.r,
-                                      backgroundImage: const AssetImage(
-                                          Assets.imagesPharmacy),
-                                    ),
-                                    Gap(2.w),
-                                    Text(Strings.pharmacies.tr,
-                                      style: TextStyleHelper.of(context).h_13.copyWith(
-                                          color: ThemeClass.of(context).secondaryBlackColor
-                                      ),
-                                    ),
-                                    const Spacer(),
-                                    SvgPicture.asset(Assets.imagesArrowForward),
-                                    Gap(16.w)
-                                  ],
-                                ),
-                              ),
-                            ),
+                        children: List.generate(3, (index) {
+                          return Padding(
+                            padding: EdgeInsetsDirectional.only(bottom: 12.h),
+                            child: const SponsorsWidget(),
                           );
                         }).toList(),
                       ),
@@ -191,11 +167,13 @@ class _HomeScreenState extends StateMVC<HomeScreen> {
                               },
                               child: Text(
                                 Strings.viewAll.tr,
-                                style: TextStyleHelper.of(context)
+                                style: TextStyleHelper
+                                    .of(context)
                                     .b_16
                                     .copyWith(
                                     decoration: TextDecoration.underline,
-                                    color: ThemeClass.of(context)
+                                    color: ThemeClass
+                                        .of(context)
                                         .primaryColor),
                               ),
                             ),
@@ -210,7 +188,8 @@ class _HomeScreenState extends StateMVC<HomeScreen> {
                           child: ListView.separated(
                               scrollDirection: Axis.horizontal,
                               physics: const BouncingScrollPhysics(),
-                              itemBuilder: (context, index) => CategoryWidget(
+                              itemBuilder: (context, index) =>
+                                  CategoryWidget(
                                     categoryModel: con.model[index],
                                   ),
                               separatorBuilder: (context, index) => Gap(8.w),
@@ -229,15 +208,17 @@ class _HomeScreenState extends StateMVC<HomeScreen> {
                             Spacer(),
                             GestureDetector(
                               onTap: () {
-                                //    GoRouter.of(context).pushNamed(AllServicesScreen.routeName);
+                                   GoRouter.of(context).pushNamed(ServiceProvidersScreen.routeName);
                               },
                               child: Text(
                                 Strings.viewAll.tr,
-                                style: TextStyleHelper.of(context)
+                                style: TextStyleHelper
+                                    .of(context)
                                     .b_16
                                     .copyWith(
                                     decoration: TextDecoration.underline,
-                                    color: ThemeClass.of(context)
+                                    color: ThemeClass
+                                        .of(context)
                                         .primaryColor),
                               ),
                             ),
@@ -248,62 +229,20 @@ class _HomeScreenState extends StateMVC<HomeScreen> {
                       Padding(
                         padding: EdgeInsetsDirectional.only(start: 24.w),
                         child: SizedBox(
-                          height: 200.h,
+                          height: 160.h,
                           child: ListView.separated(
                               scrollDirection: Axis.horizontal,
                               physics: const BouncingScrollPhysics(),
-                              itemBuilder: (context, index) => Container(
-                                width: 112.w,
-                                height: 118.h,
-                                decoration: BoxDecoration(
-                                  color: ThemeClass.of(context).background
-                                ),
-                                child: Padding(
-                                  padding:  EdgeInsetsDirectional.symmetric(
-                                      horizontal: 8.w,
-                                  vertical: 8.h),
-                                  child: Column(
-                                    children: [
-                                      CircleAvatar(
-                                        radius: 30.r,
-                                        backgroundImage: const AssetImage(
-                                            Assets.imagesFavoriteServiceProvider),
-                                      ),
-                                      Gap(8.h),
-                                      Text(Strings.serviceProviderName.tr,
-                                      style: TextStyleHelper.of(context)
-                                          .h_13
-                                          .copyWith(
-                                          decoration: TextDecoration.underline,
-                                          color: ThemeClass.of(context)
-                                              .secondaryBlackColor),),
-                                      Gap(8.h),
-                                      Text(Strings.makeUpArtist.tr,
-                                        style: TextStyleHelper.of(context)
-                                            .b_12
-                                            .copyWith(
-                                            color: ThemeClass.of(context)
-                                                .secondaryBlackColor),),
-                                      Gap(8.h),
-                                      Row(children: [
-                                        SvgPicture.asset(Assets.imagesStarIcon),
-                                        Gap(2.w),
-                                        Text("4.5"),
-                                        Spacer(),
-                                        Text("(${"44"})")
-                                      ],)
-                                    ],
+                              itemBuilder: (context, index) =>
+                                   ServiceProviderWidget(
+                                    width: 112.w,
+                                    height: 118.h,
                                   ),
-                                ),
-                              ),
                               separatorBuilder: (context, index) => Gap(8.w),
                               itemCount: 3),
                         ),
                       ),
                       Gap(45.h)
-
-
-
                     ],
                   ),
                 ),
@@ -315,3 +254,4 @@ class _HomeScreenState extends StateMVC<HomeScreen> {
     );
   }
 }
+

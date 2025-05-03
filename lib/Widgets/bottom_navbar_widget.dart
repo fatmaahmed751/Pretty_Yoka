@@ -29,7 +29,6 @@ class _BottomNavBarWidgetState extends StateMVC<BottomNavBarWidget> {
 
   int selectedLanguage = 1;
   @override
-
   Widget build(BuildContext context) {
     final screenWidth = MediaQuery.of(context).size.width;
     final itemWidth = screenWidth / BottomNavBarItemModel.screens.length;
@@ -39,19 +38,22 @@ class _BottomNavBarWidgetState extends StateMVC<BottomNavBarWidget> {
       height: 72.h,
       decoration: BoxDecoration(
         color: ThemeClass.of(context).textFieldBackground,
-        borderRadius: BorderRadius.vertical(top: Radius.circular(20.r)),
+        borderRadius: BorderRadius.vertical(top: Radius.circular(30.r)),
         boxShadow: [
           BoxShadow(
-            color: ThemeClass.of(context).waiting,
-            blurRadius: 0.5,
-            spreadRadius: 0.5,
-          ),
+              color: ThemeClass.of(context)
+                  .secondaryBlackColor
+                  .withAlpha((0.16 * 255).toInt()),
+              blurRadius: 0.5,
+              spreadRadius: 0.5),
         ],
       ),
-      child: Container(
-        color: ThemeClass.of(context).textFieldBackground,
+      child: ClipRRect(
+        borderRadius: BorderRadius.vertical(
+          top: Radius.circular(30.r),
+        ),
         child: BottomNavigationBar(
-          backgroundColor: ThemeClass.of(context).background,
+          backgroundColor: ThemeClass.of(context).textFieldBackground,
           currentIndex: widget.selected.index,
           type: BottomNavigationBarType.fixed,
           selectedItemColor: ThemeClass.of(context).primaryColor,
@@ -70,10 +72,8 @@ class _BottomNavBarWidgetState extends StateMVC<BottomNavBarWidget> {
           }).toList(),
         ),
       ),
-
     );
   }
-
 
   Widget buildSelectedIcon(BottomNavBarItemModel item, BuildContext context) {
     return Center(
@@ -81,8 +81,8 @@ class _BottomNavBarWidgetState extends StateMVC<BottomNavBarWidget> {
         padding: EdgeInsetsDirectional.only(bottom: 6.h),
         child: SvgPicture.asset(
           item.selectedIconPath,
-          colorFilter: ColorFilter.mode(
-              ThemeClass.of(context).primaryColor, BlendMode.srcIn),
+          // colorFilter: ColorFilter.mode(
+          //     ThemeClass.of(context).primaryColor, BlendMode.srcIn),
         ),
       ),
     );
@@ -94,8 +94,7 @@ class _BottomNavBarWidgetState extends StateMVC<BottomNavBarWidget> {
       child: SvgPicture.asset(
         item.iconPath,
         colorFilter: ColorFilter.mode(
-            ThemeClass.of(context).labelColor,
-            BlendMode.srcIn),
+            ThemeClass.of(context).labelColor, BlendMode.srcIn),
       ),
     );
   }
@@ -124,7 +123,7 @@ class BottomNavBarItemModel {
   ];
 
   static BottomNavBarItemModel home = BottomNavBarItemModel(
-    iconPath: Assets.imagesHomeNavBar,
+    iconPath: Assets.imagesHomeNoFill,
     selectedIconPath: Assets.imagesHomeNavBar,
     title: Strings.home,
     routeName: HomeScreen.routeName,
@@ -133,7 +132,7 @@ class BottomNavBarItemModel {
 
   static BottomNavBarItemModel booking = BottomNavBarItemModel(
     iconPath: Assets.imagesPrettyBookingIcon,
-    selectedIconPath: Assets.imagesPrettyBookingIcon,
+    selectedIconPath: Assets.imagesFillBooking,
     title: Strings.booking,
     routeName: BookingsScreen.routeName,
     type: SelectedBottomNavBar.booking,
@@ -141,19 +140,18 @@ class BottomNavBarItemModel {
 
   static BottomNavBarItemModel favorite = BottomNavBarItemModel(
     iconPath: Assets.imagesFavoriteNavBar,
-    selectedIconPath: Assets.imagesFavoriteNavBar,
+    selectedIconPath: Assets.imagesRedFavIcon,
     title: Strings.favorite,
     routeName: FavoriteScreen.routeName,
     type: SelectedBottomNavBar.favorite,
   );
   static BottomNavBarItemModel profile = BottomNavBarItemModel(
-    iconPath: Assets.imagesSettings,
-    selectedIconPath: Assets.imagesSettings,
+    iconPath: Assets.imagesProfileNavBar,
+    selectedIconPath: Assets.imagesProfileFill,
     title: Strings.profile,
     routeName: UserProfileScreen.routeName,
     type: SelectedBottomNavBar.profile,
   );
-
 }
 
 enum SelectedBottomNavBar {
@@ -161,5 +159,4 @@ enum SelectedBottomNavBar {
   booking,
   favorite,
   profile,
-
 }

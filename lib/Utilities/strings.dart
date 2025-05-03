@@ -9,6 +9,34 @@ class Strings {
   static const String selectColor = "selectColor";
   static const String cancel = "cancel";
   static const String ok = "ok";
+  static const String selectDate = "selectDate";
+  static const String selectDayAndTime = "selectDayAndTime";
+  static const String location = "location";
+  static const String sendRequest = "sendRequest";
+  static const String waitForResponse = "waitForResponse";
+  static const String sendSuccessfully = "sendSuccessfully";
+  static const String selectYourLocation = "selectYourLocation";
+  static const String selectServiceYouWant = "selectServiceYouWant";
+  static const String useServiceMaterial = "useServiceMaterial";
+  static const String yesIWant = "yesIWant";
+  static const String noIHave = "noIHave";
+  static const String materialQuality = "materialQuality";
+  static const String mediumQuality = "mediumQuality";
+  static const String highQuality = "highQuality";
+  static const String anyAdditions = "anyAdditions";
+  static const String writeAnyThingAbout = "writeAnyThingAbout";
+  static const String eventMakeUp = "eventMakeUp";
+  static const String bridalMakeup  = "bridalMakeup";
+  static const String eyeBrow = "eyeBrow";
+  static const String backToHome = "backToHome";
+  static const String eyeLash = "eyeLash";
+  static const String areas = "areas";
+  static const String downTown = "downTown";
+  static const String gardenCity = "gardenCity";
+  static const String requestService = "requestService";
+  static const String request = "request";
+  static const String zamalek= "zamalek";
+  static const String serviceProviderDefinition = "serviceProviderDefinition";
   static const String sponsors = "sponsors";
   static const String servicePrice ="servicePrice";
   static const String noFavorite = "noFavorite";
@@ -38,6 +66,18 @@ class Strings {
   static const String pending = "pending";
   static const String browseService ="browseService";
   static const String viewDetails ="viewDetails";
+  static const String upComing ="upComing";
+  static const String viewServices ="viewServices";
+  static const String waitForServiceResponse ="waitForServiceResponse";
+  static const String yourLocation ="yourLocation";
+  static const String locationDesc ="locationDesc";
+  static const String egp ="egp";
+  static const String accept ="accept";
+  static const String reject ="reject";
+  static const String requesting ="requesting";
+
+
+
   ////
   static const String welcome = "welcome";
   static const String serviceProviderName = "serviceProviderName";
@@ -70,7 +110,6 @@ class Strings {
   static const String onBoardingDescTextTwo ="onBoardingDescTextTwo";
   static const String onBoardingMainTextThree = "onBoardingMainTextThree";
   static const String onBoardingDescTextThree = "onBoardingDescTextThree";
-  static const String location = "location";
   static const String oneNumber = "oneNumber";
   static const String securityData = "securityData";
   static const String emailHint = "emailHint";

@@ -1,4 +1,3 @@
-import 'package:Pretty/Modules/Bookings/widgets/pending_service_widget.dart';
 import 'package:Pretty/core/Language/locales.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -13,9 +12,8 @@ import '../../../Utilities/text_style_helper.dart';
 import '../../../Utilities/theme_helper.dart';
 import '../../../generated/assets.dart';
 
-
-class PreviousServiceWidget extends StatelessWidget {
-  const PreviousServiceWidget({
+class PendingServiceWidget extends StatelessWidget {
+  const PendingServiceWidget({
     super.key,
   });
 
@@ -29,9 +27,9 @@ class PreviousServiceWidget extends StatelessWidget {
         borderRadius: BorderRadius.circular(12.r),
         boxShadow: [
           BoxShadow(
-              color: ThemeClass.of(context).waiting,
-              blurRadius: 4,
-              offset: Offset(0, 2)
+            color: ThemeClass.of(context).waiting,
+            blurRadius: 4,
+           offset: Offset(0, 2)
           ),
         ],
       ),
@@ -75,11 +73,11 @@ class PreviousServiceWidget extends StatelessWidget {
                 ),
               ],
             ),
-            Gap(4.h),
+           Gap(4.h),
             Text(Strings.waitForServiceResponse.tr,
-              style: TextStyleHelper.of(context).b_12.copyWith(
-                  color: ThemeClass.of(context).secondaryBlackColor
-              ),),
+            style: TextStyleHelper.of(context).b_12.copyWith(
+              color: ThemeClass.of(context).secondaryBlackColor
+            ),),
             Row(
               mainAxisAlignment: MainAxisAlignment.end,
               children: [
@@ -101,6 +99,35 @@ class PreviousServiceWidget extends StatelessWidget {
           ],
         ),
       ),
+    );
+  }
+}
+
+class RowOfListOfBookingDetails extends StatelessWidget {
+  final  String firstText;
+  final String secondText;
+  const RowOfListOfBookingDetails({
+    super.key, required this.firstText, required this.secondText,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return Row(
+      children: [
+        Text(
+      firstText ,
+          style: TextStyleHelper.of(context)
+              .b_16
+              .copyWith(color: ThemeClass.of(context).secondaryBlackColor),
+        ),
+        Gap(4.w),
+        Text(
+      secondText,
+          style: TextStyleHelper.of(context).b_17.copyWith(
+              color: ThemeClass.of(context).secondaryBlackColor,
+            ),
+        ),
+      ],
     );
   }
 }

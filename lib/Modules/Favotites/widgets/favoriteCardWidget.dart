@@ -28,98 +28,114 @@ class FavoriteCardWidget extends StatelessWidget {
       },
       child: Container(
         //  height: 247.h,
-        width: 159.w,
+        width: 157.w,
         decoration: BoxDecoration(
           color: ThemeClass.of(context).background,
-          borderRadius: BorderRadius.circular(20.r),
+          borderRadius: BorderRadius.circular(12.r),
           boxShadow: [
             BoxShadow(
               color: ThemeClass.of(context).waiting,
-              spreadRadius: 0.3,
-              blurRadius: 0.5,
+          //    spreadRadius: 0.3,
+              blurRadius: 4,
             ),
           ],
         ),
         child: Padding(
           padding:
-          EdgeInsetsDirectional.symmetric(horizontal: 12.w, vertical: 12.h),
+          EdgeInsetsDirectional.symmetric(horizontal: 8.w, vertical:8.h),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Stack(
                 alignment: Alignment.topRight,
                 children: [
-                  Container(
-                    width: 169.5.w,
-                    //height: 103.h,
-                    decoration:
-                    BoxDecoration(borderRadius: BorderRadius.circular(8.r),
-                      // color: Colors.red,
-                    ),
-
-                    child: Image.asset(Assets.imagesFavoriteServiceProvider,
-                      //height: 101.h,
-                      // width: 150.5.w,
-                      fit: BoxFit.cover,
+                  Padding(
+                    padding:  EdgeInsetsDirectional.only(top:4.h),
+                    child: Center(
+                      child: CircleAvatar(
+                        radius: 30.r,
+                        backgroundImage:  const AssetImage(
+                            Assets.imagesFavoriteServiceProvider),
+                      ),
                     ),
                   ),
                   Padding(
                     padding: EdgeInsetsDirectional.symmetric(
-                        horizontal: 4.w, vertical: 4.h),
-                    child: Container(
-                      width: 28.w,
-                      height: 28.h,
-                      decoration: BoxDecoration(
-                          color: ThemeClass.of(context).background,
-                          borderRadius: BorderRadius.circular(8.r)),
-                      child: Transform.flip(
-                        flipX: SharedPref.getCurrentLanguage() == "ar"
-                            ? true
-                            : false,
-                        child: Padding(
-                          padding: EdgeInsetsDirectional.symmetric(
-                              horizontal: 4.w, vertical: 4.h),
-                          child: SvgPicture.asset(Assets.imagesRedFavIcon),
-                        ),
+                        vertical: 4.h),
+                    child: Transform.flip(
+                      flipX: SharedPref.getCurrentLanguage() == "ar"
+                          ? true
+                          : false,
+                      child: Padding(
+                        padding: EdgeInsetsDirectional.symmetric(
+                            horizontal: 4.w, vertical: 4.h),
+                        child: SvgPicture.asset(Assets.imagesRedFavIcon),
                       ),
                     ),
                   ),
                 ],
               ),
-              Gap(4.h),
-              CustomSideTextWidget(
-                text: Strings.serviceName.tr,
-              ),
-              //  Gap(2.h),
-              Gap(2.h),
+              Gap(12.h),
               Text(
-                Strings.placeName.tr,
-                style: TextStyleHelper.of(context).b_12.copyWith(
-                    color: ThemeClass.of(context).mainBlack,
-                    fontWeight: FontWeight.w400),
+                Strings.serviceProviderName.tr,
+                style: TextStyleHelper
+                    .of(context)
+                    .h_13
+                    .copyWith(
+                    color: ThemeClass
+                        .of(
+                        context)
+                        .secondaryBlackColor),
+              ),
+              Gap(4.h),
+              Text(
+                Strings.makeUpArtist.tr,
+                style: TextStyleHelper
+                    .of(context)
+                    .b_12
+                    .copyWith(
+                    color: ThemeClass
+                        .of(
+                        context)
+                        .secondaryBlackColor),
               ),
               Gap(2.h),
-              Container(
-                //color:Colors.yellow,
-                child: Row(
-                  children: [
-                    SizedBox(
-                        height: 13.h,
-                        width: 13.w,
-                        child: SvgPicture.asset(Assets.imagesStarIcon)),
-                    Gap(2.w),
-                    Text(
+              Row(
+                children: [
+                  SvgPicture.asset(
+                      Assets.imagesStarIcon),
+                  Gap(2.w),
+                  Padding(
+                    padding:
+                    EdgeInsets.only(top: 4.h),
+                    child: Text(
                       "4.5",
-                      style: TextStyleHelper.of(context).b_12.copyWith(
-                          color: ThemeClass.of(context).mainBlack,
-                          fontWeight: FontWeight.w400),
+                      style: TextStyleHelper
+                          .of(
+                          context)
+                          .b_12
+                          .copyWith(
+                          color: ThemeClass
+                              .of(
+                              context)
+                              .labelColor),
                     ),
-                    const Spacer(),
-                    Gap(2.w)
-                  ],
-                ),
+                  ),
+                  Spacer(),
+                  Text(
+                    "(${"44"})",
+                    style:
+                    TextStyleHelper
+                        .of(context)
+                        .b_12
+                        .copyWith(
+                        color: ThemeClass
+                            .of(context)
+                            .labelColor),
+                  ),
+                ],
               ),
-              Gap(8.h),
+              // Gap(8.h),
 
 
 

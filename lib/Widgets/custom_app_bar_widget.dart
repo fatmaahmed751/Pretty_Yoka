@@ -31,7 +31,8 @@ class CustomAppBarWidget extends StatelessWidget
       this.onPressed,
       required this.title,
       this.icon,
-      this.actions, required this.space})
+      this.actions,
+      required this.space})
       : _appBarType = _AppBarType.main,
         screenName = title,
         //actions = const [],
@@ -42,7 +43,8 @@ class CustomAppBarWidget extends StatelessWidget
     required this.title,
     this.actions,
     this.onPressed,
-    this.icon, required this.space,
+    this.icon,
+    required this.space,
   })  : _appBarType = _AppBarType.mainDetails,
         screenName = title,
         super(key: key);
@@ -53,10 +55,10 @@ class CustomAppBarWidget extends StatelessWidget
     switch (_appBarType) {
       case _AppBarType.main:
         return MainAppBarWidget(
-            title: screenName, onPressed: onPressed, actions: [],
-            space:space ,
-            //  () {  },
-            );
+          title: screenName, onPressed: onPressed, actions: [],
+          space: space,
+          //  () {  },
+        );
 
       case _AppBarType.mainDetails:
         return MainDetailsAppBarWidget(
@@ -82,7 +84,11 @@ class MainAppBarWidget extends StatelessWidget {
   final void Function()? onPressed;
   final List<Widget>? actions;
   const MainAppBarWidget(
-      {Key? key, required this.title, required this.onPressed, this.actions, required this.space})
+      {Key? key,
+      required this.title,
+      required this.onPressed,
+      this.actions,
+      required this.space})
       : super(key: key);
 
   @override
@@ -122,23 +128,22 @@ class MainDetailsAppBarWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return Padding(
       padding: EdgeInsetsDirectional.only(start: 24.w, top: 50.h, end: 24.w),
-      child:Row(
-      mainAxisAlignment: MainAxisAlignment.start,
-      children: [
-
-        CustomMainTextWidget(text: "${Strings.welcome.tr},Habiba"),
-      const Spacer(),
-      GestureDetector(
-      onTap: () {
-      GoRouter.of(context).pushNamed(NotificationsScreen.routeName);
-      },
-      child: Center(
-      child: SvgPicture.asset(
-      Assets.imagesNotificationsIcon,
-      ),
-      ),
-    ),
-    ],
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.start,
+        children: [
+          CustomMainTextWidget(text: "${Strings.welcome.tr},Habiba"),
+          const Spacer(),
+          GestureDetector(
+            onTap: () {
+              GoRouter.of(context).pushNamed(NotificationsScreen.routeName);
+            },
+            child: Center(
+              child: SvgPicture.asset(
+                Assets.imagesNotificationsIcon,
+              ),
+            ),
+          ),
+        ],
       ),
     );
   }
