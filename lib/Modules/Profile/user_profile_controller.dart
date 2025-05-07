@@ -1,9 +1,12 @@
 import 'dart:convert';
 import 'dart:io';
 
+import 'package:Pretty/Widgets/toast_helper.dart';
 import 'package:Pretty/core/Language/locales.dart';
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 import 'package:go_router/go_router.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:mvc_pattern/mvc_pattern.dart';
@@ -110,20 +113,27 @@ class UserProfileController extends ControllerMVC {
   }
 
   userLogOutPop(BuildContext context) {
-    return
-      DialogHelper.custom(context: context).customDialog(
-       dialogWidget:
-     AlertWarningWidget(
-          des:Strings.deleteLogOutSide.tr,
-          secondButtonText: Strings.logOut.tr,
-          mainText:Strings.confirmLogout.tr,
-          onButtonReject: currentContext_!.pop,
-          onButtonAccept: () {
-         //   GoRouter.of(context).pushNamed(LoginScreen.routeName);
-          },
-
+    return ToastHelper.showSuccess(
+      secondMessage: "Strings.phoneChanged.tr",
+        message: Strings.support.tr, icon:Image(
+      width: 24.w,
+      height: 24.h,
+      image: AssetImage(Assets.imagesSuccessImage,
       ),
-    );
+    ) , context: context);
+    //   DialogHelper.custom(context: context).customDialog(
+    //    dialogWidget:
+    //  AlertWarningWidget(
+    //       des:Strings.deleteLogOutSide.tr,
+    //       secondButtonText: Strings.logOut.tr,
+    //       mainText:Strings.confirmLogout.tr,
+    //       onButtonReject: currentContext_!.pop,
+    //       onButtonAccept: () {
+    //      //   GoRouter.of(context).pushNamed(LoginScreen.routeName);
+    //       },
+    //
+    //   ),
+    // );
   }
   //
   //  deleteUserAccountPop(BuildContext context) {

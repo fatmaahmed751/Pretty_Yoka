@@ -61,6 +61,16 @@ class Strings {
   static const String bookNow = "bookNow";
   static const String view = "view";
   static const String onGoing = "onGoing";
+  static const String policies = "policies";
+  static const String support = "support";
+  static const String oldPhone = "oldPhone";
+  static const String oldPassword = "oldPassword";
+  static const String newPhone = "newPhone";
+  static const String saveChanged = "saveChanged";
+  static const String changePhone = "changePhone";
+  static const String changePassword = "changePassword";
+  static const String editProfile = "editProfile";
+  static const String language = "language";
   static const String state = "state";
   static const String canAddFavorite = "canAddFavorite";
   static const String pending = "pending";
@@ -113,6 +123,7 @@ class Strings {
   static const String oneNumber = "oneNumber";
   static const String securityData = "securityData";
   static const String emailHint = "emailHint";
+  static const String writeAMessage = "writeAMessage";
   static const String next = "next";
   static const String upperCase = "upperCase";
   static const String lowerCase = "lowerCase";

@@ -53,7 +53,7 @@ class _BottomNavBarWidgetState extends StateMVC<BottomNavBarWidget> {
           top: Radius.circular(30.r),
         ),
         child: BottomNavigationBar(
-          backgroundColor: ThemeClass.of(context).textFieldBackground,
+          backgroundColor: ThemeClass.of(context).background,
           currentIndex: widget.selected.index,
           type: BottomNavigationBarType.fixed,
           selectedItemColor: ThemeClass.of(context).primaryColor,

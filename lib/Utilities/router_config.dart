@@ -1,12 +1,17 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import '../Modules/Bookings/bookings_screen.dart';
+import '../Modules/ChangePassword/change_password_screen.dart';
+import '../Modules/ChangePhoneNumber/change_phone_number_screen.dart';
+import '../Modules/EditProfile/edit_profile_screen.dart';
 import '../Modules/Favotites/favorite_screen.dart';
 import '../Modules/ForgetPassword/forget_password_screen.dart';
 import '../Modules/Home/home_screen.dart';
 import '../Modules/Login/user_login_screen.dart';
 import '../Modules/OnBoarding/onboarding_screen.dart';
 import '../Modules/Pharmacies/pharmacies_screen.dart';
+import '../Modules/Policies/policies_screen.dart';
+import '../Modules/Profile/user_profile_screen.dart';
 import '../Modules/RequestService/request_service_screen.dart';
 import '../Modules/RequestService/widgets/send_resquest_successfully.dart';
 import '../Modules/ResetPassword/reset_password_screen.dart';
@@ -16,6 +21,7 @@ import '../Modules/ServiceProviderInformation/service_provider_information_scree
 import '../Modules/ServiceProviders/service_providers_screen.dart';
 import '../Modules/Splash/splash_screen.dart';
 import '../Modules/Sponsors/sponsors_screen.dart';
+import '../Modules/SupportChat/support_chat_screen.dart';
 import '../Modules/UserInfomations/user_information_screen.dart';
 import '../Modules/UserSignUp/user_sign_up_screen.dart';
 import '../Modules/VerificationAccountOtp/verification_otp_screen.dart';
@@ -80,12 +86,79 @@ class GoRouterConfig{
         routes: const <RouteBase>[],
       ),
       GoRoute(
+        name: SupportChatScreen.routeName,
+        path: "/${SupportChatScreen.routeName}",
+        pageBuilder: (_, GoRouterState state) {
+          return getCustomTransitionPage(
+            state: state,
+            child:  const SupportChatScreen(),
+          );
+        },
+        routes: const <RouteBase>[],
+      ),
+      GoRoute(
+        name: PoliciesScreen.routeName,
+        path: "/${PoliciesScreen.routeName}",
+        pageBuilder: (_, GoRouterState state) {
+          return getCustomTransitionPage(
+            state: state,
+            child:  const PoliciesScreen(),
+          );
+        },
+        routes: const <RouteBase>[],
+      ),
+      GoRoute(
+        name: EditProfileScreen.routeName,
+        path: "/${EditProfileScreen.routeName}",
+        pageBuilder: (_, GoRouterState state) {
+          return getCustomTransitionPage(
+            state: state,
+            child:  const EditProfileScreen(),
+          );
+        },
+        routes: const <RouteBase>[],
+      ),
+      GoRoute(
+        name: ChangePhoneScreen.routeName,
+        path: "/${ChangePhoneScreen.routeName}",
+        pageBuilder: (_, GoRouterState state) {
+          return getCustomTransitionPage(
+            state: state,
+            child:  const ChangePhoneScreen(),
+          );
+        },
+        routes: const <RouteBase>[],
+      ),
+      GoRoute(
+        name: ChangePasswordScreen.routeName,
+        path: "/${ChangePasswordScreen.routeName}",
+        pageBuilder: (_, GoRouterState state) {
+          return getCustomTransitionPage(
+            state: state,
+            child:  const ChangePasswordScreen(),
+          );
+        },
+        routes: const <RouteBase>[],
+      ),
+
+      GoRoute(
         name: ServiceProviderInformationScreen.routeName,
         path: "/${ServiceProviderInformationScreen.routeName}",
         pageBuilder: (_, GoRouterState state) {
           return getCustomTransitionPage(
             state: state,
             child:  const ServiceProviderInformationScreen(),
+          );
+        },
+        routes: const <RouteBase>[],
+      ),
+      GoRoute(
+        name: UserProfileScreen.routeName,
+        path: "/${UserProfileScreen.routeName}",
+        pageBuilder: (_, GoRouterState state) {
+          return getCustomTransitionPage(
+            state: state,
+            child:  const UserProfileScreen(),
           );
         },
         routes: const <RouteBase>[],

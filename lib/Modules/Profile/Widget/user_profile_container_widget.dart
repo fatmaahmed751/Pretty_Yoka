@@ -21,45 +21,66 @@ class UserProfileContainerWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding:  EdgeInsetsDirectional.only(top: 8.h,bottom: 8.h),
+      padding:  EdgeInsetsDirectional.only(top: 0.h,bottom: 8.h),
       child: Container(
-        height: 40.h,
+        height: 58.h,
         width: 303.w,
         decoration: BoxDecoration(
-          color: ThemeClass.of(context).background,
+          color: ThemeClass.of(context).textFieldBackground,
         ),
         child: Padding(
-          padding: EdgeInsetsDirectional.symmetric(horizontal: 16.w),
-          child: Row(
+          padding: EdgeInsetsDirectional.symmetric(horizontal: 12.w),
+          child: Column(
             children: [
-              Container(
-                  width: 40.w,
-                  height: 40.h,
-                  child: Padding(
-                    padding: EdgeInsetsDirectional.symmetric(
-                        horizontal: 6.w, vertical: 6.h),
-                    child: Transform.flip(
-                      flipX:
-                          SharedPref.getCurrentLanguage() == "ar" ? true : false,
-                      child: SvgPicture.asset(
-                        image,
+              Row(
+                children: [
+                  Container(
+                      width: 36.w,
+                      height: 36.h,
+                      decoration: BoxDecoration(
+                          color: ThemeClass.of(context).background,
+                          borderRadius: BorderRadius.circular(30.r)
                       ),
+                      child: Padding(
+                        padding: EdgeInsetsDirectional.symmetric(
+                            horizontal: 8.w, vertical: 8.h),
+                        child: Transform.flip(
+                          flipX:
+                              SharedPref.getCurrentLanguage() == "ar" ? true : false,
+                          child: SizedBox(
+                            width: 22.w,
+                            height: 22.h,
+                            // decoration: BoxDecoration(
+                            //   color: ThemeClass.of(context).background,
+                            //   borderRadius: BorderRadius.circular(30.r)
+                            // ),
+                            child: SvgPicture.asset(
+                              image,
+                            ),
+                          ),
+                        ),
+                      )),
+                  Gap(10.w),
+                  Text(
+                    text,
+                    style: TextStyleHelper.of(context).h_15,
+                  ),
+                  const Spacer(),
+                  Transform.flip(
+                    flipX: SharedPref.getCurrentLanguage() == "ar" ? true : false,
+                    child: Center(
+                      child: SvgPicture.asset(Assets.imagesArrowForward),
                     ),
-                  )),
-              Gap(10.w),
-              Text(
-                text,
-                style: TextStyleHelper.of(context).h_18,
-              ),
-              const Spacer(),
-              Transform.flip(
-                flipX: SharedPref.getCurrentLanguage() == "ar" ? true : false,
-                child: Center(
-                  child: SvgPicture.asset(Assets.imagesArrowForward),
-                ),
-              ),
+                  ),
 
-              // SvgPicture.asset(Assets.imagesArrowForward)
+                  // SvgPicture.asset(Assets.imagesArrowForward)
+                ],
+              ),
+              Divider(
+                color: ThemeClass.of(context).background,
+                indent: 20.w,
+                endIndent: 20.w,
+              )
             ],
           ),
         ),

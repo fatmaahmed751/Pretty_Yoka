@@ -26,7 +26,7 @@ class ThemeClass extends ThemeModel{
     super.mainBlack = const Color(0xff292929),
     super.secondaryBlackColor = const Color(0xff1A1919),
     super.waiting = const Color(0x33b4b1b2),
-    super.cancel = const Color(0xffEA3829),
+    super.cancel = const Color(0xffC73B3B),
     super.textFieldBackground = const Color(0xffFCF3F7),
     super.success = const Color(0xffB4B1B2),
 
