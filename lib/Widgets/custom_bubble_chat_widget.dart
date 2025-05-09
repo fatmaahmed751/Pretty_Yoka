@@ -1,6 +1,7 @@
 
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:gap/gap.dart';
 import '../Utilities/shared_preferences.dart';
 import '../Utilities/text_style_helper.dart';
 import '../Utilities/theme_helper.dart';
@@ -24,64 +25,130 @@ class BubbleChat extends StatefulWidget {
 }
 
 class _BubbleChatState extends State<BubbleChat> {
-  String? _reaction;
+
 
   @override
   Widget build(BuildContext context) {
-    return    Container(
-      width: 390.w,
-      margin: widget.isSent? EdgeInsets.only(
-          top: 5.h,bottom:5.h):EdgeInsets.only(top:9.h,bottom:9.h),
-      decoration: BoxDecoration(
-       // image: DecorationImage(image:AssetImage(Assets.imagesPrin)),
-        color: widget.isSent
-            ? ThemeClass.of(context).primaryColor
-            : ThemeClass.of(context).background.withOpacity(0.20),
-        borderRadius: BorderRadius.only(
-          bottomLeft: Radius.circular(30.r),
-          topRight: widget.isSent ? Radius.zero : Radius.circular(30.r),
-          bottomRight: Radius.circular(30.r),
-          topLeft: widget.isSent ? Radius.circular(30.r) : Radius.zero,
-        ),
-      ),
-      child: Padding(
-        padding: EdgeInsetsDirectional.only(start: 18.w, top: 15.h),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            if (widget.senderName != null)
-              Text(
-                widget.senderName ?? "",
-                style: TextStyleHelper.of(context).h_20.copyWith(
-                  color: ThemeClass.of(context).secondary,
+    return Row(
+      mainAxisAlignment: widget.isSent
+          ? MainAxisAlignment.start
+          : MainAxisAlignment.end,
+      children: [
+        Flexible( // 👈 Wrap with Flexible or Expanded
+          child: Container(
+            margin: EdgeInsets.symmetric(
+              vertical:widget.isSent ?2.h:4.h
+            ),
+            padding: EdgeInsets.symmetric(horizontal: 16.w, vertical: 12.h),
+            decoration: BoxDecoration(
+              image: DecorationImage(
+                image: AssetImage(
+                  widget.isSent ? Assets.imagesSenderBubble : Assets.imagesMessage,
                 ),
-              ),
-            Text(
-              widget.message,
-              style: TextStyleHelper.of(context).b_16.copyWith(
-                color: ThemeClass.of(context).secondary,
+                fit: BoxFit.fill,
               ),
             ),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.end,
+            child: Column(
+             crossAxisAlignment:
+             widget.isSent ? CrossAxisAlignment.start : CrossAxisAlignment.end,
               children: [
-                Padding(
-                  padding:SharedPref.getCurrentLanguage() == "en"? EdgeInsets.only(
-                      bottom: 8.h, right: 20.w):EdgeInsets.only(
-                      bottom: 8.h, left: 25.w),
-                  child: Text(
-                    widget.time,
-                    style: TextStyleHelper.of(context).b_16.copyWith(
-                      color: ThemeClass.of(context).secondary,
-                    ),
+                Text(
+                  widget.message,
+                 // textAlign: widget.isSent ? TextAlign.left : TextAlign.right,
+                  style: TextStyleHelper.of(context).b_16.copyWith(
+                    color: widget.isSent
+                        ? ThemeClass.of(context).mainBlack
+                        : ThemeClass.of(context).secondary,
+                  ),
+                  maxLines: null, // allow multiple lines
+                  softWrap: true, // wrap text if needed
+                ),
+                Gap(8.h),
+                Text(
+                  widget.time,
+                  style: TextStyleHelper.of(context).b_12.copyWith(
+                    color: widget.isSent
+                        ? ThemeClass.of(context).mainBlack.withOpacity(0.7)
+                        : ThemeClass.of(context).secondary.withOpacity(0.7),
                   ),
                 ),
               ],
             ),
-          ],
+          ),
         ),
-      ),
+      ],
     );
+      // Container(
+      //   //width: 390.w,
+      //   margin: widget.isSent ? EdgeInsets.only(
+      //       top: 2.h, bottom: 2.h) : EdgeInsets.only(top: 4.h, bottom:4.h),
+      //   decoration: BoxDecoration(
+      //   //  color: Colors.red,
+      //   image:widget.isSent?
+      //   const DecorationImage(image:AssetImage(Assets.imagesSenderBubble,
+      //     ),
+      //  //  fit: BoxFit.fill,
+      //   ):
+      //   const DecorationImage(image:AssetImage(Assets.imagesMessage),
+      //   fit: BoxFit.fill,
+      //   ),
+      //
+      //   ),
+      //   child: Padding(
+      //     padding: EdgeInsetsDirectional.symmetric(horizontal: 12.w, vertical:12.h),
+      //     child: Column(
+      //      crossAxisAlignment: CrossAxisAlignment.start,
+      //       children: [
+      //       //  Gap(8.h),
+      //         Text(
+      //           widget.message,
+      //           maxLines: 3,
+      //           style: TextStyleHelper
+      //               .of(context)
+      //               .b_16
+      //               .copyWith(
+      // overflow: TextOverflow.ellipsis,
+      //             color:widget.isSent? ThemeClass
+      //                 .of(context)
+      //                 .mainBlack:ThemeClass
+      //                 .of(context)
+      //                 .secondary,
+      //           ),
+      //         ),
+      //         Gap(8.h),
+      //         Row(
+      //           mainAxisAlignment:widget.isSent? MainAxisAlignment.end:MainAxisAlignment.start,
+      //           children: [
+      //             Padding(
+      //               padding: SharedPref.getCurrentLanguage() == "en" ? EdgeInsets
+      //                   .only(
+      //                   bottom: 0.h, right: 0.w) : EdgeInsets.only(
+      //                   bottom: 0.h, left:0.w),
+      //
+      //               child: Text(
+      //                 widget.time,
+      //                 style: TextStyleHelper
+      //                     .of(context)
+      //                     .b_16
+      //                     .copyWith(
+      //                   color: widget.isSent? ThemeClass
+      //                       .of(context)
+      //                       .mainBlack:ThemeClass
+      //                       .of(context)
+      //                       .secondary,
+      //                 ),
+      //               ),
+      //             ),
+      //           ],
+      //         ),
+      //       ],
+      //     ),
+      //   ),
+      //
+      //     );
+  }
+}
+    //////best
     //   GestureDetector(
     //   onLongPress: () {
     //     showGeneralDialog(
@@ -187,6 +254,7 @@ class _BubbleChatState extends State<BubbleChat> {
     //     ],
     //   ),
     // );
-  }
+//   }
+//
+// }
 
-}

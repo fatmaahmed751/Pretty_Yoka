@@ -39,6 +39,25 @@ class Strings {
   static const String serviceProviderDefinition = "serviceProviderDefinition";
   static const String sponsors = "sponsors";
   static const String servicePrice ="servicePrice";
+  static const String giveFaceBook ="giveFaceBook";
+  static const String cannotBooking ="cannotBooking";
+  static const String uploadId ="uploadId";
+  static const String facebook ="facebook";
+  static const String hintId ="hintId";
+  static const String id ="id";
+  static const String pleaseRate ="pleaseRate";
+  static const String send ="send";
+  static const String requestPrice ="requestPrice";
+
+  static const String search ="search";
+  static const String editYourRequest ="editYourRequest";
+  static const String searchAgain ="searchAgain";
+  static const String rateService ="rateService";
+  static const String rateServiceProvider ="rateServiceProvider";
+  static const String yourServiceComplete ="yourServiceComplete";
+  static const String openMic ="openMic";
+  static const String newFaceBook ="newFaceBook";
+  static const String uniqueBeauty ="uniqueBeauty";
   static const String noFavorite = "noFavorite";
   static const String services= "services";
   static const String notNotificationsYet = "notNotificationsYet";

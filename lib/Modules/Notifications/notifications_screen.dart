@@ -39,43 +39,159 @@ class _NotificationsScreenState extends StateMVC<NotificationsScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: CustomAppBarWidget.detailsScreen(
-        title: Strings.notification.tr,
-        space: 90.w,
-      ),
+      // appBar: CustomAppBarWidget.detailsScreen(
+      //   title: Strings.notification.tr,
+      //   space: 90.w,
+      // ),
       body: SafeArea(
         child: LoadingScreen(
           loading: con.loading,
           child: Padding(
             padding: EdgeInsetsDirectional.symmetric(
-                horizontal: 24.w, vertical: 8.h),
+                horizontal: 24.w, ),
             child: con.isLogin
-                ? ListView.separated(
-                    itemBuilder: (context, index) =>
-                         ShowNotificationItem(
-                         notificationType: NotificationType.feedback,
-                          button: CustomButtonWidget.primary(
-                              height: 44.h,
-                              width: 270.w,
-                              radius: 20.r,
-                              textStyle: TextStyleHelper.of(context).h_12.copyWith(
-                                color: ThemeClass.of(context).background
-                              ),
-                              title: Strings.writeFeedBack.tr,
-                              onTap: () {
-                                con.sendFeedBackSuccess();
-                                // SharedPref.getCurrentUser()!
-                                //         .token!
-                                //         .isNotEmpty
-                                //     ? GoRouter.of(context)
-                                //         .pushNamed(HomeScreen.routeName,)
-                                //     : GoRouter.of(context).pushNamed(
-                                //         RegisterScreen.routeName);
-                              }),
-                        ),
+                ? Column(
+                  children: [
+                    Gap(12.h),
+                    CustomAppBarWidget.mainScreen(
+                      title: Strings.notification.tr,
+                      space:95.w,
+                    ),
+                    Gap(24.h),
+                    GestureDetector(
+                      onTap: () async {},
+                      child: Container(
+                        decoration: BoxDecoration(
+                            color: ThemeClass.of(context).textFieldBackground,
+                            borderRadius: BorderRadius.circular(12.r)),
+                        child: Padding(
+                          padding:
+                          EdgeInsetsDirectional.symmetric(horizontal: 8.w, vertical: 12.h),
+                          child: Column(
+                            children: [
+                              Row(
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: [
+                                  CircleAvatar(
+                                    radius:20.r,
+                                    backgroundImage: const AssetImage(
+                                        Assets.imagesFavoriteServiceProvider),
+                                  ),
+                                  Gap(8.w),
+                                  Column(
+                                    crossAxisAlignment: CrossAxisAlignment.start,
+                                    children: [
+                                      Text(
+                                        Strings.serviceProviderName.tr,
+                                        style: TextStyleHelper.of(context)
+                                            .h_13
+                                            .copyWith(color: ThemeClass.of(context).mainBlack),
+                                      ),
+                                      SizedBox(
+                                        width: 245.w,
+                                        child: Text(
+                                          Strings.descNotification.tr,
+                                          style: TextStyleHelper.of(context).b_12.copyWith(
+                                              color:
+                                              ThemeClass.of(context).labelColor),
+                                        ),
+                                      ),
+                                      Gap(2.h),
 
-                    separatorBuilder: (context, index) => Gap(12.h),
-                    itemCount: 3)
+                                    ],
+                                  ),
+                                ],
+                              ),
+                              Gap(8.h),
+                              Row(
+                                mainAxisAlignment: MainAxisAlignment.center,
+                                children: [
+                                  GestureDetector(
+                                    onTap: (){},
+                                    child: Container(
+                                      width: 151.5.w,
+                                      height: 29.h,
+                                      decoration: BoxDecoration(
+                                        border:
+                                        Border.all(color: ThemeClass.of(context).labelColor.withAlpha((0.6 * 255).toInt())),
+                                        borderRadius: BorderRadius.circular(12.r),
+                                      ),
+                                      child: Center(
+                                        child: Padding(
+                                          padding:  EdgeInsetsDirectional.only(top: 2.h),
+                                          child: Text(
+                                            Strings.reject.tr,
+                                            style: TextStyleHelper.of(context).h_14.copyWith(
+                                                color: ThemeClass.of(context).labelColor.withAlpha((0.6 * 255).toInt())),
+                                          ),
+                                        ),
+                                      ),
+                                    ),
+                                  ),
+                                  Gap(8.w),
+                                  GestureDetector(
+                                    onTap: (){},
+                                    child: Container(
+                                      width: 151.5.w,
+                                      height: 29.h,
+                                      decoration: BoxDecoration(
+                                          borderRadius: BorderRadius.circular(12.r),
+                                          color: ThemeClass.of(context).primaryColor
+                                        // ThemeClass.of(context).background.withValues(0.20)
+                                      ),
+                                      //  backgroundColor: ThemeClass.of(context).primaryColor,
+                                      child: Center(
+                                        child: Padding(
+                                          padding:  EdgeInsetsDirectional.only(top: 2.h),
+                                          child: Text(
+                                            Strings.accept.tr,
+                                            style: TextStyleHelper.of(context).h_14.copyWith(
+                                              color: ThemeClass.of(context).background,
+                                            ),
+                                          ),
+                                        ),
+                                      ),
+                                    ),
+                                  ),
+                                ],
+                              ),
+                            ],
+                          ),
+
+                        ),
+                      ),
+                    ),
+                    Gap(8.h),
+                    Expanded(
+                      child: ListView.separated(
+                          itemBuilder: (context, index) =>
+                               ShowNotificationItem(
+                               notificationType: NotificationType.feedback,
+                                button: CustomButtonWidget.primary(
+                                    height: 29.h,
+                                    width: 311.w,
+                                    radius: 20.r,
+                                    textStyle: TextStyleHelper.of(context).h_14.copyWith(
+                                      color: ThemeClass.of(context).background
+                                    ),
+                                    title: Strings.rating.tr,
+                                    onTap: () {
+                                      con.sendFeedBackSuccess();
+                                      // SharedPref.getCurrentUser()!
+                                      //         .token!
+                                      //         .isNotEmpty
+                                      //     ? GoRouter.of(context)
+                                      //         .pushNamed(HomeScreen.routeName,)
+                                      //     : GoRouter.of(context).pushNamed(
+                                      //         RegisterScreen.routeName);
+                                    }),
+                              ),
+
+                          separatorBuilder: (context, index) => Gap(12.h),
+                          itemCount: 4),
+                    ),
+                  ],
+                )
                 : ContainerEmptyContentWidget(
                     image: Assets.imagesNoNotification,
                     mainText: Strings.notNotificationsYet.tr,

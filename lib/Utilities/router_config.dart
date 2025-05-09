@@ -1,22 +1,29 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
+import '../Modules/AllServices/all_services_screen.dart';
 import '../Modules/Bookings/bookings_screen.dart';
+import '../Modules/CategoryForSpecificService/category_for_service_screen.dart';
 import '../Modules/ChangePassword/change_password_screen.dart';
 import '../Modules/ChangePhoneNumber/change_phone_number_screen.dart';
 import '../Modules/EditProfile/edit_profile_screen.dart';
 import '../Modules/Favotites/favorite_screen.dart';
 import '../Modules/ForgetPassword/forget_password_screen.dart';
+import '../Modules/GeneralRequest/general_request_screen.dart';
+import '../Modules/GeneralServiceProviders/general_service_providers_screen.dart';
 import '../Modules/Home/home_screen.dart';
 import '../Modules/Login/user_login_screen.dart';
+import '../Modules/Notifications/notifications_screen.dart';
 import '../Modules/OnBoarding/onboarding_screen.dart';
 import '../Modules/Pharmacies/pharmacies_screen.dart';
 import '../Modules/Policies/policies_screen.dart';
 import '../Modules/Profile/user_profile_screen.dart';
 import '../Modules/RequestService/request_service_screen.dart';
 import '../Modules/RequestService/widgets/send_resquest_successfully.dart';
+import '../Modules/RequestServiceFromSpecificServiceProvider/request_service_from_specific_service_provider_screen.dart';
 import '../Modules/ResetPassword/reset_password_screen.dart';
 import '../Modules/ResetPassword/widget/verify_password_otp.dart';
 import '../Modules/SelectRole/select_role_screen.dart';
+import '../Modules/ServiceInformationForSpecificCategory/service_information_for_specific_category_screen.dart';
 import '../Modules/ServiceProviderInformation/service_provider_information_screen.dart';
 import '../Modules/ServiceProviders/service_providers_screen.dart';
 import '../Modules/Splash/splash_screen.dart';
@@ -148,6 +155,85 @@ class GoRouterConfig{
           return getCustomTransitionPage(
             state: state,
             child:  const ServiceProviderInformationScreen(),
+          );
+        },
+        routes: const <RouteBase>[],
+      ),
+
+      GoRoute(
+        name: NotificationsScreen.routeName,
+        path: "/${NotificationsScreen.routeName}",
+        pageBuilder: (_, GoRouterState state) {
+          return getCustomTransitionPage(
+            state: state,
+            child:  const NotificationsScreen(),
+          );
+        },
+        routes: const <RouteBase>[],
+      ),
+
+      GoRoute(
+        name: GeneralServiceProvidersScreen.routeName,
+        path: "/${GeneralServiceProvidersScreen.routeName}",
+        pageBuilder: (_, GoRouterState state) {
+          return getCustomTransitionPage(
+            state: state,
+            child:  const GeneralServiceProvidersScreen(),
+          );
+        },
+        routes: const <RouteBase>[],
+      ),
+      GoRoute(
+        name: GeneralRequestServiceScreen.routeName,
+        path: "/${GeneralRequestServiceScreen.routeName}",
+        pageBuilder: (_, GoRouterState state) {
+          return getCustomTransitionPage(
+            state: state,
+            child:  const GeneralRequestServiceScreen(),
+          );
+        },
+        routes: const <RouteBase>[],
+      ),
+      GoRoute(
+        name: RequestServiceFromSpecificServiceProviderScreen.routeName,
+        path: "/${RequestServiceFromSpecificServiceProviderScreen.routeName}",
+        pageBuilder: (_, GoRouterState state) {
+          return getCustomTransitionPage(
+            state: state,
+            child:  const RequestServiceFromSpecificServiceProviderScreen(),
+          );
+        },
+        routes: const <RouteBase>[],
+      ),
+      GoRoute(
+        name: ServiceProviderInformationForSpecificScreen.routeName,
+        path: "/${ServiceProviderInformationForSpecificScreen.routeName}",
+        pageBuilder: (_, GoRouterState state) {
+          return getCustomTransitionPage(
+            state: state,
+            child:  const ServiceProviderInformationForSpecificScreen(),
+          );
+        },
+        routes: const <RouteBase>[],
+      ),
+      GoRoute(
+        name: AllServicesScreen.routeName,
+        path: "/${AllServicesScreen.routeName}",
+        pageBuilder: (_, GoRouterState state) {
+          return getCustomTransitionPage(
+            state: state,
+            child:  const AllServicesScreen(),
+          );
+        },
+        routes: const <RouteBase>[],
+      ),
+      GoRoute(
+        name: CategoryForServicesScreen.routeName,
+        path: "/${CategoryForServicesScreen.routeName}",
+        pageBuilder: (_, GoRouterState state) {
+          return getCustomTransitionPage(
+            state: state,
+            child:  const CategoryForServicesScreen(),
           );
         },
         routes: const <RouteBase>[],

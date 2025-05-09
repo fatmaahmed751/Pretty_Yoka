@@ -1,4 +1,6 @@
+import 'package:Pretty/Modules/ServiceInformationForSpecificCategory/service_information_for_specific_category_screen.dart';
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 import '../../Utilities/strings.dart';
 import '../../Utilities/text_style_helper.dart';
 import '../../Utilities/theme_helper.dart';
@@ -36,7 +38,7 @@ class ServiceProviderWidget extends StatelessWidget{
               blurRadius: 4,
               //spreadRadius: 0.5,
               offset: const Offset(0,
-                  2), // Shadow only appears below
+                  3), // Shadow only appears below
             ),
           ]),
       child: Padding(

@@ -18,6 +18,7 @@ import '../../Utilities/dialog_helper.dart';
 import '../../Utilities/router_config.dart';
 import '../../Utilities/shared_preferences.dart';
 import '../../Utilities/theme_helper.dart';
+import '../../Widgets/Alert_for_complete_information.dart';
 import '../../Widgets/alert_dialoge_widget.dart';
 import '../../generated/assets.dart';
 import 'Widget/change_languages_widget.dart';
@@ -112,29 +113,42 @@ class UserProfileController extends ControllerMVC {
     return base64Encode(imageBytes);
   }
 
-  userLogOutPop(BuildContext context) {
-    return ToastHelper.showSuccess(
-      secondMessage: "Strings.phoneChanged.tr",
-        message: Strings.support.tr, icon:Image(
-      width: 24.w,
-      height: 24.h,
-      image: AssetImage(Assets.imagesSuccessImage,
-      ),
-    ) , context: context);
-    //   DialogHelper.custom(context: context).customDialog(
-    //    dialogWidget:
-    //  AlertWarningWidget(
-    //       des:Strings.deleteLogOutSide.tr,
-    //       secondButtonText: Strings.logOut.tr,
-    //       mainText:Strings.confirmLogout.tr,
-    //       onButtonReject: currentContext_!.pop,
-    //       onButtonAccept: () {
-    //      //   GoRouter.of(context).pushNamed(LoginScreen.routeName);
-    //       },
-    //
-    //   ),
-    // );
+  // userLogOutPop(BuildContext context) {
+  //   return
+  //     DialogHelper.custom(context: context).customDialog(
+  //      dialogWidget:
+  //    AlertWarningWidget(
+  //         des:Strings.deleteLogOutSide.tr,
+  //         secondButtonText: Strings.logOut.tr,
+  //         mainText:Strings.confirmLogout.tr,
+  //         onButtonReject: currentContext_!.pop,
+  //         onButtonAccept: () {
+  //        //   GoRouter.of(context).pushNamed(LoginScreen.routeName);
+  //         },
+  //
+  //     ),
+  //   );
+  // }
+
+  userLogOutPop(BuildContext context,Widget widget) {
+    return
+      DialogHelper.custom(context: context).customDialog(
+       dialogWidget:
+       AlertForCompleteInformation(
+         thirdText: Strings.id.tr,
+          des:Strings.cannotBooking.tr,
+          secondButtonText: Strings.save.tr,
+          mainText:Strings.uploadId.tr,
+          onButtonReject: currentContext_!.pop,
+          onButtonAccept: () {
+         //   GoRouter.of(context).pushNamed(LoginScreen.routeName);
+          }, widget:widget ,
+
+             ),
+    );
   }
+
+
   //
   //  deleteUserAccountPop(BuildContext context) {
   //   return DialogHelper.custom(context: context).customDialog(

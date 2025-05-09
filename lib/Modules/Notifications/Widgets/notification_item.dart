@@ -49,79 +49,109 @@ class ShowNotificationItemState extends StateMVC<ShowNotificationItem> {
       child: Container(
         decoration: BoxDecoration(
             color: ThemeClass.of(context).textFieldBackground,
-            borderRadius: BorderRadius.circular(20.r)),
+            borderRadius: BorderRadius.circular(12.r)),
         child: Padding(
           padding:
-              EdgeInsetsDirectional.symmetric(horizontal: 8.w, vertical: 8.h),
-          child: Row(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            mainAxisAlignment: MainAxisAlignment.end,
+              EdgeInsetsDirectional.symmetric(horizontal: 8.w, vertical: 12.h),
+          child: Column(
             children: [
-              Padding(
-                padding: EdgeInsetsDirectional.only(top: 2.h),
-                child: Container(
-                  width: 32.w,
-                  height: 32.h,
-                  decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(12.r),
-                    border: Border.all(
-                        color: ThemeClass.of(context).mainSecondary),
-                    // ThemeClass.of(context).pinkColor
-                  ),
-                  child: Padding(
-                    padding: EdgeInsetsDirectional.symmetric(
-                        horizontal: 6.w, vertical: 6.h),
-                    child: SvgPicture.asset(
-                      Assets.imagesNotificationsIcon,
-                      width: 15.w,
-                      height: 15.h,
-                      colorFilter: ColorFilter.mode(
-                          ThemeClass.of(context).mainSecondary,
-                          BlendMode.srcIn),
-                    ),
-                  ),
-                ),
-              ),
-              Gap(8.w),
-              Column(
-               crossAxisAlignment: CrossAxisAlignment.start,
+              Row(
+                crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  Text(
-                    Strings.offers.tr,
-                    style: TextStyleHelper.of(context)
-                        .h_15
-                        .copyWith(color: ThemeClass.of(context).mainBlack),
+                  CircleAvatar(
+                    radius:20.r,
+                    backgroundImage: const AssetImage(
+                        Assets.imagesFavoriteServiceProvider),
                   ),
-                  SizedBox(
-                    width: 245.w,
-                    child: Text(
-                      Strings.descNotification.tr,
-                      style: TextStyleHelper.of(context).b_14.copyWith(
-                          color:
-                              ThemeClass.of(context).secondaryBlackColor),
-                    ),
-                  ),
-                  Gap(2.h),
-                  if (widget.notificationType == NotificationType.feedback)
-                    widget.button ?? const SizedBox(),
-                  Gap(8.h),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.end,
+                  Gap(8.w),
+                  Column(
+                   crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                     Gap(210.w),
                       Text(
-                        "11:00 Am",
-                        style: TextStyleHelper.of(context).b_14.copyWith(
-                            color: ThemeClass.of(context).secondaryBlackColor),
+                        Strings.serviceProviderName.tr,
+                        style: TextStyleHelper.of(context)
+                            .h_13
+                            .copyWith(color: ThemeClass.of(context).mainBlack),
                       ),
+                      SizedBox(
+                        width: 245.w,
+                        child: Text(
+                          Strings.descNotification.tr,
+                          style: TextStyleHelper.of(context).b_12.copyWith(
+                              color:
+                                  ThemeClass.of(context).labelColor),
+                        ),
+                      ),
+                      Gap(2.h),
+                      // if (widget.notificationType == NotificationType.feedback)
+                      //   widget.button ?? const SizedBox(),
                     ],
-                  ),
+                  )
                 ],
-              )
+              ),
+              Gap(8.h),
+
+              if (widget.notificationType == NotificationType.feedback)
+
+              widget.button ?? const SizedBox(),
             ],
           ),
+
         ),
       ),
     );
   }
+
+  // Row(
+  // mainAxisAlignment: MainAxisAlignment.center,
+  // children: [
+  // GestureDetector(
+  // onTap: onButtonReject,
+  // child: Container(
+  // width: 128.5.w,
+  // height: 32.h,
+  // decoration: BoxDecoration(
+  // border:
+  // Border.all(color: ThemeClass.of(context).labelColor.withAlpha((0.6 * 255).toInt())),
+  // borderRadius: BorderRadius.circular(12.r),
+  // ),
+  // child: Center(
+  // child: Padding(
+  // padding:  EdgeInsetsDirectional.only(top: 2.h),
+  // child: Text(
+  // Strings.cancel.tr,
+  // style: TextStyleHelper.of(context).h_14.copyWith(
+  // color: ThemeClass.of(context).labelColor.withAlpha((0.6 * 255).toInt())),
+  // ),
+  // ),
+  // ),
+  // ),
+  // ),
+  // Gap(8.w),
+  // GestureDetector(
+  // onTap: onButtonAccept,
+  // child: Container(
+  // width: 128.5.w,
+  // height: 32.h,
+  // decoration: BoxDecoration(
+  // borderRadius: BorderRadius.circular(12.r),
+  // color: ThemeClass.of(context).primaryColor
+  // // ThemeClass.of(context).background.withValues(0.20)
+  // ),
+  // //  backgroundColor: ThemeClass.of(context).primaryColor,
+  // child: Center(
+  // child: Padding(
+  // padding:  EdgeInsetsDirectional.only(top: 2.h),
+  // child: Text(
+  // secondButtonText,
+  // style: TextStyleHelper.of(context).h_14.copyWith(
+  // color: ThemeClass.of(context).background,
+  // ),
+  // ),
+  // ),
+  // ),
+  // ),
+  // ),
+  // ],
+  // ),
 }

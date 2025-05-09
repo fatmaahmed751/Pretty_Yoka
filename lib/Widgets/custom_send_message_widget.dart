@@ -18,7 +18,7 @@ class CustomSendMessageWidget extends StatelessWidget {
     return Row(
       children: [
         CustomTextFieldWidget(
-          width: 265.w,
+          width: 275.w,
             height: 40.h,
             hint: Strings.writeAMessage.tr,
     backGroundColor: ThemeClass.of(context).labelColor,

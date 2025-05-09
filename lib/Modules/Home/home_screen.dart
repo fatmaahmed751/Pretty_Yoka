@@ -18,6 +18,7 @@ import '../../Widgets/loading_screen.dart';
 import '../../Widgets/service_provider_widget.dart';
 import '../../Widgets/sponsers_widget.dart';
 import '../../generated/assets.dart';
+import '../AllServices/all_services_screen.dart';
 import '../Sponsors/sponsors_screen.dart';
 import 'home_controller.dart';
 
@@ -163,7 +164,7 @@ class _HomeScreenState extends StateMVC<HomeScreen> {
                             Spacer(),
                             GestureDetector(
                               onTap: () {
-                                //    GoRouter.of(context).pushNamed(AllServicesScreen.routeName);
+                                  GoRouter.of(context).pushNamed(AllServicesScreen.routeName);
                               },
                               child: Text(
                                 Strings.viewAll.tr,

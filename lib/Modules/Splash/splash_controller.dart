@@ -8,6 +8,7 @@ import "package:geolocator/geolocator.dart";
 import "../../Widgets/location_services.dart";
 import "../Bookings/bookings_screen.dart";
 import "../Favotites/favorite_screen.dart";
+import "../GeneralRequest/general_request_screen.dart";
 import "../OnBoarding/onboarding_screen.dart";
 import "../Profile/user_profile_screen.dart";
 import "../RequestService/request_service_screen.dart";
@@ -84,7 +85,7 @@ class SplashController extends ControllerMVC with WidgetsBindingObserver {
     if (SharedPref.isLogin()) {
     GoRouter.of(context).goNamed(OnBoardingScreen.routeName);
     } else {
-      GoRouter.of(context).goNamed(UserProfileScreen.routeName);
+      GoRouter.of(context).goNamed(GeneralRequestServiceScreen.routeName);
     }
   }
 

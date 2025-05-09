@@ -1,3 +1,4 @@
+import 'package:Pretty/Modules/CategoryForSpecificService/category_for_service_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:gap/gap.dart';
@@ -18,7 +19,7 @@ class CategoryWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: (){
-        //GoRouter.of(context).pushNamed(ServicesListScreen.routeName);
+       GoRouter.of(context).pushNamed(CategoryForServicesScreen.routeName);
       },
       child: Container(
         decoration: BoxDecoration(

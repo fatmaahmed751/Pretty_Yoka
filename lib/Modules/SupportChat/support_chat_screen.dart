@@ -52,14 +52,13 @@ class SupportChatScreenState extends StateMVC<SupportChatScreen> {
                     Gap(24.h),
                     const BubbleChat(
                       message:
-                         " Hi, i am lina and i have a problem on my" ,
-                      senderName: "Ahmed Mohammed",
+                         " Hi, i am lina and i have a problem on my Hi, i am lina and i have a problem on my" ,
                       time: "2:00",
                       isSent: false,
                     ),
                     const BubbleChat(
                       message:
-                         " Hi, i am lina and i have a problem on my" ,
+                         " Hi, i am lina and i have a" ,
                       time: "2:05",
                       isSent: true,
                     ),

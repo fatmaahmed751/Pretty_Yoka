@@ -1,4 +1,5 @@
 
+import 'package:Pretty/Modules/ServiceInformationForSpecificCategory/service_information_for_specific_category_controller.dart';
 import 'package:Pretty/Modules/ServiceProviderInformation/service_provider_information_controller.dart';
 import 'package:Pretty/core/Language/locales.dart';
 import 'package:flutter/material.dart';
@@ -17,24 +18,26 @@ import '../../Widgets/custom_main_side_text_widget.dart';
 import '../../Widgets/loading_screen.dart';
 import '../../generated/assets.dart';
 import '../RequestService/request_service_screen.dart';
+import '../RequestService/widgets/send_resquest_successfully.dart';
+import '../RequestServiceFromSpecificServiceProvider/request_service_from_specific_service_provider_screen.dart';
 
-class ServiceProviderInformationScreen extends StatefulWidget {
-  static const routeName = "ServiceProviderInformation";
-  const ServiceProviderInformationScreen({super.key});
+class ServiceProviderInformationForSpecificScreen extends StatefulWidget {
+  static const routeName = "ServiceProviderInformationForSpecific";
+  const ServiceProviderInformationForSpecificScreen({super.key});
 
   @override
-  ServiceProviderInformationScreenState createState() =>
-      ServiceProviderInformationScreenState();
+  ServiceProviderInformationForSpecificScreenState createState() =>
+      ServiceProviderInformationForSpecificScreenState();
 }
 
-class ServiceProviderInformationScreenState
-    extends StateMVC<ServiceProviderInformationScreen> {
-  ServiceProviderInformationScreenState()
-      : super(ServiceProviderInformationController()) {
-    con = ServiceProviderInformationController();
+class ServiceProviderInformationForSpecificScreenState
+    extends StateMVC<ServiceProviderInformationForSpecificScreen> {
+  ServiceProviderInformationForSpecificScreenState()
+      : super(ServiceProviderInformationForSpecificController()) {
+    con = ServiceProviderInformationForSpecificController();
   }
 
-  late ServiceProviderInformationController con;
+  late ServiceProviderInformationForSpecificController con;
   int activeText = 0;
   @override
   void initState() {
@@ -76,9 +79,9 @@ class ServiceProviderInformationScreenState
                                 ),
                                 const Spacer(),
                                 SvgPicture.asset(Assets.imagesFavoriteNavBar,
-                                colorFilter:  ColorFilter.mode(
-                                    ThemeClass.of(context).primaryColor,
-                                    BlendMode.srcIn),)
+                                  colorFilter:  ColorFilter.mode(
+                                      ThemeClass.of(context).primaryColor,
+                                      BlendMode.srcIn),)
                               ],
                             ),
 
@@ -131,7 +134,7 @@ class ServiceProviderInformationScreenState
                                     ),
 
                                     SizedBox(
-                                   //   width: 60.w,
+                                      //   width: 60.w,
                                       child: Row(
                                         children: [
                                           SizedBox(
@@ -195,16 +198,16 @@ class ServiceProviderInformationScreenState
                                   child: Row(
                                     crossAxisAlignment: CrossAxisAlignment.start,
                                     children: [
-                                       Padding(
-                                         padding:  EdgeInsetsDirectional.symmetric(horizontal: 8.w,
-                                             vertical: 4.h,),
-                                         child: Icon(Icons.circle, size: 5,
-                                         color: ThemeClass.of(context).labelColor,),
-                                       ),
+                                      Padding(
+                                        padding:  EdgeInsetsDirectional.symmetric(horizontal: 8.w,
+                                          vertical: 4.h,),
+                                        child: Icon(Icons.circle, size: 5,
+                                          color: ThemeClass.of(context).labelColor,),
+                                      ),
                                       Expanded(child: Text(service,
-                                      style:TextStyleHelper.of(context).b_16.copyWith(
-                                        color: ThemeClass.of(context).labelColor
-                                      ) ,)),
+                                        style:TextStyleHelper.of(context).b_16.copyWith(
+                                            color: ThemeClass.of(context).labelColor
+                                        ) ,)),
                                     ],
                                   ),
                                 )).toList(),
@@ -250,9 +253,10 @@ class ServiceProviderInformationScreenState
           EdgeInsetsDirectional.symmetric(horizontal: 24.w, vertical: 24.h),
           child: CustomButtonWidget.primary(
               height: 44.h,
-              title: Strings.requestService.tr,
+              title: Strings.requestPrice.tr,
               onTap: () {
-GoRouter.of(context).pushNamed(RequestServiceScreen.routeName);
+
+                GoRouter.of(context).pushNamed(SendRequestSuccessfully.routeName);
 
               }),
         ),

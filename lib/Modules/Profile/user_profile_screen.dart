@@ -3,9 +3,11 @@ import 'package:Pretty/Modules/ChangePassword/change_password_screen.dart';
 import 'package:Pretty/Modules/ChangePhoneNumber/change_phone_number_screen.dart';
 import 'package:Pretty/Modules/EditProfile/edit_profile_screen.dart';
 import 'package:Pretty/Modules/Profile/user_profile_controller.dart';
+import 'package:Pretty/Widgets/custom_textfield_widget.dart';
 import 'package:Pretty/core/Language/locales.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 import 'package:gap/gap.dart';
 import 'package:go_router/go_router.dart';
 import 'package:mvc_pattern/mvc_pattern.dart';
@@ -162,7 +164,38 @@ class _UserProfileScreenState extends StateMVC<UserProfileScreen> {
 
                           GestureDetector(
                             onTap: () {
-                              con.userLogOutPop(context);
+                              con.userLogOutPop(context,
+                              Container(
+                                width: 267.w,
+                                height: 40.h,
+                                decoration: BoxDecoration(
+                                  color: ThemeClass.of(context).mainSecondary,
+                                  borderRadius: BorderRadius.circular(12.r)
+                                ),
+                                child: Padding(
+                                  padding:  EdgeInsetsDirectional.symmetric(horizontal: 0.w,
+                                  vertical: 0.h),
+                                  child:CustomTextFieldWidget(
+                                    hint:Strings.hintId.tr,
+                                    textAlign: TextAlignVertical.center,
+                                    hintStyle:TextStyleHelper.of(context).b_14.copyWith(
+                                     color: ThemeClass.of(context).labelColor,),
+                                    onSuffixTap: (){},
+                                    suffixIcon:SvgPicture.asset(Assets.imagesUploadId) ,
+                                  ),
+
+                                  )
+                                  // Row(
+                                  //   children: [
+                                  //     Text(Strings.hintId.tr,
+                                  //     style: TextStyleHelper.of(context).b_14.copyWith(
+                                  //         color: ThemeClass.of(context).labelColor,)),
+                                  //     const Spacer(),
+                                  //     SvgPicture.asset(Assets.imagesUploadId)
+                                  //   ],
+                                  // ),
+                                ),
+                             );
                             },
                             child: UserProfileContainerWidget(
                               image: (Assets.imagesLogOut),

@@ -28,6 +28,7 @@ class Assets {
   static const String imagesFavoriteNavBar = 'assets/images/favoriteNavBar.svg';
   static const String imagesFavoriteServiceProvider = 'assets/images/favoriteServiceProvider.png';
   static const String imagesFillBooking = 'assets/images/fillBooking.svg';
+  static const String imagesFilledStar = 'assets/images/filledStar.svg';
   static const String imagesGoogleIcon = 'assets/images/googleIcon.svg';
   static const String imagesHomeNavBar = 'assets/images/homeNavBar.svg';
   static const String imagesHomeNoFill = 'assets/images/homeNoFill.svg';
@@ -35,10 +36,12 @@ class Assets {
   static const String imagesLocationIcon = 'assets/images/locationIcon.svg';
   static const String imagesLockIcon = 'assets/images/lockIcon.svg';
   static const String imagesLogOut = 'assets/images/logOut.svg';
+  static const String imagesMessage = 'assets/images/message.png';
   static const String imagesMicIcon = 'assets/images/micIcon.svg';
   static const String imagesNoBookingP = 'assets/images/noBookingP.svg';
   static const String imagesNoFavorites = 'assets/images/noFavorites.svg';
   static const String imagesNoNotification = 'assets/images/noNotification.png';
+  static const String imagesNoServiceProvider = 'assets/images/noServiceProvider.svg';
   static const String imagesNotificationIcon = 'assets/images/notificationIcon.svg';
   static const String imagesNotificationsIcon = 'assets/images/notificationsIcon.svg';
   static const String imagesObsecure = 'assets/images/obsecure.svg';
@@ -59,6 +62,7 @@ class Assets {
   static const String imagesRedFavIcon = 'assets/images/redFavIcon.svg';
   static const String imagesRequestSend = 'assets/images/requestSend.png';
   static const String imagesSalonImage = 'assets/images/salonImage.png';
+  static const String imagesSenderBubble = 'assets/images/senderBubble.png';
   static const String imagesSettings = 'assets/images/settings.svg';
   static const String imagesSplash = 'assets/images/splash.png';
   static const String imagesStarIcon = 'assets/images/starIcon.svg';
@@ -67,6 +71,8 @@ class Assets {
   static const String imagesTimeIcon = 'assets/images/timeIcon.svg';
   static const String imagesUnCheckBox = 'assets/images/unCheckBox.svg';
   static const String imagesUnRatedIcon = 'assets/images/unRatedIcon.svg';
+  static const String imagesUnratedStar = 'assets/images/unratedStar.svg';
+  static const String imagesUploadId = 'assets/images/uploadId.svg';
   static const String imagesUserDefaultImage = 'assets/images/userDefaultImage.png';
   static const String imagesUserIcon = 'assets/images/userIcon.svg';
   static const String imagesWhiteArrow = 'assets/images/whiteArrow.svg';
