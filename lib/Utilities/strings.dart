@@ -45,10 +45,21 @@ class Strings {
   static const String facebook ="facebook";
   static const String hintId ="hintId";
   static const String id ="id";
+  static const String confirmBooking ="confirmBooking";
+  static const String payment ="payment";
+
   static const String pleaseRate ="pleaseRate";
   static const String send ="send";
   static const String requestPrice ="requestPrice";
-
+  static const String nowCanBuy ="nowCanBuy";
+  static const String wallet ="wallet";
+  static const String serviceInformation ="serviceInformation";
+  static const String serviceData ="serviceData";
+  static const String seif ="seif";
+  static const String settings ="settings";
+  static const String editPersonalData ="editPersonalData";
+  static const String editServices ="editServices";
+  static const String bio ="bio";
   static const String search ="search";
   static const String editYourRequest ="editYourRequest";
   static const String searchAgain ="searchAgain";

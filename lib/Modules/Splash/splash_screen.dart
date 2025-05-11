@@ -1,6 +1,7 @@
 import 'package:Pretty/Modules/Splash/splash_controller.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:lottie/lottie.dart';
 import 'package:mvc_pattern/mvc_pattern.dart';
 import 'package:provider/provider.dart';
 
@@ -52,15 +53,18 @@ class _SplashScreenState extends StateMVC<SplashScreen> {
           ),
           child: Padding(
             padding:  EdgeInsetsDirectional.symmetric(horizontal: 24.w),
-            child: Image.asset(
-              Assets.imagesSplash,
-              width: 313.w,
-              height: 214.h,
-            //  fit: BoxFit.cover,
-            ),
+            child: Center(
+          child: Lottie.asset(
+          "assets/images/prettyLogo.json",
+            width: 380.w,
+            height: 380.h,
+            fit: BoxFit.contain,
           ),
         ),
       ),
+          ),
+        ),
+
     );
   }
 }

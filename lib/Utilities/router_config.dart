@@ -5,6 +5,8 @@ import '../Modules/Bookings/bookings_screen.dart';
 import '../Modules/CategoryForSpecificService/category_for_service_screen.dart';
 import '../Modules/ChangePassword/change_password_screen.dart';
 import '../Modules/ChangePhoneNumber/change_phone_number_screen.dart';
+import '../Modules/ConfirmBooking/confirm_booking_screen.dart';
+import '../Modules/EWallet/wallet_screen.dart';
 import '../Modules/EditProfile/edit_profile_screen.dart';
 import '../Modules/Favotites/favorite_screen.dart';
 import '../Modules/ForgetPassword/forget_password_screen.dart';
@@ -22,16 +24,27 @@ import '../Modules/RequestService/widgets/send_resquest_successfully.dart';
 import '../Modules/RequestServiceFromSpecificServiceProvider/request_service_from_specific_service_provider_screen.dart';
 import '../Modules/ResetPassword/reset_password_screen.dart';
 import '../Modules/ResetPassword/widget/verify_password_otp.dart';
+import '../Modules/SelectJobTitle/select_job_title_screen.dart';
 import '../Modules/SelectRole/select_role_screen.dart';
 import '../Modules/ServiceInformationForSpecificCategory/service_information_for_specific_category_screen.dart';
+import '../Modules/ServiceProviderBookings/service_provider_bookings_screen.dart';
+import '../Modules/ServiceProviderHome/service_provider_home_screen.dart';
 import '../Modules/ServiceProviderInformation/service_provider_information_screen.dart';
+import '../Modules/ServiceProviderLogin/service_provider_login_screen.dart';
+import '../Modules/ServiceProviderPersonalData/service_provider_personal_data_screen.dart';
+import '../Modules/ServiceProviderProfile/service_provider_profile_screen.dart';
+import '../Modules/ServiceProviderSignUp/service_provider_sign_up_screen.dart';
 import '../Modules/ServiceProviders/service_providers_screen.dart';
+import '../Modules/ServicesData/services_data_screen.dart';
 import '../Modules/Splash/splash_screen.dart';
 import '../Modules/Sponsors/sponsors_screen.dart';
 import '../Modules/SupportChat/support_chat_screen.dart';
 import '../Modules/UserInfomations/user_information_screen.dart';
+import '../Modules/UserPayment/user_payment_screen.dart';
 import '../Modules/UserSignUp/user_sign_up_screen.dart';
 import '../Modules/VerificationAccountOtp/verification_otp_screen.dart';
+import '../Modules/serviceProviderFillInformation/service_provider_fill_information_screen.dart';
+import '../Modules/serviceProviderSettingsScreen/service_settings_screen.dart';
 BuildContext? get currentContext_ => GoRouterConfig.router.routerDelegate.navigatorKey.currentContext;
 class GoRouterConfig{
   static GoRouter get router => _router;
@@ -160,6 +173,51 @@ class GoRouterConfig{
         routes: const <RouteBase>[],
       ),
 
+
+      GoRoute(
+        name: ConfirmBookingScreen.routeName,
+        path: "/${ConfirmBookingScreen.routeName}",
+        pageBuilder: (_, GoRouterState state) {
+          return getCustomTransitionPage(
+            state: state,
+            child:  const ConfirmBookingScreen(),
+          );
+        },
+        routes: const <RouteBase>[],
+      ),
+      GoRoute(
+        name: PaymentScreen.routeName,
+        path: "/${PaymentScreen.routeName}",
+        pageBuilder: (_, GoRouterState state) {
+          return getCustomTransitionPage(
+            state: state,
+            child:  const PaymentScreen(),
+          );
+        },
+        routes: const <RouteBase>[],
+      ),
+      GoRoute(
+        name: WalletScreen.routeName,
+        path: "/${WalletScreen.routeName}",
+        pageBuilder: (_, GoRouterState state) {
+          return getCustomTransitionPage(
+            state: state,
+            child:  const WalletScreen(),
+          );
+        },
+        routes: const <RouteBase>[],
+      ),
+      GoRoute(
+        name: ServiceProviderBookingsScreen.routeName,
+        path: "/${ServiceProviderBookingsScreen.routeName}",
+        pageBuilder: (_, GoRouterState state) {
+          return getCustomTransitionPage(
+            state: state,
+            child:  const ServiceProviderBookingsScreen(),
+          );
+        },
+        routes: const <RouteBase>[],
+      ),
       GoRoute(
         name: NotificationsScreen.routeName,
         path: "/${NotificationsScreen.routeName}",
@@ -171,7 +229,105 @@ class GoRouterConfig{
         },
         routes: const <RouteBase>[],
       ),
-
+      GoRoute(
+        name: ServicesDataScreen.routeName,
+        path: "/${ServicesDataScreen.routeName}",
+        pageBuilder: (_, GoRouterState state) {
+          return getCustomTransitionPage(
+            state: state,
+            child:  const ServicesDataScreen(),
+          );
+        },
+        routes: const <RouteBase>[],
+      ),
+      GoRoute(
+        name: ServiceProviderPersonalDataScreen.routeName,
+        path: "/${ServiceProviderPersonalDataScreen.routeName}",
+        pageBuilder: (_, GoRouterState state) {
+          return getCustomTransitionPage(
+            state: state,
+            child:  const ServiceProviderPersonalDataScreen(),
+          );
+        },
+        routes: const <RouteBase>[],
+      ),
+      GoRoute(
+        name: ServiceProviderProfileScreen.routeName,
+        path: "/${ServiceProviderProfileScreen.routeName}",
+        pageBuilder: (_, GoRouterState state) {
+          return getCustomTransitionPage(
+            state: state,
+            child:  const ServiceProviderProfileScreen(),
+          );
+        },
+        routes: const <RouteBase>[],
+      ),
+      GoRoute(
+        name: ServiceProviderHomeScreen.routeName,
+        path: "/${ServiceProviderHomeScreen.routeName}",
+        pageBuilder: (_, GoRouterState state) {
+          return getCustomTransitionPage(
+            state: state,
+            child:  const ServiceProviderHomeScreen(),
+          );
+        },
+        routes: const <RouteBase>[],
+      ),
+      GoRoute(
+        name: ServiceProviderSettingsScreen.routeName,
+        path: "/${ServiceProviderSettingsScreen.routeName}",
+        pageBuilder: (_, GoRouterState state) {
+          return getCustomTransitionPage(
+            state: state,
+            child:  const ServiceProviderSettingsScreen(),
+          );
+        },
+        routes: const <RouteBase>[],
+      ),
+      GoRoute(
+        name: ServiceProviderLoginScreen.routeName,
+        path: "/${ServiceProviderLoginScreen.routeName}",
+        pageBuilder: (_, GoRouterState state) {
+          return getCustomTransitionPage(
+            state: state,
+            child:  const ServiceProviderLoginScreen(),
+          );
+        },
+        routes: const <RouteBase>[],
+      ),
+      GoRoute(
+        name: ServiceProviderSignUpScreen.routeName,
+        path: "/${ServiceProviderSignUpScreen.routeName}",
+        pageBuilder: (_, GoRouterState state) {
+          return getCustomTransitionPage(
+            state: state,
+            child:  const ServiceProviderSignUpScreen(),
+          );
+        },
+        routes: const <RouteBase>[],
+      ),
+      GoRoute(
+        name: SelectJobTitleScreen.routeName,
+        path: "/${SelectJobTitleScreen.routeName}",
+        pageBuilder: (_, GoRouterState state) {
+          return getCustomTransitionPage(
+            state: state,
+            child:  const SelectJobTitleScreen(),
+          );
+        },
+        routes: const <RouteBase>[],
+      ),
+      GoRoute(
+        name: ServiceProviderFillInformationScreen.routeName,
+        path: "/${ServiceProviderFillInformationScreen.routeName}",
+        pageBuilder: (_, GoRouterState state) {
+          return getCustomTransitionPage(
+            state: state,
+            child:  const ServiceProviderFillInformationScreen(),
+          );
+        },
+        routes: const <RouteBase>[],
+      ),
       GoRoute(
         name: GeneralServiceProvidersScreen.routeName,
         path: "/${GeneralServiceProvidersScreen.routeName}",

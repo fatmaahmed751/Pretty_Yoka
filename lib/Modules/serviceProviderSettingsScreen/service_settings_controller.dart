@@ -21,22 +21,21 @@ import '../../Utilities/theme_helper.dart';
 import '../../Widgets/Alert_for_complete_information.dart';
 import '../../Widgets/alert_dialoge_widget.dart';
 import '../../generated/assets.dart';
-import 'Widget/change_languages_widget.dart';
+import '../Profile/Widget/change_languages_widget.dart';
 
-class UserProfileController extends ControllerMVC {
+class ServiceProviderSettingsController extends ControllerMVC {
   // singleton
-  factory UserProfileController() {
-    _this ??= UserProfileController._();
+  factory ServiceProviderSettingsController() {
+    _this ??= ServiceProviderSettingsController._();
     return _this!;
   }
 
-  static UserProfileController? _this;
-  UserProfileController._();
+  static ServiceProviderSettingsController? _this;
+  ServiceProviderSettingsController._();
   bool loading = false, autoValidate = false;
   bool isEnglishSelected = true;
   bool status = false;
   bool isLogin = true;
-  bool isUser =false;
   String? selectedValue = Strings.setLocation.tr;
   dynamic image;
   final ImagePicker picker = ImagePicker();
@@ -134,19 +133,19 @@ class UserProfileController extends ControllerMVC {
   userLogOutPop(BuildContext context,Widget widget) {
     return
       DialogHelper.custom(context: context).customDialog(
-       dialogWidget:
-       AlertForCompleteInformation(
-         thirdText: Strings.id.tr,
+        dialogWidget:
+        AlertForCompleteInformation(
+          thirdText: Strings.id.tr,
           des:Strings.cannotBooking.tr,
           secondButtonText: Strings.save.tr,
           mainText:Strings.uploadId.tr,
           onButtonReject: currentContext_!.pop,
           onButtonAccept: () {
-         //   GoRouter.of(context).pushNamed(LoginScreen.routeName);
+            //   GoRouter.of(context).pushNamed(LoginScreen.routeName);
           }, widget:widget ,
 
-             ),
-    );
+        ),
+      );
   }
 
 

@@ -30,6 +30,7 @@ class VerificationUserOtpController extends ControllerMVC {
   late TextEditingController phoneController;
   late  FocusNode focusNode;
   int? userId;
+  bool isUser =false;
   bool isDisposed=false;
 
   @override

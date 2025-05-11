@@ -14,6 +14,7 @@ import '../../../Widgets/custom_button_widget.dart';
 import '../../../Widgets/loading_screen.dart';
 import '../../Widgets/custom_app_bar_widget.dart';
 import '../../Widgets/custom_main_text_widget.dart';
+import '../serviceProviderFillInformation/service_provider_fill_information_screen.dart';
 import 'verification_otp_controller.dart';
 
 class VerificationUserScreen extends StatefulWidget {
@@ -169,7 +170,11 @@ class _VerificationUserScreenState extends StateMVC<VerificationUserScreen> {
                         // width: 265.w,
                         title: Strings.confirmVerify.tr,
                         onTap: () {
-                          GoRouter.of(context).pushNamed(UserInformationScreen.routeName);
+                          if(con.isUser) {
+                            GoRouter.of(context).pushNamed(UserInformationScreen.routeName);
+                          }else{
+                            GoRouter.of(context).pushNamed(ServiceProviderFillInformationScreen.routeName);
+                          }
                         //   if (formKey.currentState?.validate() ?? false) {
                         //     Future.delayed(const Duration(seconds: 1), () {});
                         //   } else {

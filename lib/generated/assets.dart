@@ -50,11 +50,13 @@ class Assets {
   static const String imagesOnBoardingThreeEdit = 'assets/images/onBoardingThreeEdit.png';
   static const String imagesOnBoardingTwo = 'assets/images/onBoardingTwo.png';
   static const String imagesOpenEye = 'assets/images/openEye.svg';
+  static const String imagesPayment = 'assets/images/payment.png';
   static const String imagesPharmacy = 'assets/images/pharmacy.png';
   static const String imagesPhoneIcon = 'assets/images/phoneIcon.svg';
   static const String imagesPinkImage = 'assets/images/pinkImage.svg';
   static const String imagesPoliciesP = 'assets/images/policiesP.svg';
   static const String imagesPrettyBookingIcon = 'assets/images/prettyBookingIcon.svg';
+  static const String imagesPrettyLogo = 'assets/images/prettyLogo.json';
   static const String imagesPrettyProfileIcon = 'assets/images/prettyProfileIcon.svg';
   static const String imagesPrin = 'assets/images/prin.png';
   static const String imagesProfileFill = 'assets/images/profileFill.svg';
@@ -64,17 +66,21 @@ class Assets {
   static const String imagesSalonImage = 'assets/images/salonImage.png';
   static const String imagesSenderBubble = 'assets/images/senderBubble.png';
   static const String imagesSettings = 'assets/images/settings.svg';
+  static const String imagesSettingsFill = 'assets/images/settingsFill.svg';
+  static const String imagesSettingsIcon = 'assets/images/settingsIcon.svg';
   static const String imagesSplash = 'assets/images/splash.png';
   static const String imagesStarIcon = 'assets/images/starIcon.svg';
   static const String imagesSuccessImage = 'assets/images/successImage.png';
   static const String imagesSupportP = 'assets/images/supportP.svg';
   static const String imagesTimeIcon = 'assets/images/timeIcon.svg';
+  static const String imagesTransferIcon = 'assets/images/transferIcon.svg';
   static const String imagesUnCheckBox = 'assets/images/unCheckBox.svg';
   static const String imagesUnRatedIcon = 'assets/images/unRatedIcon.svg';
   static const String imagesUnratedStar = 'assets/images/unratedStar.svg';
   static const String imagesUploadId = 'assets/images/uploadId.svg';
   static const String imagesUserDefaultImage = 'assets/images/userDefaultImage.png';
   static const String imagesUserIcon = 'assets/images/userIcon.svg';
+  static const String imagesWallet = 'assets/images/wallet.svg';
   static const String imagesWhiteArrow = 'assets/images/whiteArrow.svg';
 
 }

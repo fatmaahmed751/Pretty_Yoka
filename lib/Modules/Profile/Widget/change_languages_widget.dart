@@ -1,3 +1,4 @@
+import 'package:Pretty/Modules/ServiceProviderHome/service_provider_home_screen.dart';
 import 'package:Pretty/core/Language/locales.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -169,7 +170,11 @@ class _ChangeLanguageState extends StateMVC<ChangeLanguage> {
                         }
                       });
                       await Future.delayed(const Duration(milliseconds: 100));
-                      currentContext_!.pushNamed(HomeScreen.routeName);
+                      if(con.isUser) {
+                        currentContext_!.pushNamed(HomeScreen.routeName);
+                      }else{
+                        currentContext_!.pushNamed(ServiceProviderHomeScreen.routeName);
+                      }
 
                       // await Future.delayed(const Duration(milliseconds: 200));
                       //  GoRouter.of(context).pushNamed(HomeScreen.routeName);

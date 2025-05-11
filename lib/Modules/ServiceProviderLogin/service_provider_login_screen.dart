@@ -1,4 +1,6 @@
-import 'package:Pretty/Modules/ServiceProviderSignUp/service_provider_sign_up_controller.dart';
+import 'package:Pretty/Modules/ForgetPassword/forget_password_screen.dart';
+import 'package:Pretty/Modules/Login/user_login_controller.dart';
+import 'package:Pretty/Modules/ServiceProviderLogin/service_provider_login_controller.dart';
 import 'package:Pretty/Modules/UserSignUp/user_sign_up_controller.dart';
 import 'package:Pretty/Modules/VerificationAccountOtp/verification_otp_screen.dart';
 import 'package:Pretty/Utilities/text_style_helper.dart';
@@ -21,22 +23,21 @@ import '../../Widgets/loading_screen.dart';
 import '../../Widgets/raw_or_widget.dart';
 import '../../Widgets/user_status_row.dart';
 import '../../generated/assets.dart';
-import '../Home/home_screen.dart';
 
-class ServiceProviderSignUpScreen extends StatefulWidget {
-  static const routeName = "ServiceProviderSignUp";
-  const ServiceProviderSignUpScreen({super.key});
+class ServiceProviderLoginScreen extends StatefulWidget {
+  static const routeName = "ServiceProviderLogin";
+  const ServiceProviderLoginScreen({super.key});
 
   @override
-  createState() => _ServiceProviderSignUpScreenState();
+  createState() => _ServiceProviderLoginScreenState();
 }
 
-class _ServiceProviderSignUpScreenState extends StateMVC<ServiceProviderSignUpScreen> {
-  _ServiceProviderSignUpScreenState() : super(ServiceProviderSignUpController()) {
-    con = ServiceProviderSignUpController();
+class _ServiceProviderLoginScreenState extends StateMVC<ServiceProviderLoginScreen> {
+  _ServiceProviderLoginScreenState() : super(ServiceProviderLoginController()) {
+    con = ServiceProviderLoginController();
   }
 
-  late ServiceProviderSignUpController con;
+  late ServiceProviderLoginController con;
   final GlobalKey<FormState> _formKey = GlobalKey();
 
   @override
@@ -63,8 +64,8 @@ class _ServiceProviderSignUpScreenState extends StateMVC<ServiceProviderSignUpSc
               ListView(physics: const BouncingScrollPhysics(), children: [
                 Gap(12.h),
                 CustomAppBarWidget.mainScreen(
-                  title: Strings.signUp.tr,
-                  space: 110.w,
+                  title: Strings.login.tr,
+                  space: 120.w,
                 ),
                 Gap(24.h),
                 CustomMainSideTextWidget(
@@ -120,44 +121,34 @@ class _ServiceProviderSignUpScreenState extends StateMVC<ServiceProviderSignUpSc
                   validator: (v) =>
                       Validate.validatePassword(v),
                 ),
-                Gap(12.h),
-                CustomMainSideTextWidget(
-                  text: Strings.repeatPassword.tr,
+                Gap(16.h),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.end,
+                  children: [
+                    GestureDetector(
+                      onTap: () {
+                        // context.pushNamed(
+                        //     ForgetPasswordScreen.routeName);
+                      },
+                      child: Text(
+                        Strings.forgetPassword.tr,
+                        textAlign: TextAlign.left,
+                        style: TextStyleHelper.of(context)
+                            .h_13
+                            .copyWith(
+                            color: ThemeClass.of(context)
+                                .primaryColor),
+                      ),
+                    ),
+                  ],
                 ),
-                Gap(8.h),
-                CustomTextFieldWidget(
-                  hint: Strings.enterPassword.tr,
-                  textInputType: TextInputType.text,
-                  backGroundColor: ThemeClass.of(context).background,
-                  suffixIcon: con.isConfirmPassword
-                      ? SvgPicture.asset(Assets.imagesObsecure)
-                      : SvgPicture.asset(Assets.imagesOpenEye),
-                  onSuffixTap: () {
-                    setState(() {
-                      con.isConfirmPassword = !con.isConfirmPassword;
-                    });
-                  },
-                  // hintStyle: TextStyle(
-                  //     color: ThemeClass.of(context).labelColor,
-                  // height: 1.h),
-                  prefixIcon:
-                  SvgPicture.asset(Assets.imagesLockIcon),
-                  isDense: true,
-                  insidePadding:
-                  EdgeInsets.symmetric(vertical: 10.h),
-                  controller: con.confirmPasswordController,
-                  validator: (v) => Validate.validateConfPassword(
-                      newPassword: con.passwordController.text,
-                      confPassword:
-                      con.confirmPasswordController.text),
-                ),
-                Gap(24.h),
+                Gap(16.h),
                 CustomButtonWidget.primary(
                     height: 40.h,
                     radius: 12.r,
-                    title: Strings.joinUs.tr,
+                    title: Strings.login.tr,
                     onTap: () {
-                      GoRouter.of(context).pushNamed(VerificationUserScreen.routeName);
+                      GoRouter.of(context).pushNamed(ForgetPasswordScreen.routeName);
                       // if (_formKey.currentState?.validate() ??
                       //     false) {
                       //   // con.onLogin();
@@ -169,11 +160,9 @@ class _ServiceProviderSignUpScreenState extends StateMVC<ServiceProviderSignUpSc
                     }),
                 Gap(12.h),
                 UserStatusRow(
-                  text: Strings.haveAnAccount.tr,
-                  nextText: Strings.login.tr,
-                  onNextTextTap: () {
-                    GoRouter.of(context).pushNamed(HomeScreen.routeName);
-                  },
+                  text: Strings.noHavenAccount.tr,
+                  nextText: Strings.signUp.tr,
+                  onNextTextTap: () {},
                 ),
                 Gap(12.h),
                 const RowOrWidget(),
