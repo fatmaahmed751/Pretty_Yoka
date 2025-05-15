@@ -1,7 +1,6 @@
 import 'package:Pretty/Modules/Sponsors/sponsors_controller.dart';
 import 'package:Pretty/Widgets/sponsers_widget.dart';
 import 'package:Pretty/core/Language/locales.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:gap/gap.dart';
@@ -49,7 +48,9 @@ class SponsorsScreenState extends StateMVC<SponsorsScreen> {
                   children: List.generate(6, (index) {
                     return Padding(
                       padding: EdgeInsetsDirectional.only(bottom: 12.h),
-                      child: const SponsorsWidget(),
+                      child:  SponsorsWidget(
+                        text:  Strings.beautyP.tr
+                      ),
                     );
                   }).toList(),
                 ),

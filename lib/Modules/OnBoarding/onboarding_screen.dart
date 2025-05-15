@@ -6,6 +6,7 @@ import 'package:gap/gap.dart';
 import 'package:go_router/go_router.dart';
 import 'package:mvc_pattern/mvc_pattern.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
+import '../../Utilities/shared_preferences.dart';
 import '../../Utilities/theme_helper.dart';
 import '../../Widgets/custom_button_widget.dart';
 import '../../Widgets/loading_screen.dart';
@@ -70,7 +71,9 @@ class _OnBoardingScreenState extends StateMVC<OnBoardingScreen> {
                     height: 50.h,
                     width: 50.w,
                     radius: 30.r,
-                    child: SvgPicture.asset(Assets.imagesWhiteArrow),
+                    child:  Transform.flip(
+                        flipX: SharedPref.getCurrentLanguage() == "ar" ? true : false,
+                        child: SvgPicture.asset(Assets.imagesWhiteArrow)),
                     onTap: () {
                       (con.isLast)
                           ? GoRouter.of(context)

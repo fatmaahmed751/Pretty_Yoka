@@ -1,3 +1,4 @@
+import 'package:Pretty/Utilities/shared_preferences.dart';
 import 'package:Pretty/core/Language/locales.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -10,6 +11,7 @@ import '../../../Utilities/validate.dart';
 import '../../../Widgets/loading_screen.dart';
 import '../../Utilities/strings.dart';
 import '../../Widgets/custom_main_side_text_widget.dart';
+import '../../Widgets/toast_helper.dart';
 import '../Profile/Widget/change_user_profile_image.dart';
 import '../../Widgets/custom_app_bar_widget.dart';
 import '../../Widgets/custom_button_widget.dart';
@@ -62,7 +64,7 @@ class _EditProfileScreenState extends StateMVC<EditProfileScreen> {
                   Gap(12.h),
               CustomAppBarWidget.mainScreen(
                 title: Strings.editProfile.tr,
-                space:95.w,
+                space:SharedPref.getCurrentLanguage()=="ar"?50.w:95.w,
               ),
                   Gap(24.h),
                    Center(child: CircleAvatar(
@@ -99,6 +101,11 @@ class _EditProfileScreenState extends StateMVC<EditProfileScreen> {
             radius: 12.r,
             title: Strings.saveChanged.tr,
             onTap: () {
+              ToastHelper.showSuccess(
+                  message: Strings.success.tr,
+                  icon: SvgPicture.asset(Assets.imagesCheckBox),
+                  secondMessage: Strings.personalUpdate.tr,
+                  context: context);
               // if (_formKey.currentState?.validate() ?? false) {
               // } else {
               //   setState(() {

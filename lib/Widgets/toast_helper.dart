@@ -96,6 +96,7 @@
 //     );
 //   }
 // }
+import 'package:Pretty/Utilities/shared_preferences.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:fluttertoast/fluttertoast.dart';
@@ -165,8 +166,14 @@ class ToastHelper {
                     decoration: BoxDecoration(
                       color: ThemeClass.of(context).primaryColor,
                       borderRadius: BorderRadius.only(
-                        topLeft: Radius.circular(12.r),
-                        bottomLeft: Radius.circular(12.r),
+                        topLeft:SharedPref.getCurrentLanguage()=="ar"?
+                        Radius.circular(0.r):Radius.circular(12.r),
+                        bottomLeft:SharedPref.getCurrentLanguage()=="ar"?
+                      Radius.circular(0.r):Radius.circular(12.r),
+                        topRight:SharedPref.getCurrentLanguage()=="ar"?
+                        Radius.circular(12.r):Radius.circular(0.r),
+                        bottomRight:SharedPref.getCurrentLanguage()=="ar"?
+                        Radius.circular(12.r):Radius.circular(0.r),
                       ),
                     ),
                   ),

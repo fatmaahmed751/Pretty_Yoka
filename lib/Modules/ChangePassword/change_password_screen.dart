@@ -1,3 +1,4 @@
+import 'package:Pretty/Widgets/toast_helper.dart';
 import 'package:Pretty/core/Language/locales.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -165,6 +166,11 @@ class _ChangePasswordScreenState extends StateMVC<ChangePasswordScreen> {
             height: 44.h,
             title: Strings.saveChanged.tr,
             onTap: () {
+              ToastHelper.showSuccess(
+                  message: Strings.success.tr,
+                  icon: SvgPicture.asset(Assets.imagesCheckBox),
+                  secondMessage: Strings.changePasswordSuc.tr,
+                  context: context);
               // if (_formKey.currentState?.validate() ?? false) {
               // } else {
               //   setState(() {

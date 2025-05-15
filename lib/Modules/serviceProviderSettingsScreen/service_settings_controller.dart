@@ -1,6 +1,7 @@
 import 'dart:convert';
 import 'dart:io';
 
+import 'package:Pretty/Modules/SelectRole/select_role_screen.dart';
 import 'package:Pretty/Widgets/toast_helper.dart';
 import 'package:Pretty/core/Language/locales.dart';
 import 'package:cached_network_image/cached_network_image.dart';
@@ -141,7 +142,7 @@ class ServiceProviderSettingsController extends ControllerMVC {
           mainText:Strings.uploadId.tr,
           onButtonReject: currentContext_!.pop,
           onButtonAccept: () {
-            //   GoRouter.of(context).pushNamed(LoginScreen.routeName);
+             GoRouter.of(context).pushNamed(SelectRoleScreen.routeName);
           }, widget:widget ,
 
         ),

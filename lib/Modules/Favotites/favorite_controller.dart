@@ -13,5 +13,5 @@ class FavoriteController extends ControllerMVC {
   FavoriteController._();
 
   bool loading = false;
-  bool isLogin = false;
+  bool isLogin = true;
 }

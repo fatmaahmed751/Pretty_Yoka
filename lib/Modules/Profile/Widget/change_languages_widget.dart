@@ -1,3 +1,4 @@
+import 'package:Pretty/Modules/OnBoarding/onboarding_screen.dart';
 import 'package:Pretty/Modules/ServiceProviderHome/service_provider_home_screen.dart';
 import 'package:Pretty/core/Language/locales.dart';
 import 'package:flutter/material.dart';
@@ -173,7 +174,7 @@ class _ChangeLanguageState extends StateMVC<ChangeLanguage> {
                       if(con.isUser) {
                         currentContext_!.pushNamed(HomeScreen.routeName);
                       }else{
-                        currentContext_!.pushNamed(ServiceProviderHomeScreen.routeName);
+                        currentContext_!.pushNamed(OnBoardingScreen.routeName);
                       }
 
                       // await Future.delayed(const Duration(milliseconds: 200));

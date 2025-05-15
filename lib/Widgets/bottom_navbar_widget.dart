@@ -78,7 +78,7 @@ class _BottomNavBarWidgetState extends StateMVC<BottomNavBarWidget> {
   Widget buildSelectedIcon(BottomNavBarItemModel item, BuildContext context) {
     return Center(
       child: Padding(
-        padding: EdgeInsetsDirectional.only(bottom: 6.h),
+        padding: EdgeInsetsDirectional.only(bottom:5.h),
         child: SvgPicture.asset(
           item.selectedIconPath,
           // colorFilter: ColorFilter.mode(
@@ -90,7 +90,7 @@ class _BottomNavBarWidgetState extends StateMVC<BottomNavBarWidget> {
 
   Widget buildUnselectedIcon(BottomNavBarItemModel item, BuildContext context) {
     return Padding(
-      padding: EdgeInsetsDirectional.only(bottom: 6.h),
+      padding: EdgeInsetsDirectional.only(bottom: 5.h),
       child: SvgPicture.asset(
         item.iconPath,
         colorFilter: ColorFilter.mode(

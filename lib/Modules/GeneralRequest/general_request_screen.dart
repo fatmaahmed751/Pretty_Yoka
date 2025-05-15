@@ -200,24 +200,6 @@ class GeneralRequestServiceScreenState extends StateMVC<GeneralRequestServiceScr
                   );
                 }).toList(),
               ),
-              // Column(
-              //   children: con.mainServices
-              //       .asMap()
-              //       .entries
-              //       .map((entry) {
-              //     final index = entry.key;
-              //     final service = entry.value;
-              //     return CustomCheckboxTile(
-              //       isChecked: service.isSelected,
-              //       title: service.name,
-              //       value: service.isSelected,
-              //       onChanged: (bool? value) {
-              //         con.toggleServiceSelection(index);
-              //       },
-              //       //  controlAffinity: ListTileControlAffinity.leading,
-              //     );
-              //   }).toList(),
-              // ),
               Gap(12.h),
               CustomMainSideTextWidget(
                 text: Strings.useServiceMaterial.tr,

@@ -1,3 +1,4 @@
+import 'package:Pretty/Modules/Bookings/widgets/pending_service_widget.dart';
 import 'package:Pretty/core/Language/locales.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -10,10 +11,12 @@ import '../../../Utilities/format_date_helper.dart';
 import '../../../Utilities/strings.dart';
 import '../../../Utilities/text_style_helper.dart';
 import '../../../Utilities/theme_helper.dart';
+import '../../../Widgets/details_of_service_widget.dart';
 import '../../../generated/assets.dart';
 
-class PendingServiceWidget extends StatelessWidget {
-  const PendingServiceWidget({
+
+class UpComingServiceProviderWidget extends StatelessWidget {
+  const UpComingServiceProviderWidget({
     super.key,
   });
 
@@ -27,9 +30,9 @@ class PendingServiceWidget extends StatelessWidget {
         borderRadius: BorderRadius.circular(12.r),
         boxShadow: [
           BoxShadow(
-            color: ThemeClass.of(context).waiting,
-            blurRadius: 4,
-           offset: Offset(0, 2)
+              color: ThemeClass.of(context).waiting,
+              blurRadius: 4,
+              offset: Offset(0, 2)
           ),
         ],
       ),
@@ -73,24 +76,35 @@ class PendingServiceWidget extends StatelessWidget {
                 ),
               ],
             ),
-           Gap(4.h),
-            Text(Strings.waitForServiceResponse.tr,
-            style: TextStyleHelper.of(context).b_12.copyWith(
-              color: ThemeClass.of(context).secondaryBlackColor
-            ),),
+            Gap(4.h),
+            Row(
+              children: [
+                Text(Strings.price.tr,
+                  style: TextStyleHelper.of(context).b_12.copyWith(
+                      color: ThemeClass.of(context).secondaryBlackColor
+                  ),),
+                const Spacer(),
+                Text("2000 ${Strings.egp.tr}",
+                  style: TextStyleHelper.of(context).b_17.copyWith(
+                      color: ThemeClass.of(context).orange
+                  ),),
+              ],
+            ),
+            Gap(4.h),
             Row(
               mainAxisAlignment: MainAxisAlignment.end,
               children: [
                 GestureDetector(
                   onTap: () {
-                    // DialogHelper.custom(context: context).customDialog(
-                    //     dialogWidget: const DetailsOfOnGoingService(),
-                    // );
+                    DialogHelper.custom(context: context).customDialog(
+                        dialogWidget: const DetailsOfService(),
+                    );
                   },
                   child: Text(
-                    Strings.viewServices.tr,
+                    Strings.viewDetails.tr,
                     style: TextStyleHelper.of(context).h_13.copyWith(
                         decoration: TextDecoration.underline,
+                     decorationThickness:7,
                         color: ThemeClass.of(context).primaryColor),
                   ),
                 )
@@ -103,31 +117,4 @@ class PendingServiceWidget extends StatelessWidget {
   }
 }
 
-class RowOfListOfBookingDetails extends StatelessWidget {
-  final  String firstText;
-  final String secondText;
-  const RowOfListOfBookingDetails({
-    super.key, required this.firstText, required this.secondText,
-  });
 
-  @override
-  Widget build(BuildContext context) {
-    return Row(
-      children: [
-        Text(
-      firstText ,
-          style: TextStyleHelper.of(context)
-              .b_16
-              .copyWith(color: ThemeClass.of(context).secondaryBlackColor),
-        ),
-        Gap(4.w),
-        Text(
-      secondText,
-          style: TextStyleHelper.of(context).b_17.copyWith(
-              color: ThemeClass.of(context).secondaryBlackColor,
-            ),
-        ),
-      ],
-    );
-  }
-}

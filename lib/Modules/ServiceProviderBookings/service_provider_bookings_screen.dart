@@ -1,7 +1,7 @@
-import 'package:Pretty/Modules/Bookings/widgets/pending_service_widget.dart';
-import 'package:Pretty/Modules/Bookings/widgets/previous_service_widget.dart';
-import 'package:Pretty/Modules/Bookings/widgets/upcoming_service_widget.dart';
 import 'package:Pretty/Modules/ServiceProviderBookings/service_provider_bookings_controller.dart';
+import 'package:Pretty/Modules/ServiceProviderBookings/widgets/service_pending_service_widget.dart';
+import 'package:Pretty/Modules/ServiceProviderBookings/widgets/service_previous_service_widget.dart';
+import 'package:Pretty/Modules/ServiceProviderBookings/widgets/service_upcoming_service_widget.dart';
 import 'package:Pretty/core/Language/locales.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -13,6 +13,7 @@ import '../../Utilities/theme_helper.dart';
 import '../../Widgets/bottom_navbar_widget.dart';
 import '../../Widgets/container_empty_content_widget.dart';
 import '../../Widgets/loading_screen.dart';
+import '../../Widgets/service_bottom_navbar_widget.dart';
 import '../../generated/assets.dart';
 
 class ServiceProviderBookingsScreen extends StatefulWidget {
@@ -45,8 +46,8 @@ class _ServiceProviderBookingsScreenState extends StateMVC<ServiceProviderBookin
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      bottomNavigationBar: const BottomNavBarWidget(
-        selected: SelectedBottomNavBar.booking,
+      bottomNavigationBar:  const ServiceBottomNavBarWidget(
+        selected: ServiceSelectedBottomNavBar.booking,
       ),
       body: SafeArea(
         child: LoadingScreen(
@@ -86,7 +87,7 @@ class _ServiceProviderBookingsScreenState extends StateMVC<ServiceProviderBookin
                         delegate: SliverChildBuilderDelegate(
                               (context, index) => Padding(
                                 padding:  EdgeInsetsDirectional.only(bottom:12.h),
-                                child: const PendingServiceWidget(),
+                                child: const ServicePendingServiceWidget(),
                               ),
                           childCount: 5,
                         ),
@@ -96,7 +97,7 @@ class _ServiceProviderBookingsScreenState extends StateMVC<ServiceProviderBookin
                         delegate: SliverChildBuilderDelegate(
                               (context, index) => Padding(
                                 padding:  EdgeInsetsDirectional.only(bottom:12.h),
-                                child: const UpComingServiceWidget(),
+                                child: const UpComingServiceProviderWidget(),
                               ),
                           childCount: 5,
                         ),
@@ -106,7 +107,7 @@ class _ServiceProviderBookingsScreenState extends StateMVC<ServiceProviderBookin
                         delegate: SliverChildBuilderDelegate(
                               (context, index) => Padding(
                                 padding:  EdgeInsetsDirectional.only(bottom:12.h),
-                                child: const PreviousServiceWidget(),
+                                child: const PreviousServiceProviderWidget(),
                               ),
                           childCount: 5,
                         ),

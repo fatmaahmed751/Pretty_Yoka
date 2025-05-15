@@ -1,5 +1,4 @@
 import 'package:Pretty/Modules/Pharmacies/pharmacies_controller.dart';
-import 'package:Pretty/Modules/Sponsors/sponsors_controller.dart';
 import 'package:Pretty/Widgets/sponsers_widget.dart';
 import 'package:Pretty/core/Language/locales.dart';
 import 'package:flutter/material.dart';
@@ -40,7 +39,9 @@ class PharmaciesScreenState extends StateMVC<PharmaciesScreen> {
             child: ListView.separated(
               physics: const BouncingScrollPhysics(),
               separatorBuilder: (context, index) => Gap(4.h),
-              itemBuilder: (context, index) => const SponsorsWidget(),
+              itemBuilder: (context, index) =>  SponsorsWidget(
+                text: Strings.pharmacies.tr,
+              ),
               itemCount: 5,
             ),
           ),

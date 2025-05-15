@@ -23,6 +23,7 @@ import '../../Widgets/loading_screen.dart';
 import '../../Widgets/raw_or_widget.dart';
 import '../../Widgets/user_status_row.dart';
 import '../../generated/assets.dart';
+import '../serviceProviderFillInformation/service_provider_fill_information_screen.dart';
 
 class ServiceProviderLoginScreen extends StatefulWidget {
   static const routeName = "ServiceProviderLogin";
@@ -127,8 +128,8 @@ class _ServiceProviderLoginScreenState extends StateMVC<ServiceProviderLoginScre
                   children: [
                     GestureDetector(
                       onTap: () {
-                        // context.pushNamed(
-                        //     ForgetPasswordScreen.routeName);
+                        context.pushNamed(
+                            ForgetPasswordScreen.routeName);
                       },
                       child: Text(
                         Strings.forgetPassword.tr,
@@ -148,7 +149,7 @@ class _ServiceProviderLoginScreenState extends StateMVC<ServiceProviderLoginScre
                     radius: 12.r,
                     title: Strings.login.tr,
                     onTap: () {
-                      GoRouter.of(context).pushNamed(ForgetPasswordScreen.routeName);
+                      GoRouter.of(context).pushNamed(ServiceProviderFillInformationScreen.routeName);
                       // if (_formKey.currentState?.validate() ??
                       //     false) {
                       //   // con.onLogin();

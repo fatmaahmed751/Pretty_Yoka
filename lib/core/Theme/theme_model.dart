@@ -24,7 +24,7 @@ class ThemeModel extends ThemeExtension<ThemeModel>{
   final Color waiting;
   final Color cancel;
   final Color secondary;
-
+  final Color orange;
 
   ThemeModel({
     this.isDark = false,
@@ -38,7 +38,8 @@ class ThemeModel extends ThemeExtension<ThemeModel>{
     required this.secondary,
     required this.mainBlack,
     required this.secondaryBlackColor,
-    required this.textFieldBackground
+    required this.textFieldBackground,
+    required this.orange,
 });
 
   @override
@@ -66,6 +67,7 @@ class ThemeModel extends ThemeExtension<ThemeModel>{
     Color? informative,
     Color? mainBlack,
     Color? bodyColor,
+    Color? orange,
     Color? tabBarColor,
 }) {
     return ThemeModel(
@@ -81,6 +83,7 @@ class ThemeModel extends ThemeExtension<ThemeModel>{
       mainBlack: mainBlack??this.mainBlack,
       textFieldBackground: textFieldBackground ?? this.textFieldBackground,
       secondaryBlackColor: bodyColor??this.secondaryBlackColor,
+        orange:orange??this.orange
     );
   }
 
@@ -97,6 +100,7 @@ class ThemeModel extends ThemeExtension<ThemeModel>{
     mainBlack: Color(json["mainBlack"]),
     textFieldBackground: Color(json["textFieldBackground"]),
     secondaryBlackColor: Color(json["bodyColor"]),
+      orange:Color(json["orange"])
   );
 
   Map<String, dynamic> toJson() => {
@@ -112,6 +116,7 @@ class ThemeModel extends ThemeExtension<ThemeModel>{
     "mainBlack": mainBlack.value,
     "textFieldBackground": textFieldBackground.value,
     "bodyColor": secondaryBlackColor.value,
+    "orange":orange.value
   };
 
 

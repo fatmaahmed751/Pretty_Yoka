@@ -3,6 +3,7 @@ import 'package:Pretty/core/Language/locales.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:gap/gap.dart';
+import 'package:go_router/go_router.dart';
 import 'package:mvc_pattern/mvc_pattern.dart';
 import '../../../Widgets/loading_screen.dart';
 import '../../Utilities/strings.dart';
@@ -12,6 +13,7 @@ import '../../Widgets/container_empty_content_widget.dart';
 import '../../Widgets/custom_app_bar_widget.dart';
 import '../../Widgets/custom_button_widget.dart';
 import '../../generated/assets.dart';
+import '../ConfirmBooking/confirm_booking_screen.dart';
 import 'Widgets/notification_item.dart';
 import 'notifications_controller.dart';
 
@@ -130,7 +132,9 @@ class _NotificationsScreenState extends StateMVC<NotificationsScreen> {
                                   ),
                                   Gap(8.w),
                                   GestureDetector(
-                                    onTap: (){},
+                                    onTap: (){
+                                      context.pushNamed(ConfirmBookingScreen.routeName);
+                                    },
                                     child: Container(
                                       width: 151.5.w,
                                       height: 29.h,

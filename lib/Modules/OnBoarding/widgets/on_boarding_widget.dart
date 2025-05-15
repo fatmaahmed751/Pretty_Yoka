@@ -97,7 +97,13 @@ class OnBoardingWidget extends StatelessWidget {
                               style: TextStyleHelper.of(context).b_16.copyWith(
                                   color: ThemeClass.of(context).labelColor),
                             ),
-                            Gap(model.id==1?16.h:8.h),
+                            Gap(
+                                model.id == 1 && SharedPref.getCurrentLanguage() == "en"
+                                    ? 16.h
+                                    : model.id == 1 && SharedPref.getCurrentLanguage() == "ar"
+                                    ? 16.h
+                                    : 8.h
+                            ),
                             SmoothPageIndicator(
                               controller: pageController, // PageController
                               count: totalItems,

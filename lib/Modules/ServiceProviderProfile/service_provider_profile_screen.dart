@@ -19,6 +19,7 @@ import '../../Widgets/loading_screen.dart';
 import '../../Widgets/service_bottom_navbar_widget.dart';
 import '../../generated/assets.dart';
 import '../RequestService/request_service_screen.dart';
+import '../ServiceProviderEditService/service_provider_edit_service.dart';
 import '../ServiceProviderPersonalData/service_provider_personal_data_screen.dart';
 
 class ServiceProviderProfileScreen extends StatefulWidget {
@@ -63,33 +64,33 @@ class ServiceProviderProfileScreenState
                     child: Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
-                          Padding(
-                            padding: EdgeInsetsDirectional.symmetric(horizontal: 24.w),
-                            child: Row(
-                              children: [
-                                InkWell(
-                                  onTap: () {
-                                    context.pop();
-                                  },
-                                  child: Transform.flip(
-                                    flipX: SharedPref.getCurrentLanguage() == "ar"
-                                        ? true
-                                        : false,
-                                    child: SvgPicture.asset(
-                                      Assets.imagesArrowBack,
-                                    ),
-                                  ),
-                                ),
-                                const Spacer(),
-                                SvgPicture.asset(Assets.imagesFavoriteNavBar,
-                                  colorFilter:  ColorFilter.mode(
-                                      ThemeClass.of(context).primaryColor,
-                                      BlendMode.srcIn),)
-                              ],
-                            ),
-
-                          ),
-                          Gap(16.h),
+                          // Padding(
+                          //   padding: EdgeInsetsDirectional.symmetric(horizontal: 24.w),
+                          //   child: Row(
+                          //     children: [
+                          //       InkWell(
+                          //         onTap: () {
+                          //           context.pop();
+                          //         },
+                          //         child: Transform.flip(
+                          //           flipX: SharedPref.getCurrentLanguage() == "ar"
+                          //               ? true
+                          //               : false,
+                          //           child: SvgPicture.asset(
+                          //             Assets.imagesArrowBack,
+                          //           ),
+                          //         ),
+                          //       ),
+                          //       const Spacer(),
+                          //       SvgPicture.asset(Assets.imagesFavoriteNavBar,
+                          //         colorFilter:  ColorFilter.mode(
+                          //             ThemeClass.of(context).primaryColor,
+                          //             BlendMode.srcIn),)
+                          //     ],
+                          //   ),
+                          //
+                          // ),
+                         // Gap(8.h),
                           Stack(
                             clipBehavior: Clip.none,
                             //alignment: Alignment.bottomLeft,
@@ -196,7 +197,7 @@ class ServiceProviderProfileScreenState
                                   mainAxisAlignment: MainAxisAlignment.end,
                                   children: [
                                     Container(
-                                      color:ThemeClass.of(context).primaryColor,
+                                     // color:ThemeClass.of(context).primaryColor,
                                         child: SvgPicture.asset(Assets.imagesEditP)),
                                     Gap(2.w),
                                     GestureDetector(
@@ -262,9 +263,34 @@ class ServiceProviderProfileScreenState
                                     ],
                                   ),
                                 )).toList(),
+                                Row(
+                                  mainAxisAlignment: MainAxisAlignment.end,
+                                  children: [
+                                    Container(
+                                      // color:ThemeClass.of(context).primaryColor,
+                                        child: SvgPicture.asset(Assets.imagesEditP)),
+                                    Gap(2.w),
+                                    GestureDetector(
+                                      onTap: () {
+                                        context.pushNamed(
+                                            ServiceProviderEditServiceScreen.routeName);
+                                      },
+                                      child: Text(
+                                        Strings.editServices.tr,
+                                        // textAlign: TextAlign.left,
+                                        style: TextStyleHelper.of(context)
+                                            .h_13
+                                            .copyWith(
+                                            color: ThemeClass.of(context)
+                                                .primaryColor),
+                                      ),
+                                    ),
+                                  ],
+                                ),
                               ],
                             ),
                           ),
+
 
                         ]
                     ),

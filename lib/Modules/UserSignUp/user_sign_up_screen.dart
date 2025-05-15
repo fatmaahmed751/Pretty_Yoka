@@ -21,6 +21,7 @@ import '../../Widgets/raw_or_widget.dart';
 import '../../Widgets/user_status_row.dart';
 import '../../generated/assets.dart';
 import '../Home/home_screen.dart';
+import '../Login/user_login_screen.dart';
 
 class UserSignUpScreen extends StatefulWidget {
   static const routeName = "UserSignUp";
@@ -75,12 +76,12 @@ class _UserSignUpScreenState extends StateMVC<UserSignUpScreen> {
                       textInputType: TextInputType.phone,
                       hintStyle: TextStyle(
                           color: ThemeClass.of(context).labelColor,
-                          height: 1.h),
+                          height: 1),
                       backGroundColor:
                       ThemeClass.of(context).background,
                       prefixIcon:
                       SvgPicture.asset(Assets.imagesPhoneIcon),
-                      isDense: true,
+                     // isDense: true,
                       controller: con.phoneController,
                       validator: (v) =>
                           Validate.validatePhoneOptional(v),
@@ -136,14 +137,16 @@ class _UserSignUpScreenState extends StateMVC<UserSignUpScreen> {
                           con.isConfirmPassword = !con.isConfirmPassword;
                         });
                       },
+                        // hintStyle :TextStyleHelper.of(context).b_14.copyWith(
+                        //   color: ThemeClass.of(context).labelColor ),
                       // hintStyle: TextStyle(
                       //     color: ThemeClass.of(context).labelColor,
                       // height: 1.h),
                       prefixIcon:
                       SvgPicture.asset(Assets.imagesLockIcon),
-                      isDense: true,
-                      insidePadding:
-                      EdgeInsets.symmetric(vertical: 10.h),
+                  // isDense: true,
+                      // insidePadding:
+                      // EdgeInsets.symmetric(vertical: 10.h),
                       controller: con.confirmPasswordController,
                       validator: (v) => Validate.validateConfPassword(
                           newPassword: con.passwordController.text,
@@ -156,22 +159,22 @@ class _UserSignUpScreenState extends StateMVC<UserSignUpScreen> {
                     radius: 12.r,
                     title: Strings.joinUs.tr,
                     onTap: () {
-                      GoRouter.of(context).pushNamed(VerificationUserScreen.routeName);
-                      // if (_formKey.currentState?.validate() ??
-                      //     false) {
-                      //   // con.onLogin();
-                      // } else {
-                      //   setState(() {
-                      //     con.autoValidate = true;
-                      //   });
-                      // }
+                     GoRouter.of(context).pushNamed(VerificationUserScreen.routeName);
+                     //  if (_formKey.currentState?.validate() ??
+                     //      false) {
+                     //    // con.onLogin();
+                     //  } else {
+                     //    setState(() {
+                     //      con.autoValidate = true;
+                     //    });
+                     //  }
                     }),
                     Gap(12.h),
                     UserStatusRow(
                   text: Strings.haveAnAccount.tr,
                   nextText: Strings.login.tr,
                   onNextTextTap: () {
-                    GoRouter.of(context).pushNamed(HomeScreen.routeName);
+                    GoRouter.of(context).pushNamed(UserLoginScreen.routeName);
                   },
                    ),
                     Gap(12.h),

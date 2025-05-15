@@ -165,36 +165,7 @@ class _UserProfileScreenState extends StateMVC<UserProfileScreen> {
                           GestureDetector(
                             onTap: () {
                               con.userLogOutPop(context,
-                              Container(
-                                width: 267.w,
-                                height: 40.h,
-                                decoration: BoxDecoration(
-                                  color: ThemeClass.of(context).mainSecondary,
-                                  borderRadius: BorderRadius.circular(12.r)
-                                ),
-                                child: Padding(
-                                  padding:  EdgeInsetsDirectional.symmetric(horizontal: 0.w,
-                                  vertical: 0.h),
-                                  child:CustomTextFieldWidget(
-                                    hint:Strings.hintId.tr,
-                                    textAlign: TextAlignVertical.center,
-                                    hintStyle:TextStyleHelper.of(context).b_14.copyWith(
-                                     color: ThemeClass.of(context).labelColor,),
-                                    onSuffixTap: (){},
-                                    suffixIcon:SvgPicture.asset(Assets.imagesUploadId) ,
-                                  ),
 
-                                  )
-                                  // Row(
-                                  //   children: [
-                                  //     Text(Strings.hintId.tr,
-                                  //     style: TextStyleHelper.of(context).b_14.copyWith(
-                                  //         color: ThemeClass.of(context).labelColor,)),
-                                  //     const Spacer(),
-                                  //     SvgPicture.asset(Assets.imagesUploadId)
-                                  //   ],
-                                  // ),
-                                ),
                              );
                             },
                             child: UserProfileContainerWidget(

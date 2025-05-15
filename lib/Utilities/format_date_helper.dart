@@ -10,6 +10,7 @@ class FormatDateHelper {
   static final formatter = DateFormat('EEEE d MMM yyyy',SharedPref.getCurrentLanguage());
   static final birthDateFormat = DateFormat('d - M - y',SharedPref.getCurrentLanguage());
   static final NumberFormat formatterBy2 = NumberFormat("#,##0.00", "en_US");
+  static final formatterCustomFullDate = DateFormat('dd MMM yyyy hh:mm a', SharedPref.getCurrentLanguage());
   static formattedValue(String originalValue) => double.parse(formatterBy2.format(originalValue));
   static  reverseBirthDateFormat(String date) =>  birthDateFormat.parse(date);
   static final formatterCustomTime = DateFormat('hh : mm a',SharedPref.getCurrentLanguage());

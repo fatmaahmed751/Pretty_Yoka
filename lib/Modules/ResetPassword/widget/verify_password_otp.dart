@@ -9,6 +9,7 @@ import 'package:smart_auth/smart_auth.dart';
 import '../../../Utilities/strings.dart';
 import '../../../Utilities/text_style_helper.dart';
 import '../../../Utilities/theme_helper.dart';
+import '../../../Widgets/custom_app_bar_widget.dart';
 import '../../../Widgets/custom_button_widget.dart';
 import '../../../Widgets/custom_main_text_widget.dart';
 import '../../../Widgets/loading_screen.dart';
@@ -80,11 +81,15 @@ class VerificationNewPasswordForUserScreenState
                   crossAxisAlignment: CrossAxisAlignment.start,
                   // physics: const BouncingScrollPhysics(),
                   children: [
-                    Gap(24.h),
-                    Center(
-                        child: CustomMainTextWidget(
-                          text: Strings.verify.tr,
-                        )),
+                    Gap(12.h),
+                    CustomAppBarWidget.mainScreen(
+                      title: Strings.verify.tr,
+                      space: 90.w,
+                    ),
+                    // Center(
+                    //     child: CustomMainTextWidget(
+                    //       text: Strings.verify.tr,
+                    //     )),
                     Gap(24.h),
                     SizedBox(
                       // width: 265.w,

@@ -11,6 +11,7 @@ import '../../../Utilities/format_date_helper.dart';
 import '../../../Utilities/strings.dart';
 import '../../../Utilities/text_style_helper.dart';
 import '../../../Utilities/theme_helper.dart';
+import '../../../Widgets/details_of_service_widget.dart';
 import '../../../generated/assets.dart';
 
 
@@ -76,21 +77,32 @@ class UpComingServiceWidget extends StatelessWidget {
               ],
             ),
             Gap(4.h),
-            Text(Strings.waitForServiceResponse.tr,
-              style: TextStyleHelper.of(context).b_12.copyWith(
-                  color: ThemeClass.of(context).secondaryBlackColor
-              ),),
+            Row(
+              children: [
+                Text(Strings.price.tr,
+                  style: TextStyleHelper.of(context).b_12.copyWith(
+                      color: ThemeClass.of(context).secondaryBlackColor
+                  ),),
+                const Spacer(),
+                Text("2000 ${Strings.egp.tr}",
+                  style: TextStyleHelper.of(context).b_17.copyWith(
+                      color: ThemeClass.of(context).orange
+                  ),),
+              ],
+            ),
+            Gap(4.h),
+
             Row(
               mainAxisAlignment: MainAxisAlignment.end,
               children: [
                 GestureDetector(
                   onTap: () {
-                    // DialogHelper.custom(context: context).customDialog(
-                    //     dialogWidget: const DetailsOfOnGoingService(),
-                    // );
+                    DialogHelper.custom(context: context).customDialog(
+                        dialogWidget: const DetailsOfService(),
+                    );
                   },
                   child: Text(
-                    Strings.viewServices.tr,
+                    Strings.viewDetails.tr,
                     style: TextStyleHelper.of(context).h_13.copyWith(
                         decoration: TextDecoration.underline,
                         color: ThemeClass.of(context).primaryColor),

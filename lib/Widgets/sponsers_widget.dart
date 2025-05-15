@@ -7,11 +7,13 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:gap/gap.dart';
+import '../Utilities/shared_preferences.dart';
 import '../generated/assets.dart';
 
 
 class SponsorsWidget extends StatelessWidget{
-  const SponsorsWidget({super.key});
+  final String text;
+  const SponsorsWidget({super.key, required this.text});
 
   @override
   Widget build(BuildContext context) {
@@ -48,7 +50,7 @@ class SponsorsWidget extends StatelessWidget{
            ),
            Gap(2.w),
            Text(
-             Strings.pharmacies.tr,
+             text,
              style: TextStyleHelper
                  .of(context)
                  .h_13
@@ -58,7 +60,9 @@ class SponsorsWidget extends StatelessWidget{
                      .secondaryBlackColor),
            ),
            const Spacer(),
-           SvgPicture.asset(Assets.imagesArrowForward),
+       Transform.flip(
+         flipX: SharedPref.getCurrentLanguage() == "ar" ? true : false,
+           child: SvgPicture.asset(Assets.imagesArrowForward)),
            Gap(16.w)
          ],
        ),

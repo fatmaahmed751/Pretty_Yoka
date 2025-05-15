@@ -109,7 +109,8 @@ class _HomeScreenState extends StateMVC<HomeScreen> {
                       ),
                       Gap(20.h),
                       Image.asset(
-                        Assets.imagesBanners,
+                        con.imageAssets[con.currentIndex],
+                       // Assets.imagesBanners,
                         width: 379.w,
                         height: 178.h,
                         fit: BoxFit.cover,
@@ -148,7 +149,9 @@ class _HomeScreenState extends StateMVC<HomeScreen> {
                         children: List.generate(3, (index) {
                           return Padding(
                             padding: EdgeInsetsDirectional.only(bottom: 12.h),
-                            child: const SponsorsWidget(),
+                            child:  SponsorsWidget(
+                              text: Strings.pharmacies.tr,
+                            ),
                           );
                         }).toList(),
                       ),

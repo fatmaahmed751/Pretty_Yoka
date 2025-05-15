@@ -116,7 +116,7 @@ class _ResetPasswordScreenState extends StateMVC<ResetPasswordScreen> {
                       confPassword:
                       con.confirmNewPasswordController.text),
                 ),
-                Gap(16.h),
+                Gap(24.h),
                 CustomButtonWidget.primary(
                     height: 40.h,
                     radius: 12.r,

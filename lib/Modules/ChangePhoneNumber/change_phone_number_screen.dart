@@ -17,6 +17,7 @@ import '../../../../Widgets/loading_screen.dart';
 import '../../../../generated/assets.dart';
 import '../../Widgets/custom_app_bar_widget.dart';
 import '../../Widgets/custom_main_side_text_widget.dart';
+import '../../Widgets/toast_helper.dart';
 import 'change_phone_number_controller.dart';
 
 
@@ -120,6 +121,11 @@ class _ChangePhoneScreenState extends StateMVC<ChangePhoneScreen> {
             radius: 12.r,
             title: Strings.saveChanged.tr,
             onTap: () {
+              ToastHelper.showSuccess(
+                  message: Strings.success.tr,
+                  icon: SvgPicture.asset(Assets.imagesCheckBox),
+                  secondMessage: Strings.changePhoneSuc.tr,
+                  context: context);
               // if (_formKey.currentState?.validate() ?? false) {
               // } else {
               //   setState(() {

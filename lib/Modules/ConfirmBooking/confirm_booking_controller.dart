@@ -1,5 +1,7 @@
+import 'package:Pretty/core/Language/locales.dart';
 import 'package:mvc_pattern/mvc_pattern.dart';
 
+import '../../Utilities/strings.dart';
 import "../../Widgets/toast_helper.dart";
 
 class ConfirmBookingController extends ControllerMVC {
@@ -28,6 +30,13 @@ class ConfirmBookingController extends ControllerMVC {
   void dispose() {
     super.dispose();
   }
+
+  final List<String> services = [
+    Strings.bridalMakeup.tr,
+    Strings.eventMakeUp.tr,
+    Strings.eyeBrow.tr,
+    Strings.eyeLash.tr,
+  ];
 
 }
 

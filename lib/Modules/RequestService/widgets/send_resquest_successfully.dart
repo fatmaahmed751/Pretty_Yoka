@@ -12,6 +12,7 @@ import '../../../Utilities/strings.dart';
 import '../../../Utilities/theme_helper.dart';
 import '../../../Widgets/custom_button_widget.dart';
 import '../../../generated/assets.dart';
+import '../../ServiceProviderHome/service_provider_home_screen.dart';
 
 class SendRequestSuccessfully extends StatelessWidget {
   static const routeName = "SendSuccessfully";
@@ -58,7 +59,7 @@ class SendRequestSuccessfully extends StatelessWidget {
               height: 44.h,
               title: Strings.backToHome.tr,
               onTap: () {
-                GoRouter.of(context).pushNamed(FavoriteScreen.routeName);
+                GoRouter.of(context).pushNamed(HomeScreen.routeName);
               }),
         ),
       ),

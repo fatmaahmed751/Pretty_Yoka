@@ -1,4 +1,5 @@
 import 'package:Pretty/Modules/SelectRole/select_role_controller.dart';
+import 'package:Pretty/Modules/ServiceProviderSignUp/service_provider_sign_up_screen.dart';
 import 'package:Pretty/Modules/UserSignUp/user_sign_up_screen.dart';
 import 'package:Pretty/Widgets/custom_app_bar_widget.dart';
 import 'package:Pretty/core/Language/locales.dart';
@@ -11,6 +12,7 @@ import '../../../../../Utilities/theme_helper.dart';
 import '../../../../../Widgets/loading_screen.dart';
 import '../../../../Utilities/strings.dart';
 import '../../../../Widgets/custom_button_widget.dart';
+import '../../Utilities/shared_preferences.dart';
 import '../../Widgets/custom_radio_list_widget.dart';
 import '../../Widgets/custom_side_text_widget.dart';
 import '../../generated/assets.dart';
@@ -60,7 +62,7 @@ class SelectRoleScreenState extends StateMVC<SelectRoleScreen> {
                   children: [
                     Gap(12.h),
                     CustomAppBarWidget.mainScreen(title: Strings.yourRole.tr,
-                    space: 100.w,),
+                    space:SharedPref.getCurrentLanguage()=="ar"?120.w: 100.w,),
                     Gap(24.h),
                     CustomSideTextWidget(text: Strings.selectRole.tr),
                     Gap(12.h),
@@ -81,6 +83,8 @@ class SelectRoleScreenState extends StateMVC<SelectRoleScreen> {
                         onTap: () {
                           if (con.selectRole == 1) {
                             GoRouter.of(context).goNamed(UserSignUpScreen.routeName);
+                          }else{
+                            GoRouter.of(context).goNamed(ServiceProviderSignUpScreen.routeName);
                           }
                         }),
                     Gap(30.h),

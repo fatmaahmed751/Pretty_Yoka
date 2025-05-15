@@ -29,6 +29,7 @@ class ThemeClass extends ThemeModel{
     super.cancel = const Color(0xffC73B3B),
     super.textFieldBackground = const Color(0xffFCF3F7),
     super.success = const Color(0xffB4B1B2),
+    super.orange =const Color(0xffFFA93E)
 
   });
 
@@ -42,6 +43,7 @@ class ThemeClass extends ThemeModel{
     super.waiting = const Color(0xffF68524),
     super.cancel = const Color(0xffEA3829),
     super.textFieldBackground = const Color(0xffFCF3F7),
+  super.orange =const Color(0xffFFA93E),
 
     super.labelColor = const Color(0xffDCDCDC),
     super.mainBlack = const Color(0xff292929),

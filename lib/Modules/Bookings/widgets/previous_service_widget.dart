@@ -11,6 +11,7 @@ import '../../../Utilities/format_date_helper.dart';
 import '../../../Utilities/strings.dart';
 import '../../../Utilities/text_style_helper.dart';
 import '../../../Utilities/theme_helper.dart';
+import '../../../Widgets/details_of_service_widget.dart';
 import '../../../generated/assets.dart';
 
 
@@ -85,12 +86,12 @@ class PreviousServiceWidget extends StatelessWidget {
               children: [
                 GestureDetector(
                   onTap: () {
-                    // DialogHelper.custom(context: context).customDialog(
-                    //     dialogWidget: const DetailsOfOnGoingService(),
-                    // );
+                    DialogHelper.custom(context: context).customDialog(
+                        dialogWidget: const DetailsOfService(),
+                    );
                   },
                   child: Text(
-                    Strings.viewServices.tr,
+                    Strings.viewDetails.tr,
                     style: TextStyleHelper.of(context).h_13.copyWith(
                         decoration: TextDecoration.underline,
                         color: ThemeClass.of(context).primaryColor),

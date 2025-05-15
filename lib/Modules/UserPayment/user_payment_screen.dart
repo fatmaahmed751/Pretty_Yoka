@@ -39,22 +39,21 @@ class _PaymentScreenState extends StateMVC<PaymentScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        body: LoadingScreen(
+      body: LoadingScreen(
         loading: con.loading,
         child: SafeArea(
-        child: Padding(
-        padding: EdgeInsetsDirectional.symmetric(horizontal: 24.w),
-    child: ListView(children: [
-    Gap(12.h),
-    CustomAppBarWidget.mainScreen(
-    title: Strings.payment.tr,
-    space: 90.w,
-    ),
-          ]
-    ),
-    ),
+          child: Padding(
+            padding: EdgeInsetsDirectional.symmetric(horizontal: 24.w),
+            child: ListView(children: [
+              Gap(12.h),
+              CustomAppBarWidget.mainScreen(
+                title: Strings.payment.tr,
+                space: 90.w,
+              ),
+            ]),
+          ),
         ),
-    ),
+      ),
     );
   }
 }

@@ -7,6 +7,7 @@ class Assets {
   static const String imagesAddIcon = 'assets/images/addIcon.svg';
   static const String imagesAppleIcon = 'assets/images/appleIcon.svg';
   static const String imagesArrowBack = 'assets/images/arrowBack.svg';
+  static const String imagesArrowDownP = 'assets/images/arrowDownP.svg';
   static const String imagesArrowForward = 'assets/images/arrowForward.svg';
   static const String imagesAttach = 'assets/images/attach.svg';
   static const String imagesBackground = 'assets/images/background.png';
@@ -20,6 +21,7 @@ class Assets {
   static const String imagesChangePhP = 'assets/images/changePhP.svg';
   static const String imagesCheckBox = 'assets/images/checkBox.svg';
   static const String imagesCloseBlack = 'assets/images/closeBlack.svg';
+  static const String imagesCloseIcon = 'assets/images/closeIcon.svg';
   static const String imagesContainer = 'assets/images/container.png';
   static const String imagesDarkMode = 'assets/images/darkMode.svg';
   static const String imagesEditP = 'assets/images/editP.svg';
@@ -36,6 +38,7 @@ class Assets {
   static const String imagesLocationIcon = 'assets/images/locationIcon.svg';
   static const String imagesLockIcon = 'assets/images/lockIcon.svg';
   static const String imagesLogOut = 'assets/images/logOut.svg';
+  static const String imagesMakeUpP = 'assets/images/makeUpP.jpeg';
   static const String imagesMessage = 'assets/images/message.png';
   static const String imagesMicIcon = 'assets/images/micIcon.svg';
   static const String imagesNoBookingP = 'assets/images/noBookingP.svg';

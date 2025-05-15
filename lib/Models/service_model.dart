@@ -1,11 +1,13 @@
 class ServiceModel {
   final String name;
-  bool isSelected;
   List<ServiceModel>? subServices;
+  bool isSelected = false; // Tracks if the main service is selected
+  bool isExpanded = false; // Tracks if the sub-services are expanded
 
   ServiceModel({
     required this.name,
-    this.isSelected = false,
     this.subServices,
+    this.isSelected = false,
+    this.isExpanded = false,
   });
 }

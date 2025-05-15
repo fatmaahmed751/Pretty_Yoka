@@ -117,14 +117,17 @@ class CustomTextFieldWidgetState extends State<CustomTextFieldWidget> {
     return SizedBox(
       width: widget.width ?? 327.w,
       child: TextFormField(
-        textAlignVertical: widget.textAlign??TextAlignVertical.center,
-    //   textAlignVertical: TextAlignVertical.center,
+       textAlignVertical: widget.textAlign??TextAlignVertical.center,
+ // textAlignVertical: TextAlignVertical.bottom,
         focusNode: _focusNode,
+        // minLines: widget.minLines ?? 1,
+        // maxLines: widget.maxLine ?? 1,
+        // expands: widget.expands ?? false,
         controller: widget.controller,
         obscureText: widget.obscure ?? false,
         readOnly: widget.readOnly ?? false,
         enabled: widget.enable,
-        maxLines: widget.maxLine ?? null,
+       maxLines: widget.maxLine ?? null,
         minLines: null,
         //  maxLines: widget.maxLine ?? 1,
         keyboardType: widget.textInputType,
@@ -137,12 +140,12 @@ class CustomTextFieldWidgetState extends State<CustomTextFieldWidget> {
         onTap: widget.onTap,
         onFieldSubmitted: widget.onSave,
         inputFormatters: widget.formatter ?? [],
-        expands: widget.expands ?? false,
+     expands: widget.expands ?? false,
         onChanged: widget.onchange,
         //textAlignVertical: TextAlignVertical.top,
         validator: widget.validator,
         decoration: InputDecoration(
-          isDense: true,
+         isDense: true,
           disabledBorder: OutlineInputBorder(
             borderRadius: BorderRadius.circular(12.r),
             borderSide: BorderSide(
@@ -175,8 +178,9 @@ class CustomTextFieldWidgetState extends State<CustomTextFieldWidget> {
                 ThemeClass.of(context).primaryColor,
             isFocused: _isFocused,
           ),
-          hintStyle:
-              TextStyle(color: ThemeClass.of(context).labelColor, height:1.2.h),
+          hintStyle: widget.hintStyle ??
+              TextStyleHelper.of(context).b_14.copyWith(
+                  color: ThemeClass.of(context).labelColor,height: 1 ),
           fillColor: _isFocused
               ? ThemeClass.of(context).background
               : ThemeClass.of(context).mainSecondary,
@@ -191,7 +195,8 @@ class CustomTextFieldWidgetState extends State<CustomTextFieldWidget> {
               : null,
           prefixIconConstraints: BoxConstraints(
               minWidth: widget.prefixIcon == null ? 0.w : 40.w,
-              maxHeight: 48.h),
+              maxHeight: 48.h,
+           ),
           suffixIconConstraints: BoxConstraints(
               minWidth: widget.suffixIcon == null ? 0 : 48.w, maxHeight: 24.h),
           suffixIcon: widget.suffixIcon != null
@@ -203,8 +208,11 @@ class CustomTextFieldWidgetState extends State<CustomTextFieldWidget> {
                   ),
                 )
               : null,
-          contentPadding:
-              EdgeInsets.symmetric(vertical: 12.h, horizontal: 16.w),
+          // contentPadding: widget.insidePadding ??
+          //     (widget.maxLine != null && widget.maxLine! > 1
+          //         ? EdgeInsets.only(top: 16.h, left: 16.w, right: 16.w, bottom: 12.h)
+          //         : EdgeInsets.symmetric(vertical: 12.h, horizontal: 16.w)),
+       contentPadding: EdgeInsets.symmetric(vertical: 12.h, horizontal: 16.w),
         ),
       ),
     );

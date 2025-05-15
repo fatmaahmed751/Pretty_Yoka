@@ -22,6 +22,7 @@ import '../../Widgets/raw_or_widget.dart';
 import '../../Widgets/user_status_row.dart';
 import '../../generated/assets.dart';
 import '../Home/home_screen.dart';
+import '../ServiceProviderLogin/service_provider_login_screen.dart';
 
 class ServiceProviderSignUpScreen extends StatefulWidget {
   static const routeName = "ServiceProviderSignUp";
@@ -172,7 +173,7 @@ class _ServiceProviderSignUpScreenState extends StateMVC<ServiceProviderSignUpSc
                   text: Strings.haveAnAccount.tr,
                   nextText: Strings.login.tr,
                   onNextTextTap: () {
-                    GoRouter.of(context).pushNamed(HomeScreen.routeName);
+                    GoRouter.of(context).pushNamed(ServiceProviderLoginScreen.routeName);
                   },
                 ),
                 Gap(12.h),
