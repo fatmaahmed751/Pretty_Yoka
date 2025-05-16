@@ -93,7 +93,7 @@ class ServicePendingServiceWidget extends StatelessWidget {
                     Strings.viewServices.tr,
                     style: TextStyleHelper.of(context).h_13.copyWith(
                         decoration: TextDecoration.underline,
-                        decorationThickness:7,
+                        decorationThickness:2,
                         color: ThemeClass.of(context).primaryColor),
                   ),
                 ),

@@ -65,7 +65,7 @@ class _ChangePhoneScreenState extends StateMVC<ChangePhoneScreen> {
                       Gap(12.h),
                       CustomAppBarWidget.mainScreen(
                         title: Strings.changePhone.tr,
-                        space: 30.w,
+                        space: SharedPref.getCurrentLanguage()=="en"? 30.w:60,
                       ),
                       Gap( 24.h),
                       CustomMainSideTextWidget(text: Strings.oldPhone.tr),

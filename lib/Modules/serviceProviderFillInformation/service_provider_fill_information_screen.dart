@@ -130,7 +130,7 @@ class _ServiceProviderFillInformationScreenState
                               con.showDropdown = !con.showDropdown;
                             });
                           },
-                          hintStyle: TextStyle(color: ThemeClass.of(context).secondaryBlackColor),
+                         // hintStyle: TextStyle(color: ThemeClass.of(context).secondaryBlackColor),
                           isDense: true,
                           insidePadding: EdgeInsets.symmetric(vertical: 10.h),
                           controller: con.areaController,

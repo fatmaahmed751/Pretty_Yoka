@@ -78,10 +78,11 @@ class OnBoardingWidget extends StatelessWidget {
                       left: 0,
                       right: 0,
                       child: Padding(
-                        padding: EdgeInsetsDirectional.symmetric(
-                            horizontal: 12.w, vertical: 12.h),
+                        padding: EdgeInsetsDirectional.only(
+                            start: 12.w,end:12.w ,top: 12.h),
                         child: Column(
                           crossAxisAlignment: CrossAxisAlignment.center,
+                         // mainAxisAlignment: MainAxisAlignment.center,
                           children: [
                             Text(
                               textAlign: TextAlign.center,
@@ -97,13 +98,14 @@ class OnBoardingWidget extends StatelessWidget {
                               style: TextStyleHelper.of(context).b_16.copyWith(
                                   color: ThemeClass.of(context).labelColor),
                             ),
-                            Gap(
-                                model.id == 1 && SharedPref.getCurrentLanguage() == "en"
-                                    ? 16.h
-                                    : model.id == 1 && SharedPref.getCurrentLanguage() == "ar"
-                                    ? 16.h
-                                    : 8.h
-                            ),
+                           Gap(model.id==1?16.h:8.h),
+                           //  Gap(
+                           //      model.id == 1 && SharedPref.getCurrentLanguage() == "en"
+                           //          ? 16.h
+                           //          : model.id == 1 && SharedPref.getCurrentLanguage() == "ar"
+                           //          ? 16.h
+                           //          : 8.h
+                           //  ),
                             SmoothPageIndicator(
                               controller: pageController, // PageController
                               count: totalItems,

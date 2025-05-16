@@ -72,11 +72,10 @@ class UserProfileContainerWidget extends StatelessWidget {
                       child: SvgPicture.asset(Assets.imagesArrowForward),
                     ),
                   ),
-
-                  // SvgPicture.asset(Assets.imagesArrowForward)
                 ],
               ),
               Divider(
+                thickness: 1.1,
                 color: ThemeClass.of(context).background,
                 indent: 20.w,
                 endIndent: 20.w,

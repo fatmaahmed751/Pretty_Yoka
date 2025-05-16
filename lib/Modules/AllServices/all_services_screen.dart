@@ -52,7 +52,7 @@ class _AllServicesScreenState extends StateMVC<AllServicesScreen> {
                   Gap(12.h),
                   CustomAppBarWidget.mainScreen(
                     title: Strings.services.tr,
-                    space: 90.w,
+                    space: 110.w,
                   ),
                   Gap(16.h),
                   Wrap(

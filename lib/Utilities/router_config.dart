@@ -46,6 +46,7 @@ import '../Modules/UserInfomations/user_information_screen.dart';
 import '../Modules/UserPayment/user_payment_screen.dart';
 import '../Modules/UserSignUp/user_sign_up_screen.dart';
 import '../Modules/VerificationAccountOtp/verification_otp_screen.dart';
+import '../Modules/VerificationServiceProviderScreen/provider_verification_otp_screen.dart';
 import '../Modules/serviceProviderFillInformation/service_provider_fill_information_screen.dart';
 import '../Modules/serviceProviderSettingsScreen/service_settings_screen.dart';
 import '../Widgets/provider_send_request_success.dart';
@@ -471,6 +472,18 @@ class GoRouterConfig{
           return getCustomTransitionPage(
             state: state,
             child:  const SendRequestSuccessfully(),
+          );
+        },
+        routes: const <RouteBase>[],
+      ),
+
+      GoRoute(
+        name: ProviderVerificationScreen.routeName,
+        path: "/${ProviderVerificationScreen.routeName}",
+        pageBuilder: (_, GoRouterState state) {
+          return getCustomTransitionPage(
+            state: state,
+            child:  const ProviderVerificationScreen(),
           );
         },
         routes: const <RouteBase>[],

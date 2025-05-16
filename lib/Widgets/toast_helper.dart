@@ -213,10 +213,10 @@ class ToastHelper {
     Overlay.of(context).insert(overlayEntry);
 
     // Remove the overlay after a delay
-    Future.delayed(const Duration(seconds: 3), () {
+    Future.delayed(const Duration(milliseconds:300), () {
       // Fade out animation before removing
       overlayEntry.markNeedsBuild();
-      Future.delayed(const Duration(milliseconds: 600), () {
+      Future.delayed(const Duration(milliseconds:300), () {
         overlayEntry.remove();
       });
     });

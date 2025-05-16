@@ -17,6 +17,7 @@ import '../../Widgets/custom_main_text_widget.dart';
 import '../../Widgets/custom_textfield_widget.dart';
 import '../../Widgets/loading_screen.dart';
 import '../../generated/assets.dart';
+import '../Home/home_screen.dart';
 import '../Login/user_login_screen.dart';
 
 class UserInformationScreen extends StatefulWidget {
@@ -111,7 +112,7 @@ class _UserInformationScreenState extends StateMVC<UserInformationScreen> {
             height: 40.h,
             title: Strings.goToHome.tr,
             onTap: () {
-              GoRouter.of(context).pushNamed(UserLoginScreen.routeName);
+              GoRouter.of(context).pushNamed(HomeScreen.routeName);
               //  context.pushNamed(SecurityDataScreen.routeName);
               // if (_formKey.currentState?.validate() ?? false) {
               // } else {

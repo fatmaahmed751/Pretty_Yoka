@@ -170,11 +170,12 @@ class _VerificationUserScreenState extends StateMVC<VerificationUserScreen> {
                         // width: 265.w,
                         title: Strings.confirmVerify.tr,
                         onTap: () {
-                          if(con.isUser) {
+
                             GoRouter.of(context).pushNamed(UserInformationScreen.routeName);
-                          }else{
-                            GoRouter.of(context).pushNamed(ServiceProviderFillInformationScreen.routeName);
-                          }
+
+                          // else{
+                          //   GoRouter.of(context).pushNamed(ServiceProviderFillInformationScreen.routeName);
+                          // }
                         //   if (formKey.currentState?.validate() ?? false) {
                         //     Future.delayed(const Duration(seconds: 1), () {});
                         //   } else {

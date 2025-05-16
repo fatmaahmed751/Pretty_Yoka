@@ -1,0 +1,2 @@
+C:/Users/NoteBook/AndroidStudioProjects/Pretty/android/app/.cxx/RelWithDebInfo/1d4n3e2t/armeabi-v7a/CMakeFiles/edit_cache.dir
+C:/Users/NoteBook/AndroidStudioProjects/Pretty/android/app/.cxx/RelWithDebInfo/1d4n3e2t/armeabi-v7a/CMakeFiles/rebuild_cache.dir

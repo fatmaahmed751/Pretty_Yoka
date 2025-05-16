@@ -65,7 +65,7 @@ class _ChangePasswordScreenState extends StateMVC<ChangePasswordScreen> {
                 Gap(12.h),
                 CustomAppBarWidget.mainScreen(
                   title: Strings.changePassword.tr,
-                  space: 40.w,
+                  space: SharedPref.getCurrentLanguage()=="en"? 40.w:60,
                 ),
                 Gap(24.h),
                 CustomMainSideTextWidget(text: Strings.oldPassword.tr),

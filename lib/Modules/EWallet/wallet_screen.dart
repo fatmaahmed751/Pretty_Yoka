@@ -1,6 +1,7 @@
 import 'package:Pretty/Modules/EWallet/wallet_controller.dart';
 import 'package:Pretty/Modules/EWallet/widget/wallet_details.dart';
 import 'package:Pretty/Modules/Policies/policies_controller.dart';
+import 'package:Pretty/Utilities/shared_preferences.dart';
 import 'package:Pretty/core/Language/locales.dart';
 import 'package:flutter/material.dart';
 import "package:flutter_html/flutter_html.dart";
@@ -55,7 +56,7 @@ class _WalletScreenState extends StateMVC<WalletScreen> {
               Gap(12.h),
               CustomAppBarWidget.mainScreen(
                 title: Strings.wallet.tr,
-                space: 110.w,
+                space:SharedPref.getCurrentLanguage()=="en"? 110.w:50.w,
               ),
               Gap(24.h),
               Column(crossAxisAlignment: CrossAxisAlignment.start, children: [

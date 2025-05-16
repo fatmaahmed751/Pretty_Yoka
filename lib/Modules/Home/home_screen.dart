@@ -19,6 +19,7 @@ import '../../Widgets/service_provider_widget.dart';
 import '../../Widgets/sponsers_widget.dart';
 import '../../generated/assets.dart';
 import '../AllServices/all_services_screen.dart';
+import '../GeneralRequest/general_request_screen.dart';
 import '../Sponsors/sponsors_screen.dart';
 import 'home_controller.dart';
 
@@ -99,7 +100,11 @@ class _HomeScreenState extends StateMVC<HomeScreen> {
                                               .primaryColor),
                                     ),
                                     const Spacer(),
-                                    SvgPicture.asset(Assets.imagesAddIcon)
+                                    GestureDetector(
+                                        onTap: (){
+                            GoRouter.of(context).pushNamed(GeneralRequestServiceScreen.routeName);
+                                    },
+                                        child: SvgPicture.asset(Assets.imagesAddIcon))
                                   ],
                                 ),
                               ),

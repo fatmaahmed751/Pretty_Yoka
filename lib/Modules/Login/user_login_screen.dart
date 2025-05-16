@@ -22,6 +22,8 @@ import '../../Widgets/loading_screen.dart';
 import '../../Widgets/raw_or_widget.dart';
 import '../../Widgets/user_status_row.dart';
 import '../../generated/assets.dart';
+import '../Home/home_screen.dart';
+import '../UserSignUp/user_sign_up_screen.dart';
 
 class UserLoginScreen extends StatefulWidget {
   static const routeName = "UserLogin";
@@ -60,11 +62,12 @@ class _UserLoginScreenState extends StateMVC<UserLoginScreen> {
             child: Padding(
               padding: EdgeInsetsDirectional.symmetric(horizontal: 24.w),
               child:
-              ListView(physics: const BouncingScrollPhysics(), children: [
+              ListView(physics: const BouncingScrollPhysics(),
+                  children: [
                 Gap(12.h),
                 CustomAppBarWidget.mainScreen(
                   title: Strings.login.tr,
-                  space: 120.w,
+                  space: 115.w,
                 ),
                 Gap(24.h),
                 CustomMainSideTextWidget(
@@ -126,8 +129,8 @@ class _UserLoginScreenState extends StateMVC<UserLoginScreen> {
                   children: [
                     GestureDetector(
                       onTap: () {
-                        // context.pushNamed(
-                        //     ForgetPasswordScreen.routeName);
+                        context.pushNamed(
+                            ForgetPasswordScreen.routeName);
                       },
                       child: Text(
                         Strings.forgetPassword.tr,
@@ -147,7 +150,7 @@ class _UserLoginScreenState extends StateMVC<UserLoginScreen> {
                     radius: 12.r,
                     title: Strings.login.tr,
                     onTap: () {
-                      GoRouter.of(context).pushNamed(ForgetPasswordScreen.routeName);
+                      GoRouter.of(context).pushNamed(HomeScreen.routeName);
                       // if (_formKey.currentState?.validate() ??
                       //     false) {
                       //   // con.onLogin();
@@ -161,7 +164,9 @@ class _UserLoginScreenState extends StateMVC<UserLoginScreen> {
                 UserStatusRow(
                   text: Strings.noHavenAccount.tr,
                   nextText: Strings.signUp.tr,
-                  onNextTextTap: () {},
+                  onNextTextTap: () {
+                    GoRouter.of(context).pushNamed(UserSignUpScreen.routeName);
+                  },
                 ),
                 Gap(12.h),
                 const RowOrWidget(),

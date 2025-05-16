@@ -170,7 +170,7 @@
    "selectPayment" :"select Payment method",
    "amount" :"Amount",
   "viewDetails": "View details",
-  "serviceProvider" :"Service provider",
+  "serviceProvider" :"Service providers",
   "notNotificationsYet" : "No notifications",
   "haveAnAccount": "Have an account? ",
   "notReceiveNotification" : "Stay tuned! Important updates and service alerts will appear here. \uD83D\uDE80",

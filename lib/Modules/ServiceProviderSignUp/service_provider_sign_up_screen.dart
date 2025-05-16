@@ -23,6 +23,7 @@ import '../../Widgets/user_status_row.dart';
 import '../../generated/assets.dart';
 import '../Home/home_screen.dart';
 import '../ServiceProviderLogin/service_provider_login_screen.dart';
+import '../VerificationServiceProviderScreen/provider_verification_otp_screen.dart';
 
 class ServiceProviderSignUpScreen extends StatefulWidget {
   static const routeName = "ServiceProviderSignUp";
@@ -158,7 +159,7 @@ class _ServiceProviderSignUpScreenState extends StateMVC<ServiceProviderSignUpSc
                     radius: 12.r,
                     title: Strings.joinUs.tr,
                     onTap: () {
-                      GoRouter.of(context).pushNamed(VerificationUserScreen.routeName);
+                      GoRouter.of(context).pushNamed(ProviderVerificationScreen.routeName);
                       // if (_formKey.currentState?.validate() ??
                       //     false) {
                       //   // con.onLogin();

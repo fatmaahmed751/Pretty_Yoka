@@ -19,6 +19,8 @@ import '../../Utilities/shared_preferences.dart';
 import '../../Utilities/text_style_helper.dart';
 import '../../Utilities/theme_helper.dart';
 import '../../Widgets/bottom_navbar_widget.dart';
+import '../../Widgets/service_bottom_navbar_widget.dart';
+import '../EWallet/wallet_screen.dart';
 import '../Policies/policies_screen.dart';
 import '../Profile/Widget/user_profile_container_widget.dart';
 import '../SupportChat/support_chat_screen.dart';
@@ -50,8 +52,8 @@ class _ServiceProviderSettingsScreenState extends StateMVC<ServiceProviderSettin
   Widget build(BuildContext context) {
     return Scaffold(
 
-      bottomNavigationBar: const BottomNavBarWidget(
-        selected: SelectedBottomNavBar.profile,
+      bottomNavigationBar:  const ServiceBottomNavBarWidget(
+        selected: ServiceSelectedBottomNavBar.settings,
       ),
       body: SafeArea(
         child: LoadingScreen(
@@ -75,13 +77,32 @@ class _ServiceProviderSettingsScreenState extends StateMVC<ServiceProviderSettin
                       children: [
                         GestureDetector(
                           onTap: () {
-                            context.pushNamed(EditProfileScreen.routeName);
+                            context.pushNamed(WalletScreen.routeName);
                           },
                           child: UserProfileContainerWidget(
-                            image: (Assets.imagesEditP),
-                            text: Strings.editProfile.tr,
+                            image: (Assets.imagesWallet),
+                            text: Strings.wallet.tr,
                           ),
                         ),
+                        GestureDetector(
+                          onTap: () {
+                            context.pushNamed(SupportChatScreen.routeName);
+                          },
+                          child: UserProfileContainerWidget(
+                            image: (Assets.imagesSupportP),
+                            text: Strings.support.tr,
+                          ),
+                        ),
+                        GestureDetector(
+                          onTap: () {
+                            con.changeLanguageOfApp(context);
+                          },
+                          child: UserProfileContainerWidget(
+                            image: (Assets.imagesSupportP),
+                            text: Strings.language.tr,
+                          ),
+                        ),
+
                         // Gap(10.h),
                         GestureDetector(
                           onTap: () {
@@ -104,15 +125,6 @@ class _ServiceProviderSettingsScreenState extends StateMVC<ServiceProviderSettin
                             text: Strings.changePassword.tr,
                           ),
                         ),
-                        GestureDetector(
-                          onTap: () {
-                            context.pushNamed(SupportChatScreen.routeName);
-                          },
-                          child: UserProfileContainerWidget(
-                            image: (Assets.imagesSupportP),
-                            text: Strings.support.tr,
-                          ),
-                        ),
 
 
 
@@ -127,50 +139,10 @@ class _ServiceProviderSettingsScreenState extends StateMVC<ServiceProviderSettin
                           ),
                         ),
 
-                        GestureDetector(
-                          onTap: () {
-                            con.changeLanguageOfApp(context);
-                          },
-                          child: UserProfileContainerWidget(
-                            image: (Assets.imagesSupportP),
-                            text: Strings.language.tr,
-                          ),
-                        ),
 
                         GestureDetector(
                           onTap: () {
-                            con.userLogOutPop(context,
-                              Container(
-                                  width: 267.w,
-                                  height: 40.h,
-                                  decoration: BoxDecoration(
-                                      color: ThemeClass.of(context).mainSecondary,
-                                      borderRadius: BorderRadius.circular(12.r)
-                                  ),
-                                  child: Padding(
-                                    padding:  EdgeInsetsDirectional.symmetric(horizontal: 0.w,
-                                        vertical: 0.h),
-                                    child:CustomTextFieldWidget(
-                                      hint:Strings.hintId.tr,
-                                      textAlign: TextAlignVertical.center,
-                                      hintStyle:TextStyleHelper.of(context).b_14.copyWith(
-                                        color: ThemeClass.of(context).labelColor,),
-                                      onSuffixTap: (){},
-                                      suffixIcon:SvgPicture.asset(Assets.imagesUploadId) ,
-                                    ),
-
-                                  )
-                                // Row(
-                                //   children: [
-                                //     Text(Strings.hintId.tr,
-                                //     style: TextStyleHelper.of(context).b_14.copyWith(
-                                //         color: ThemeClass.of(context).labelColor,)),
-                                //     const Spacer(),
-                                //     SvgPicture.asset(Assets.imagesUploadId)
-                                //   ],
-                                // ),
-                              ),
-                            );
+                            con.userLogOutPop(context);
                           },
                           child: UserProfileContainerWidget(
                             image: (Assets.imagesLogOut),

@@ -16,6 +16,7 @@ import '../../../../generated/assets.dart';
 import '../../../Utilities/router_config.dart';
 import '../../../Widgets/custom_radio_list_widget.dart';
 import '../../Home/home_screen.dart';
+import '../../SelectRole/select_role_screen.dart';
 import '../user_profile_controller.dart';
 
 class ChangeLanguage extends StatefulWidget {
@@ -171,11 +172,8 @@ class _ChangeLanguageState extends StateMVC<ChangeLanguage> {
                         }
                       });
                       await Future.delayed(const Duration(milliseconds: 100));
-                      if(con.isUser) {
-                        currentContext_!.pushNamed(HomeScreen.routeName);
-                      }else{
-                        currentContext_!.pushNamed(OnBoardingScreen.routeName);
-                      }
+
+                        currentContext_!.pushNamed(SelectRoleScreen.routeName);
 
                       // await Future.delayed(const Duration(milliseconds: 200));
                       //  GoRouter.of(context).pushNamed(HomeScreen.routeName);

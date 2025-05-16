@@ -11,6 +11,7 @@ import 'package:go_router/go_router.dart';
 import 'package:mvc_pattern/mvc_pattern.dart';
 
 import '../../Models/service_model.dart';
+import '../../Utilities/shared_preferences.dart';
 import '../../Utilities/strings.dart';
 import '../../Utilities/text_style_helper.dart';
 import '../../Utilities/theme_helper.dart';
@@ -163,7 +164,7 @@ class _SelectJobTitleScreenState extends StateMVC<SelectJobTitleScreen> {
                   ListView(physics: const BouncingScrollPhysics(), children: [
                 CustomAppBarWidget.mainScreen(
                   title: Strings.serviceInformation.tr,
-                  space: 70.w,
+                  space:SharedPref.getCurrentLanguage()=="en"? 50.w:70.w
                 ),
                 Gap(24.h),
                 CustomMainSideTextWidget(text: Strings.selectJobTitle.tr),

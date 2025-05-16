@@ -1,0 +1,2 @@
+C:/Users/NoteBook/AndroidStudioProjects/Pretty/android/app/.cxx/RelWithDebInfo/1d4n3e2t/x86_64/CMakeFiles/edit_cache.dir
+C:/Users/NoteBook/AndroidStudioProjects/Pretty/android/app/.cxx/RelWithDebInfo/1d4n3e2t/x86_64/CMakeFiles/rebuild_cache.dir

@@ -43,17 +43,18 @@ class _CategoryForServicesScreenState
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: ThemeClass.of(context).background,
-      appBar: CustomAppBarWidget.detailsScreen(
-        title: Strings.makeUpArtist.tr,
-        space: 1.w,
-      ),
       body: SafeArea(
         child: LoadingScreen(
             loading: con.loading,
             child: Padding(
-              padding:  EdgeInsetsDirectional.symmetric(horizontal: 24.w),
+              padding:  EdgeInsetsDirectional.symmetric(horizontal: 24.w,vertical: 8.h),
               child: ListView(
                 children: [
+                  CustomAppBarWidget.mainScreen(
+                    title: Strings.makeUpArtist.tr,
+                    space: 75.w,
+                  ),
+                  Gap(24.h),
                   Container(
                     width: 260.w,
                     height: 44.h,

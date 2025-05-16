@@ -17,6 +17,7 @@ import '../../../Widgets/loading_screen.dart';
 import '../../Utilities/text_style_helper.dart';
 import '../../Utilities/theme_helper.dart';
 import '../../generated/assets.dart';
+import '../GeneralRequest/general_request_screen.dart';
 import '../ServiceInformationForSpecificCategory/service_information_for_specific_category_screen.dart';
 import '../ServiceProviderInformation/service_provider_information_screen.dart';
 import 'general_service_providers_controller.dart';
@@ -53,7 +54,7 @@ class GeneralServiceProvidersScreenState extends StateMVC<GeneralServiceProvider
                   Gap(4.h),
                   CustomAppBarWidget.mainScreen(
                     title: Strings.serviceProvider.tr,
-                    space: 80.w,
+                    space:65.w,
                   ),
                   Gap(24.h),
                   Container(
@@ -80,7 +81,11 @@ class GeneralServiceProvidersScreenState extends StateMVC<GeneralServiceProvider
                                     .primaryColor),
                           ),
                           const Spacer(),
-                          SvgPicture.asset(Assets.imagesAddIcon)
+                          GestureDetector(
+                            onTap: (){
+                            GoRouter.of(context).pushNamed(GeneralRequestServiceScreen.routeName);
+                            },
+                              child: SvgPicture.asset(Assets.imagesAddIcon))
                         ],
                       ),
                     ),

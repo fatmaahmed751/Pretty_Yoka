@@ -7,6 +7,8 @@ import 'package:go_router/go_router.dart';
 import '../Modules/Notifications/notifications_screen.dart';
 import '../Utilities/shared_preferences.dart';
 import '../Utilities/strings.dart';
+import '../Utilities/text_style_helper.dart';
+import '../Utilities/theme_helper.dart';
 import '../generated/assets.dart';
 import 'custom_main_text_widget.dart';
 import 'custom_side_text_widget.dart';
@@ -131,7 +133,20 @@ class MainDetailsAppBarWidget extends StatelessWidget {
       child: Row(
         mainAxisAlignment: MainAxisAlignment.start,
         children: [
-          CustomMainTextWidget(text: "${Strings.welcome.tr},Habiba"),
+        Text(
+      "${Strings.welcome.tr},",
+       // textAlign: TextAlign.center,
+        style: TextStyleHelper.of(context)
+            .h_24
+            .copyWith(color: ThemeClass.of(context).secondaryBlackColor),
+      ),
+          Text(
+              " Habiba",
+            // textAlign: TextAlign.center,
+            style: TextStyleHelper.of(context)
+                .b_21
+                .copyWith(color: ThemeClass.of(context).secondaryBlackColor),
+          ),
           const Spacer(),
           GestureDetector(
             onTap: () {

@@ -18,9 +18,11 @@ import '../../Models/user_model.dart';
 import '../../Utilities/dialog_helper.dart';
 import '../../Utilities/router_config.dart';
 import '../../Utilities/shared_preferences.dart';
+import '../../Utilities/text_style_helper.dart';
 import '../../Utilities/theme_helper.dart';
 import '../../Widgets/Alert_for_complete_information.dart';
 import '../../Widgets/alert_dialoge_widget.dart';
+import '../../Widgets/custom_textfield_widget.dart';
 import '../../generated/assets.dart';
 import '../Profile/Widget/change_languages_widget.dart';
 
@@ -114,40 +116,76 @@ class ServiceProviderSettingsController extends ControllerMVC {
     return base64Encode(imageBytes);
   }
 
-  // userLogOutPop(BuildContext context) {
-  //   return
-  //     DialogHelper.custom(context: context).customDialog(
-  //      dialogWidget:
-  //    AlertWarningWidget(
-  //         des:Strings.deleteLogOutSide.tr,
-  //         secondButtonText: Strings.logOut.tr,
-  //         mainText:Strings.confirmLogout.tr,
-  //         onButtonReject: currentContext_!.pop,
-  //         onButtonAccept: () {
-  //        //   GoRouter.of(context).pushNamed(LoginScreen.routeName);
-  //         },
-  //
-  //     ),
-  //   );
-  // }
-
-  userLogOutPop(BuildContext context,Widget widget) {
+  userLogOutPop(BuildContext context) {
     return
       DialogHelper.custom(context: context).customDialog(
-        dialogWidget:
-        AlertForCompleteInformation(
-          thirdText: Strings.id.tr,
-          des:Strings.cannotBooking.tr,
-          secondButtonText: Strings.save.tr,
-          mainText:Strings.uploadId.tr,
+       dialogWidget:
+     AlertWarningWidget(
+          des:Strings.deleteLogOutSide.tr,
+          secondButtonText: Strings.logOut.tr,
+          mainText:Strings.confirmLogout.tr,
           onButtonReject: currentContext_!.pop,
           onButtonAccept: () {
-             GoRouter.of(context).pushNamed(SelectRoleScreen.routeName);
-          }, widget:widget ,
+           GoRouter.of(context).pushNamed(SelectRoleScreen.routeName);
+          },
 
-        ),
-      );
+      ),
+    );
   }
+
+  void completeSendRequest(
+      BuildContext context,
+      ) {
+    return DialogHelper.custom(context: context).customDialog(
+      dialogWidget: AlertForCompleteInformation(
+        thirdText: Strings.id.tr,
+        des: Strings.cannotBooking.tr,
+        secondButtonText: Strings.save.tr,
+        mainText: Strings.uploadId.tr,
+        onButtonReject: currentContext_!.pop,
+        onButtonAccept: () {
+          GoRouter.of(context).pushNamed(SelectRoleScreen.routeName);
+        },
+        widget: Container(
+            width: 267.w,
+            height: 40.h,
+            decoration: BoxDecoration(
+                color: ThemeClass.of(context).mainSecondary,
+                borderRadius: BorderRadius.circular(12.r)),
+            child: Padding(
+              padding: EdgeInsetsDirectional.symmetric(
+                  horizontal: 0.w, vertical: 0.h),
+              child: CustomTextFieldWidget(
+                hint: Strings.hintId.tr,
+                textAlign: TextAlignVertical.center,
+                hintStyle: TextStyleHelper.of(context).b_14.copyWith(
+                  color: ThemeClass.of(context).labelColor,
+                ),
+                onSuffixTap: () {},
+                suffixIcon: SvgPicture.asset(Assets.imagesUploadId),
+              ),
+            )),
+      ),
+    );
+  }
+
+  // userLogOutPop(BuildContext context,Widget widget) {
+  //   return
+  //     DialogHelper.custom(context: context).customDialog(
+  //       dialogWidget:
+  //       AlertForCompleteInformation(
+  //         thirdText: Strings.id.tr,
+  //         des:Strings.cannotBooking.tr,
+  //         secondButtonText: Strings.save.tr,
+  //         mainText:Strings.uploadId.tr,
+  //         onButtonReject: currentContext_!.pop,
+  //         onButtonAccept: () {
+  //            GoRouter.of(context).pushNamed(SelectRoleScreen.routeName);
+  //         },
+  //
+  //       ),
+  //     );
+  // }
 
 
   //

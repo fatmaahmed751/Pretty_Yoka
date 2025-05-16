@@ -225,9 +225,9 @@ class DifferentSignUpWidget extends StatelessWidget {
 
         children: [
           SvgPicture.asset(image),
-          Gap(8.w),
+          Gap(12.w),
           Padding(
-            padding:  EdgeInsets.only(top: 8.h),
+            padding:  EdgeInsets.only(top: 4.h),
             child: Text(text,
             style: TextStyleHelper.of(context).h_15,),
           )
